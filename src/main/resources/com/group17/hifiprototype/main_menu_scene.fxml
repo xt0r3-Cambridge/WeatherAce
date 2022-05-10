@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="contentWindow" alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18" fx:controller="com.group17.hifiprototype.scenes.main_menu_scene.MainMenuController">
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+    <Button fx:id="F1Button" prefHeight="${contentWindow.height*0.15}" prefWidth="${contentWindow.width * 0.7}" styleClass="button" text="Formula 1" />
+    <Button fx:id="WECButton" prefHeight="${contentWindow.height*0.15}" prefWidth="${contentWindow.width * 0.7}" styleClass="button" text="WEC" />
+    <Button fx:id="NascarButton" prefHeight="${contentWindow.height*0.15}" prefWidth="${contentWindow.width * 0.7}" styleClass="button" text="NASCAR!" />
+    <Button fx:id="LocalButton" prefHeight="${contentWindow.height*0.15}" prefWidth="${contentWindow.width * 0.7}" styleClass="button" text="Local events!" />
+    <Button fx:id="FavouritesButton" prefHeight="${contentWindow.height*0.15}" prefWidth="${contentWindow.width * 0.7}" styleClass="button" text="Favourites" />
+
+</VBox>
