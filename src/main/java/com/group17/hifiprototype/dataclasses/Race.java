@@ -81,4 +81,17 @@ public class Race {
         sessions.add(new Session("Race", endTime.minus(2, ChronoUnit.HOURS), endTime, latitude, longitude));
 
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(name).append(":\n");
+        sb.append("Time: ").append(startTime.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT))).append( " - ");
+        sb.append(endTime.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT)));
+        sb.append("\n");
+        sb.append("Location: ").append(latitude).append(", ").append(longitude);
+        sb.append("\n");
+        sb.append("Sessions: ").append(sessions);
+        return sb.toString();
+    }
 }
