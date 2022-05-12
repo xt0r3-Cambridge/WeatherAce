@@ -10,4 +10,6 @@ module com.group17.hifiprototype {
 
     opens com.group17.hifiprototype to javafx.fxml;
     exports com.group17.hifiprototype;
+    exports com.group17.hifiprototype.dataclasses;
+    opens com.group17.hifiprototype.dataclasses to javafx.fxml;
 }
