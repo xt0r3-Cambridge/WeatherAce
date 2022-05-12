@@ -7,6 +7,8 @@ module com.group17.hifiprototype {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
+    requires org.json;
+    requires org.apache.commons.lang3;
 
     opens com.group17.hifiprototype to javafx.fxml;
     exports com.group17.hifiprototype;

@@ -1,10 +1,11 @@
 package com.group17.hifiprototype.dataclasses;
 
-import java.util.Date;
+import java.time.Instant;
+import java.time.ZonedDateTime;
 
 public class DataPoint {
     private final double latitude, longitude;
-    private final Date time;
+    private final ZonedDateTime time;
     private double airTemperature;
     private Precipitation precipitation;
     private double groundTemperature;
@@ -14,7 +15,7 @@ public class DataPoint {
     private double windDirection;
     private double visibility;
 
-    public DataPoint(double latitude, double longitude, Date time, double airTemperature,
+    public DataPoint(double latitude, double longitude, ZonedDateTime time, double airTemperature,
                      Precipitation precipitation, double groundTemperature, double humidity,
                      double precipitationChance, double windSpeed, double windDirection,double visibility) {
         this.latitude = latitude;
@@ -30,7 +31,7 @@ public class DataPoint {
         this.visibility = visibility;
     }
 
-    public DataPoint(double latitude, double longitude, Date time) {
+    public DataPoint(double latitude, double longitude, ZonedDateTime time) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.time = time;
@@ -44,7 +45,7 @@ public class DataPoint {
         return longitude;
     }
 
-    public Date getTime() {
+    public ZonedDateTime getTime() {
         return time;
     }
 
