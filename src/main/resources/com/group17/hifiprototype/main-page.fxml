@@ -12,10 +12,10 @@
     </padding>
 
     <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick" styleClass="button" prefWidth="${contentWindow.width * 0.7}" prefHeight="${contentWindow.height*0.15}"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick" styleClass="button" prefWidth="${contentWindow.width * 0.7}" prefHeight="${contentWindow.height*0.15}"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick" styleClass="button" prefWidth="${contentWindow.width * 0.7}" prefHeight="${contentWindow.height*0.15}"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick" styleClass="button" prefWidth="${contentWindow.width * 0.7}" prefHeight="${contentWindow.height*0.15}"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick" styleClass="button" prefWidth="${contentWindow.width * 0.7}" prefHeight="${contentWindow.height*0.15}"/>
+    <Button text="Formula 1" onAction="#mainButtonHandler" styleClass="button" fx:id="F1Button" prefWidth="${contentWindow.width * 0.7}" prefHeight="${contentWindow.height*0.15}"/>
+    <Button text="WEC" onAction="#mainButtonHandler" styleClass="button" fx:id="WECButton" prefWidth="${contentWindow.width * 0.7}" prefHeight="${contentWindow.height*0.15}"/>
+    <Button text="NASCAR!" onAction="#mainButtonHandler" styleClass="button" fx:id="NascarButton" prefWidth="${contentWindow.width * 0.7}" prefHeight="${contentWindow.height*0.15}"/>
+    <Button text="Local events!" onAction="#mainButtonHandler" styleClass="button" prefWidth="${contentWindow.width * 0.7}" prefHeight="${contentWindow.height*0.15}"/>
+    <Button text="Favourites" onAction="#mainButtonHandler" styleClass="button" prefWidth="${contentWindow.width * 0.7}" prefHeight="${contentWindow.height*0.15}"/>
 
 </VBox>
