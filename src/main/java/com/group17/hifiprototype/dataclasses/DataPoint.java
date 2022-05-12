@@ -2,6 +2,8 @@ package com.group17.hifiprototype.dataclasses;
 
 import java.time.Instant;
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 public class DataPoint {
     private final double latitude, longitude;
@@ -113,6 +115,14 @@ public class DataPoint {
         this.visibility = visibility;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("DP(");
+        sb.append(time.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT)));
+        sb.append(")");
+        return sb.toString();
+    }
 
 
 }
