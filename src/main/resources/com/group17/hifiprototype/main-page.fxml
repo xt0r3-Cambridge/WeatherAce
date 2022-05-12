@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.group17.hifiprototype.HelloController" fx:id="contentWindow">
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20"/>
+    </padding>
+
+    <Label fx:id="welcomeText"/>
+    <Button text="Formula 1" onAction="#mainButtonHandler" styleClass="button" fx:id="F1Button" prefWidth="${contentWindow.width * 0.7}" prefHeight="${contentWindow.height*0.15}"/>
+    <Button text="WEC" onAction="#mainButtonHandler" styleClass="button" fx:id="WECButton" prefWidth="${contentWindow.width * 0.7}" prefHeight="${contentWindow.height*0.15}"/>
+    <Button text="NASCAR!" onAction="#mainButtonHandler" styleClass="button" fx:id="NascarButton" prefWidth="${contentWindow.width * 0.7}" prefHeight="${contentWindow.height*0.15}"/>
+    <Button text="Local events!" onAction="#mainButtonHandler" styleClass="button" prefWidth="${contentWindow.width * 0.7}" prefHeight="${contentWindow.height*0.15}"/>
+    <Button text="Favourites" onAction="#mainButtonHandler" styleClass="button" prefWidth="${contentWindow.width * 0.7}" prefHeight="${contentWindow.height*0.15}"/>
+
+</VBox>

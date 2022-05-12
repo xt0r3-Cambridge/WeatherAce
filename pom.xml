@@ -101,7 +101,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.group17.hifiprototype/com.group17.hifiprototype.HelloApplication</mainClass>
+                            <mainClass>com.group17.hifiprototype/com.group17.hifiprototype.MainApplication</mainClass>
                         </configuration>
                     </execution>
                 </executions>
