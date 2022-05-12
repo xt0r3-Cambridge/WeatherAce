@@ -8,6 +8,10 @@ module com.group17.hifiprototype {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
 
+    exports com.group17.hifiprototype;
+    exports com.group17.hifiprototype.dataclasses;
+    opens com.group17.hifiprototype.dataclasses to javafx.fxml;
+
     opens com.group17.hifiprototype to javafx.fxml;
     opens com.group17.hifiprototype.scenes.main_menu_scene to javafx.fxml;
     exports com.group17.hifiprototype.scenes.main_menu_scene;
@@ -15,7 +19,7 @@ module com.group17.hifiprototype {
     exports com.group17.hifiprototype.scenes.f1_scene;  // This needs to be duplicated for other scenes
     opens com.group17.hifiprototype.scenes.utils to javafx.fxml;
     opens com.group17.hifiprototype.scenes.base_scene to javafx.fxml;
-    exports com.group17.hifiprototype;
     exports com.group17.hifiprototype.scenes.base_scene;
     exports com.group17.hifiprototype.scenes.utils;
+
 }
