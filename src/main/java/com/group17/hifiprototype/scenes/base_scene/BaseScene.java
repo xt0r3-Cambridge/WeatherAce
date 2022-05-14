@@ -4,7 +4,7 @@ import com.group17.hifiprototype.scenes.utils.SceneId;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class BaseScene {
+public abstract class BaseScene {
 
     private SceneId id;
     private Stage stage;
@@ -21,6 +21,8 @@ public class BaseScene {
         this.stage = stage;
         this.id = id;
     }
+
+    public abstract void resetScene();
 
     public SceneId getId(){
         return this.id;

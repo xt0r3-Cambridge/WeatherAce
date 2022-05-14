@@ -1,33 +1,16 @@
 package com.group17.hifiprototype.scenes.f1_scene;
 
-import com.group17.hifiprototype.scenes.utils.SceneController;
-import com.group17.hifiprototype.scenes.utils.SceneId;
+import com.group17.hifiprototype.scenes.base_scene.BaseMotorsportController;
+import com.group17.hifiprototype.scenes.utils.Animations;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
-import org.controlsfx.control.spreadsheet.Grid;
+import javafx.scene.layout.Pane;
 
-public class F1Controller {
-
-    @FXML
-    private ListView<String> scrollList;
-    @FXML
-    private AnchorPane container;
-    @FXML
-    private GridPane scrollbar;
-    @FXML
-    private GridPane mainContent;
+public class F1Controller extends BaseMotorsportController {
 
 
-    public void addData(Iterable<String> data) {
-        for (String dataPoint : data) {
-            scrollList.getItems().add(dataPoint);
-        }
-    }
-
-
-    public void init() {
-    }
 }
+
+

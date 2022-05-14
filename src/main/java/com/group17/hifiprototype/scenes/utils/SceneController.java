@@ -10,6 +10,7 @@ import java.util.Map;
 public class SceneController {
     private static Stage stage;
     private static Map<SceneId, BaseScene> sceneMap;
+    private static BaseScene scene;
 
     private SceneController() {
     }
@@ -23,6 +24,10 @@ public class SceneController {
         sceneMap.put(scene.getId(), scene);
     }
 
+    public static BaseScene currentScene() {
+        return scene;
+    }
+
     public static BaseScene getScene(SceneId id){
         BaseScene newScene = sceneMap.get(id);
         if (newScene == null) {
@@ -32,6 +37,9 @@ public class SceneController {
     }
 
     public static void setScene(SceneId id) {
+        if(currentScene() != null){
+            currentScene().resetScene();
+        }
         BaseScene newScene = sceneMap.get(id);
         if (newScene == null) {
             throw new InvalidParameterException("That scene does not exist.");
@@ -39,6 +47,7 @@ public class SceneController {
             newScene.getStage().setScene(newScene.getScene());
             newScene.getStage().setWidth(newScene.getStage().getWidth() + 0.01); // TODO: FIX THE BUG AND REMOVE
             newScene.getStage().show();
+            scene = newScene;
         }
     }
 

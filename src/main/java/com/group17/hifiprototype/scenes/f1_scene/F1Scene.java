@@ -20,6 +20,11 @@ public class F1Scene extends BaseScene {
 
     private F1Scene(){}
 
+    @Override
+    public void resetScene() {
+
+    }
+
     public static F1Scene init(Stage stage, SceneId sceneId) throws IOException {
         // LOAD SCENE
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("f1_scene.fxml"));
