@@ -164,9 +164,9 @@
         </GridPane>
         <ScrollPane fx:id="myScrollPane" hbarPolicy="NEVER" prefHeight="500.0" prefWidth="500.0" vbarPolicy="NEVER">
             <content>
-                <AnchorPane fx:id="myAnchorPane" maxWidth="0.0" minHeight="0.0" minWidth="100.0" prefHeight="610.0">
+                <AnchorPane fx:id="myAnchorPane" maxWidth="0.0" minHeight="0.0" minWidth="100.0" prefHeight="610.0" maxHeight="Infinity">
                     <children>
-                        <GridPane fx:id="bottomContainer" onDragOver="#disableBottomScroll" onMouseDragOver="#disableBottomScroll" onMouseEntered="#enableBottomScroll" onMouseExited="#disableBottomScroll" prefHeight="4000.0" prefWidth="457.0" AnchorPane.leftAnchor="0" AnchorPane.topAnchor="200.0">
+                        <GridPane fx:id="bottomContainer" onDragOver="#disableBottomScroll" onMouseDragOver="#disableBottomScroll" onMouseEntered="#enableBottomScroll" onMouseExited="#disableBottomScroll" prefHeight="4000.0" prefWidth="457.0" AnchorPane.leftAnchor="0">
                             <columnConstraints>
                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

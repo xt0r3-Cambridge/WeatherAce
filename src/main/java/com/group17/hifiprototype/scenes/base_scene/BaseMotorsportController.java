@@ -70,18 +70,25 @@ public abstract class BaseMotorsportController {
         myScrollPane.setLayoutY(scrollPaneOffset);
         myScrollPane.prefWidthProperty().bind(root.widthProperty());
         myScrollPane.prefHeightProperty().bind(root.heightProperty().subtract(scrollPaneOffset));
+        myScrollPane.minHeightProperty().bind(root.heightProperty().subtract(scrollPaneOffset));
+        myScrollPane.maxHeightProperty().bind(root.heightProperty().subtract(scrollPaneOffset));
         myAnchorPane.prefWidthProperty().bind(root.widthProperty());
         // Add weather data to it
         this.loadWeatherData();
-        final int offset = -300;
-        // Magic
-        bottomContainer.setPrefHeight((bottomContainer.getRowCount() + 2) * 30);
-        myAnchorPane.prefHeightProperty().bind(bottomContainer.heightProperty().subtract(offset).add((bottomContainer.getRowCount() + 1) * 30));
         // Change positioning to make everything fit
-        AnchorPane.setTopAnchor(bottomContainer, root.getHeight() + offset);
-        root.heightProperty().addListener((observableValue, number, t1) -> {
-            AnchorPane.setTopAnchor(bottomContainer, observableValue.getValue().doubleValue() + offset);
-        });
+        bottomContainer.setPrefHeight((bottomContainer.getRowCount() + 1) * 30);
+        final int offset = -60;
+        myAnchorPane.minHeightProperty().bind(myScrollPane.heightProperty().add(bottomContainer.getPrefHeight() + offset));
+        myAnchorPane.prefHeightProperty().bind(myScrollPane.heightProperty().add(bottomContainer.getPrefHeight() + offset));
+        AnchorPane.setBottomAnchor(bottomContainer, 0d);
+
+
+        //AnchorPane.setBottomAnchor(bottomContainer, bottomContainer.heightProperty().doubleValue());
+        //AnchorPane.setTopAnchor(bottomContainer, 0d);
+        //myAnchorPane.setLayoutY(root.getHeight() + offset);
+
+
+
         // Stop scrolling if we aren't holding that component
         myScrollPane.addEventFilter(ScrollEvent.SCROLL, event -> {
             if (event.getDeltaY() != 0) {

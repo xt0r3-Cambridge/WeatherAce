@@ -19,6 +19,9 @@ public class F1Controller extends BaseMotorsportController {
         GridControls.newRowFromData(super.bottomContainer, "14:20", "12%", "36°C", "200°C", "700km/h", "1.5m");
         GridControls.newRowFromData(super.bottomContainer, "14:20", "12%", "36°C", "200°C", "700km/h", "1.5m");
         GridControls.newRowFromData(super.bottomContainer, "14:20", "12%", "36°C", "200°C", "700km/h", "1.5m");
+        GridControls.newRowFromData(super.bottomContainer, "14:20", "12%", "36°C", "200°C", "700km/h", "1.5m");
+        GridControls.newRowFromData(super.bottomContainer, "14:20", "12%", "36°C", "200°C", "700km/h", "1.5m");
+        GridControls.newRowFromData(super.bottomContainer, "14:20", "12%", "36°C", "200°C", "700km/h", "1.5m");
 
     }
 
