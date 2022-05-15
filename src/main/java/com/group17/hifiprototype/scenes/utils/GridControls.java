@@ -5,6 +5,7 @@ import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.RowConstraints;
 
@@ -14,7 +15,7 @@ import java.util.Collections;
 import java.util.concurrent.Callable;
 import java.util.stream.Collectors;
 
-public class GridControls {
+public class GridControls extends PaneControls {
 
     public static void newRowFromData(GridPane grid, String... data) {
         /*
@@ -54,4 +55,5 @@ public class GridControls {
         rowConstraints.setVgrow(Priority.NEVER);
         grid.getRowConstraints().add(rowCount - 1, rowConstraints);
     }
+
 }
