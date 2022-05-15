@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -241,70 +240,11 @@
                 <String fx:value="transparent" />
             </styleClass>
         </ScrollPane>
-      <AnchorPane fx:id="overlay" maxWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+      <AnchorPane fx:id="overlay" maxWidth="-Infinity" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
          <children>
-              <ScrollPane hbarPolicy="NEVER" maxWidth="-Infinity" pannable="true" prefHeight="200.0" prefWidth="200.0" styleClass="transparent" vbarPolicy="NEVER" visible="true" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="62">
+              <ScrollPane fx:id="faScrollPane" hbarPolicy="NEVER" maxWidth="-Infinity" pannable="true" prefHeight="200.0" prefWidth="200.0" styleClass="transparent" vbarPolicy="NEVER" visible="true" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="62">
                <content>
                   <VBox fx:id="popupvbox" alignment="CENTER" maxWidth="-Infinity" prefHeight="168.0" prefWidth="343.0">
-                     <children>
-                        <GridPane fx:id="cardGrid" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="266.0" prefWidth="342.0" VBox.vgrow="SOMETIMES">
-                          <columnConstraints>
-                              <ColumnConstraints maxWidth="1.7976931348623157E308" percentWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints fillHeight="false" vgrow="SOMETIMES" />
-                            <RowConstraints fillHeight="false" vgrow="SOMETIMES" />
-                              <RowConstraints />
-                          </rowConstraints>
-                           <children>
-                              <ImageView fx:id="popupFlag" fitHeight="174.0" fitWidth="324.0" pickOnBounds="true" preserveRatio="true" styleClass="content-box" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
-                                 <image>
-                                    <Image url="@images/flags/usa.png" />
-                                 </image>
-                              </ImageView>
-                              <GridPane>
-                                <columnConstraints>
-                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="75.0" prefWidth="100.0" />
-                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                </columnConstraints>
-                                <rowConstraints>
-                                  <RowConstraints minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
-                                </rowConstraints>
-                                 <children>
-                                    <Label text="Miami Grand Prix" GridPane.halignment="LEFT">
-                                       <styleClass>
-                                          <String fx:value="roboto" />
-                                          <String fx:value="bold" />
-                                       </styleClass>
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <Label styleClass="roboto" text="06-08 May" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                                 <padding>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                                 </padding>
-                              </GridPane>
-                           </children>
-                           <styleClass>
-                              <String fx:value="depth-3" />
-                              <String fx:value="content-box" />
-                           </styleClass>
-                           <VBox.margin>
-                              <Insets bottom="20.0" />
-                           </VBox.margin>
-                        </GridPane>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-                     </children>
                      <padding>
                         <Insets bottom="15.0" left="15.0" right="15.0" />
                      </padding>

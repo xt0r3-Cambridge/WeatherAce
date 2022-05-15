@@ -32,6 +32,8 @@ public class BaseMotorsportController {
 
     @FXML
     ScrollPane myScrollPane;
+    @FXML
+    ScrollPane faScrollPane;
 
     @FXML
     public AnchorPane root;
@@ -77,19 +79,7 @@ public class BaseMotorsportController {
                 }
             }
         });
-
-
         bottomContainer.prefWidthProperty().bind(root.widthProperty());
-
-
-        popupvbox.prefWidthProperty().bind(overlay.widthProperty().subtract(16));
-        popupFlag.fitWidthProperty().bind(overlay.widthProperty().subtract(30));
-        popupFlag.fitHeightProperty().bind(popupFlag.fitWidthProperty().multiply(173.0 / 324.0));
-        cardGrid.prefWidthProperty().bind(popupFlag.fitWidthProperty());
-        cardGrid.prefHeightProperty().bind(popupFlag.fitHeightProperty().add(60));
-
-
-
     }
 
     @FXML
@@ -112,6 +102,8 @@ public class BaseMotorsportController {
         overlayCloseButton.setVisible(false);
         overlay.setMouseTransparent(true);
         overlayCloseButton.setMouseTransparent(true);
+        faScrollPane.setVvalue(0);
+        faScrollPane.setHvalue(0);
     }
 
     @FXML
