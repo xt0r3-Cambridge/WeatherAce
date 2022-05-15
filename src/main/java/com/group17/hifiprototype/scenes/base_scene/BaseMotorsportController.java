@@ -17,7 +17,7 @@ import javafx.scene.layout.VBox;
 
 import java.util.HashMap;
 
-public class BaseMotorsportController {
+public abstract class BaseMotorsportController {
 
     @FXML
     protected ListView<String> scrollList;
@@ -25,18 +25,18 @@ public class BaseMotorsportController {
     protected AnchorPane container;
 
     @FXML
-    GridPane bottomContainer;
+    protected GridPane bottomContainer;
 
     @FXML
-    AnchorPane myAnchorPane;
+    protected AnchorPane myAnchorPane;
 
     @FXML
-    ScrollPane myScrollPane;
+    protected ScrollPane myScrollPane;
     @FXML
-    ScrollPane faScrollPane;
+    protected ScrollPane faScrollPane;
 
     @FXML
-    public AnchorPane root;
+    protected AnchorPane root;
     @FXML
     protected GridPane scrollbar;
     @FXML
@@ -55,23 +55,34 @@ public class BaseMotorsportController {
     protected GridPane cardGrid;
 
     public void resetScene() {
-        init();
+        myScrollPane.setVvalue(0);
+        myScrollPane.setHvalue(0);
+        this.closeOverlay();
     }
 
-    public void init() {
-        myScrollPane.setLayoutY(200);
-        myScrollPane.prefWidthProperty().bind(root.widthProperty());
-        myScrollPane.prefHeightProperty().bind(root.heightProperty().subtract(200));
-        myAnchorPane.prefWidthProperty().bind(root.widthProperty());
+    public abstract void loadWeatherData();
+    public abstract void loadRaceData();
 
+    public void init() {
+
+        // Creating the scrollbar for the event data
+        final int scrollPaneOffset = 200;
+        myScrollPane.setLayoutY(scrollPaneOffset);
+        myScrollPane.prefWidthProperty().bind(root.widthProperty());
+        myScrollPane.prefHeightProperty().bind(root.heightProperty().subtract(scrollPaneOffset));
+        myAnchorPane.prefWidthProperty().bind(root.widthProperty());
+        // Add weather data to it
+        this.loadWeatherData();
         final int offset = -300;
+        // Magic
+        bottomContainer.setPrefHeight((bottomContainer.getRowCount() + 2) * 30);
+        myAnchorPane.prefHeightProperty().bind(bottomContainer.heightProperty().subtract(offset).add((bottomContainer.getRowCount() + 1) * 30));
+        // Change positioning to make everything fit
         AnchorPane.setTopAnchor(bottomContainer, root.getHeight() + offset);
         root.heightProperty().addListener((observableValue, number, t1) -> {
             AnchorPane.setTopAnchor(bottomContainer, observableValue.getValue().doubleValue() + offset);
         });
-
-        GridControls.newRowFromData(bottomContainer, "14:20", "12%", "36°C", "200°C", "700km/h", "1.5m");
-
+        // Stop scrolling if we aren't holding that component
         myScrollPane.addEventFilter(ScrollEvent.SCROLL, event -> {
             if (event.getDeltaY() != 0) {
                 if (!myScrollPane.pannableProperty().getValue()) {
@@ -80,6 +91,9 @@ public class BaseMotorsportController {
             }
         });
         bottomContainer.prefWidthProperty().bind(root.widthProperty());
+
+        // Load race data for the overlay
+        this.loadRaceData();
     }
 
     @FXML

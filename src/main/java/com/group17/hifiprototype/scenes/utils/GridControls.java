@@ -22,7 +22,7 @@ public class GridControls {
          */
 
         int colCount = grid.getColumnCount();
-        int rowCount = grid.getRowCount();
+        int rowCount = grid.getRowCount() + 1; // Because of a change in implementation
 
         if(data.length != colCount){
             throw new InvalidParameterException(String.format(

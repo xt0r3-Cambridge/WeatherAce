@@ -22,7 +22,7 @@ public class F1Scene extends BaseScene {
 
     @Override
     public void resetScene() {
-
+        controller.resetScene();
     }
 
     public static F1Scene init(Stage stage, SceneId sceneId) throws IOException {
