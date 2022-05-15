@@ -164,7 +164,7 @@
         </GridPane>
         <ScrollPane fx:id="myScrollPane" hbarPolicy="NEVER" prefHeight="500.0" prefWidth="500.0" vbarPolicy="NEVER">
             <content>
-                <AnchorPane fx:id="myAnchorPane" maxWidth="0.0" minHeight="0.0" minWidth="100.0" prefHeight="610.0" maxHeight="Infinity">
+                <AnchorPane fx:id="myAnchorPane" maxHeight="Infinity" maxWidth="0.0" minHeight="0.0" minWidth="100.0" prefHeight="610.0">
                     <children>
                         <GridPane fx:id="bottomContainer" onDragOver="#disableBottomScroll" onMouseDragOver="#disableBottomScroll" onMouseEntered="#enableBottomScroll" onMouseExited="#disableBottomScroll" prefHeight="4000.0" prefWidth="457.0" AnchorPane.leftAnchor="0">
                             <columnConstraints>
@@ -231,7 +231,7 @@
          <children>
               <ScrollPane fx:id="faScrollPane" hbarPolicy="NEVER" maxWidth="-Infinity" pannable="true" prefHeight="200.0" prefWidth="200.0" styleClass="transparent" vbarPolicy="NEVER" visible="true" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="62">
                <content>
-                  <VBox fx:id="popupvbox" alignment="CENTER" maxWidth="-Infinity" prefHeight="168.0" prefWidth="343.0">
+                  <VBox fx:id="popupvbox" alignment="CENTER" maxWidth="-Infinity" prefHeight="168.0" prefWidth="343.0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="62">
                      <padding>
                         <Insets bottom="15.0" left="15.0" right="15.0" />
                      </padding>

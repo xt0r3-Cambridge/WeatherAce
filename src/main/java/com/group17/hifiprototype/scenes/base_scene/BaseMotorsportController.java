@@ -73,21 +73,16 @@ public abstract class BaseMotorsportController {
         myScrollPane.minHeightProperty().bind(root.heightProperty().subtract(scrollPaneOffset));
         myScrollPane.maxHeightProperty().bind(root.heightProperty().subtract(scrollPaneOffset));
         myAnchorPane.prefWidthProperty().bind(root.widthProperty());
-        // Add weather data to it
+        bottomContainer.prefWidthProperty().bind(root.widthProperty());
+
+        // Add weather data to the scrollbar
         this.loadWeatherData();
-        // Change positioning to make everything fit
+        // Set container height to match the data and add it to the bottom of the scrollbar
         bottomContainer.setPrefHeight((bottomContainer.getRowCount() + 1) * 30);
         final int offset = -60;
         myAnchorPane.minHeightProperty().bind(myScrollPane.heightProperty().add(bottomContainer.getPrefHeight() + offset));
         myAnchorPane.prefHeightProperty().bind(myScrollPane.heightProperty().add(bottomContainer.getPrefHeight() + offset));
         AnchorPane.setBottomAnchor(bottomContainer, 0d);
-
-
-        //AnchorPane.setBottomAnchor(bottomContainer, bottomContainer.heightProperty().doubleValue());
-        //AnchorPane.setTopAnchor(bottomContainer, 0d);
-        //myAnchorPane.setLayoutY(root.getHeight() + offset);
-
-
 
         // Stop scrolling if we aren't holding that component
         myScrollPane.addEventFilter(ScrollEvent.SCROLL, event -> {
@@ -97,7 +92,6 @@ public abstract class BaseMotorsportController {
                 }
             }
         });
-        bottomContainer.prefWidthProperty().bind(root.widthProperty());
 
         // Load race data for the overlay
         this.loadRaceData();

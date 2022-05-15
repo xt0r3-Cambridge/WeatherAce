@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.TextAlignment;
 
 import java.security.InvalidParameterException;
@@ -23,20 +24,26 @@ public class VBoxControls {
         cardGrid.setMaxHeight(1.7976931348623157E308);
         cardGrid.setMaxWidth(1.7976931348623157E308);
         VBox.setVgrow(cardGrid, Priority.SOMETIMES);
-        VBox.setMargin(cardGrid, new Insets(0, 0,20, 0));
+        VBox.setMargin(cardGrid, new Insets(0, 0, 20, 0));
         cardGrid.getStyleClass().add("content-box");
+        cardGrid.getStyleClass().add("straight-bottom");
         cardGrid.getStyleClass().add("depth-3");
 
         // Create grid column constraints
         ColumnConstraints columnConstraint = new ColumnConstraints();
         columnConstraint.setMaxWidth(1.7976931348623157E308);
-        columnConstraint.setPercentWidth(100);
+        // columnConstraint.setPercentWidth(100);
         cardGrid.getColumnConstraints().add(0, columnConstraint);
 
         // Create grid row constraints
         RowConstraints[] rowConstraints = new RowConstraints[2];
         for (int i = 0; i < rowConstraints.length; i++) {
             rowConstraints[i] = new RowConstraints();
+            if(i == 0){
+                rowConstraints[i].setMaxHeight(60);
+                rowConstraints[i].setMinHeight(60);
+                rowConstraints[i].setPrefHeight(60);
+            }
             rowConstraints[i].setFillHeight(false);
             rowConstraints[i].setVgrow(Priority.SOMETIMES);
             cardGrid.getRowConstraints().add(i, rowConstraints[i]);
@@ -51,16 +58,23 @@ public class VBoxControls {
         Image flag = ImageControls.createImage(url);
         ImageView popupFlag = new ImageView();
         popupFlag.setImage(flag);
+        popupFlag.setPreserveRatio(false);
         cardGrid.add(popupFlag, 0, 1);
+
 
         // Create grid for text
         GridPane labelGrid = new GridPane();
         labelGrid.setPadding(new Insets(15));
 
+        labelGrid.setMaxHeight(60);
+        labelGrid.setMinHeight(60);
+        labelGrid.setPrefHeight(60);
+
         // Create label grid row constraints
         RowConstraints label_rowConstraint = new RowConstraints();
-        label_rowConstraint.setMinHeight(60);
-        label_rowConstraint.setPrefHeight(60);
+        label_rowConstraint.setMinHeight(30);
+        label_rowConstraint.setPrefHeight(30);
+        label_rowConstraint.setMaxHeight(30);
         label_rowConstraint.setVgrow(Priority.SOMETIMES);
         columnConstraint.setPercentWidth(100);
         labelGrid.getRowConstraints().add(0, label_rowConstraint);
@@ -70,7 +84,7 @@ public class VBoxControls {
         for (int i = 0; i < rowConstraints.length; i++) {
             label_columnConstraints[i] = new ColumnConstraints();
             label_columnConstraints[i].setHgrow(Priority.SOMETIMES);
-            if(i == 0){
+            if (i == 0) {
                 label_columnConstraints[i].setPercentWidth(75);
             }
             labelGrid.getColumnConstraints().add(i, label_columnConstraints[i]);
@@ -84,6 +98,9 @@ public class VBoxControls {
         Label nameLabel = new Label(name);
         Label dateLabel = new Label(date);
 
+        nameLabel.setMaxHeight(30);
+        dateLabel.setMaxHeight(30);
+
         nameLabel.setStyle("-fx-font-size: 24px;");
         dateLabel.setStyle("-fx-font-size: 24px;");
 
@@ -91,14 +108,19 @@ public class VBoxControls {
         nameLabel.getStyleClass().add("bold");
         dateLabel.getStyleClass().add("roboto");
 
-        nameLabel.setMaxWidth(1.7976931348623157E308);
-        dateLabel.setMaxWidth(1.7976931348623157E308);
+        //nameLabel.setMaxWidth(1.7976931348623157E308);
+        //dateLabel.setMaxWidth(1.7976931348623157E308);
 
         GridPane.setHalignment(nameLabel, HPos.LEFT);
         GridPane.setHalignment(dateLabel, HPos.RIGHT);
 
         dateLabel.setTextAlignment(TextAlignment.CENTER);
         dateLabel.setWrapText(true);
+
+        dateLabel.minWidth(-1e8);
+        nameLabel.minWidth(-1e8);
+        dateLabel.maxWidth(1e8);
+        nameLabel.maxWidth(1e8);
 
         // Add labels to labelGrid
         labelGrid.add(nameLabel, 0, 0);
@@ -112,11 +134,18 @@ public class VBoxControls {
         // Add grid to VBox
         container.getChildren().add(cardGrid);
 
+        anchorPane.widthProperty().addListener(event ->{
+            System.out.println(labelGrid.heightProperty().doubleValue());
+        });
+
         // Create bindings
-        popupFlag.fitWidthProperty().bind(anchorPane.widthProperty().subtract(30));
-        popupFlag.fitHeightProperty().bind(popupFlag.fitWidthProperty().multiply(173.0 / 324.0));
+        popupFlag.fitWidthProperty().bind(anchorPane.widthProperty().subtract(30));  // Keep aspect ratio is true
+        popupFlag.fitHeightProperty().bind(cardGrid.heightProperty().subtract(labelGrid.heightProperty()));
         cardGrid.prefWidthProperty().bind(popupFlag.fitWidthProperty());
-        cardGrid.prefHeightProperty().bind(popupFlag.fitHeightProperty().add(60));
+        cardGrid.maxWidthProperty().bind(popupFlag.fitWidthProperty());
+        cardGrid.minWidthProperty().bind(popupFlag.fitWidthProperty());
+        cardGrid.prefHeightProperty().bind(popupFlag.fitWidthProperty().multiply(flag.getHeight() / flag.getWidth()).add(labelGrid.heightProperty()));
+        cardGrid.minHeightProperty().bind(popupFlag.fitWidthProperty().multiply(flag.getHeight() / flag.getWidth()).add(labelGrid.heightProperty()));
 
 
     }
