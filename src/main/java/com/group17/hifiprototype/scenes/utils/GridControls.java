@@ -19,7 +19,13 @@ public class GridControls extends PaneControls {
 
     public static void newRowFromData(GridPane grid, String... data) {
         /*
-        data: A list of stings the need to be added to the grid
+        grid: The grid containing the items (detailedDataContainer in /scenes/base_scene/BaseMotorsportController.java)
+        data: A list of stings the need to be added to the grid.
+
+        For our purposes, it needs to have 5 elements, that are
+        (time, rain probability, temperature, road temperature, visibility)
+        Example:
+        ("14:20", "12%", "36°C", "200°C", "700km/h", "1.5m")
          */
 
         int colCount = grid.getColumnCount();

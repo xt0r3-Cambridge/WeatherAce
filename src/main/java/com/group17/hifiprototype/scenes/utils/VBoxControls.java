@@ -16,8 +16,8 @@ public class VBoxControls {
     public static void addBlock(String name, String date, String url, AnchorPane anchorPane, VBox container, Runnable onClick) {
         /*
         Creates a new block where the name of the block is {name}, the date of the block is {date}, and the image of
-        the block is loaded from the path to the image (e.g. @/images/logos/example.png for resources/images/...)
-        When clicked, the pane will run the onClick() function. (That can have no arguments).
+        the block is loaded from the path to the image (e.g. /images/logos/example.png for resources/images/...)
+        When clicked, the pane will run the onClick() function. (The function can have no arguments).
          */
 
         final double labelPadding = 15;
