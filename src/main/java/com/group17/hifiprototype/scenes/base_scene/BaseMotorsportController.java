@@ -1,15 +1,21 @@
 package com.group17.hifiprototype.scenes.base_scene;
 
 import com.group17.hifiprototype.scenes.utils.Animations;
+import com.group17.hifiprototype.scenes.utils.GridControls;
 import com.group17.hifiprototype.scenes.utils.SceneController;
 import com.group17.hifiprototype.scenes.utils.SceneId;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+
+import java.util.HashMap;
 
 public class BaseMotorsportController {
 
@@ -17,6 +23,18 @@ public class BaseMotorsportController {
     protected ListView<String> scrollList;
     @FXML
     protected AnchorPane container;
+
+    @FXML
+    GridPane bottomContainer;
+
+    @FXML
+    AnchorPane myAnchorPane;
+
+    @FXML
+    ScrollPane myScrollPane;
+
+    @FXML
+    public AnchorPane root;
     @FXML
     protected GridPane scrollbar;
     @FXML
@@ -24,68 +42,123 @@ public class BaseMotorsportController {
     @FXML
     protected GridPane mainContent;
     @FXML
-    protected ScrollPane overlay;
+    protected AnchorPane overlay;
     @FXML
     protected ImageView overlayCloseButton;
-
     @FXML
-    void openScrollbar(){
-        System.out.println("itt");
-        scrollbar.prefHeightProperty().unbind();
-        Animations.changeSize(scrollbar, scrollbar.getWidth(), ScrollbarController.openHeight(mainContent));
-    }
-
+    protected VBox popupvbox;
     @FXML
-    void closeScrollbar(){
-        scrollbar.prefHeightProperty().unbind();
-        Animations.changeSize(scrollbar, scrollbar.getWidth(), ScrollbarController.closedHeight(mainContent));
-    }
+    protected ImageView popupFlag;
+    @FXML
+    protected GridPane cardGrid;
 
-    public void resetScene(){
+    public void resetScene() {
         init();
     }
 
     public void init() {
-        closeOverlay();
-        scrollbar.prefHeightProperty().unbind();
-        scrollbar.prefHeightProperty().bind(mainContent.heightProperty().divide(3));
-        // scrollbar2.prefWidthProperty().bind(mainContent.widthProperty());
+        myScrollPane.setLayoutY(200);
+        myScrollPane.prefWidthProperty().bind(root.widthProperty());
+        myScrollPane.prefHeightProperty().bind(root.heightProperty().subtract(200));
+        myAnchorPane.prefWidthProperty().bind(root.widthProperty());
+
+        final int offset = -300;
+        AnchorPane.setTopAnchor(bottomContainer, root.getHeight() + offset);
+        root.heightProperty().addListener((observableValue, number, t1) -> {
+            AnchorPane.setTopAnchor(bottomContainer, observableValue.getValue().doubleValue() + offset);
+        });
+
+        GridControls.newRowFromData(bottomContainer, "14:20", "12%", "36°C", "200°C", "700km/h", "1.5m");
+
+        myScrollPane.addEventFilter(ScrollEvent.SCROLL, event -> {
+            if (event.getDeltaY() != 0) {
+                if (!myScrollPane.pannableProperty().getValue()) {
+                    event.consume();
+                }
+            }
+        });
+
+
+        bottomContainer.prefWidthProperty().bind(root.widthProperty());
+
+
+        popupvbox.prefWidthProperty().bind(overlay.widthProperty().subtract(16));
+        popupFlag.fitWidthProperty().bind(overlay.widthProperty().subtract(30));
+        popupFlag.fitHeightProperty().bind(popupFlag.fitWidthProperty().multiply(173.0 / 324.0));
+        cardGrid.prefWidthProperty().bind(popupFlag.fitWidthProperty());
+        cardGrid.prefHeightProperty().bind(popupFlag.fitHeightProperty().add(60));
+
+
 
     }
 
     @FXML
-    void backToMain(){
+    void backToMain() {
         SceneController.setScene(SceneId.MAIN_MENU);
     }
 
     @FXML
-    void openOverlay(){
+    void openOverlay() {
+        System.out.println("Fasz");
         overlay.setVisible(true);
         overlayCloseButton.setVisible(true);
+        overlay.setMouseTransparent(false);
+        overlayCloseButton.setMouseTransparent(false);
     }
 
     @FXML
-    void closeOverlay(){
+    void closeOverlay() {
         overlay.setVisible(false);
         overlayCloseButton.setVisible(false);
+        overlay.setMouseTransparent(true);
+        overlayCloseButton.setMouseTransparent(true);
     }
 
-    public void addData(Iterable<String> data) {
-        for (String dataPoint : data) {
-            scrollList.getItems().add(dataPoint);
+    @FXML
+    void enableBottomScroll() {
+        myScrollPane.setPannable(true);
+    }
+
+    @FXML
+    void disableBottomScroll() {
+        System.out.println("disabled");
+        if (!myScrollPane.isPressed()) {
+            myScrollPane.setPannable(false);
         }
+
     }
 
 }
 
-class ScrollbarController{
+class BottomScrollbarController {
 
-    public static double closedHeight(Pane content){
+    public static double closedHeight(Pane content) {
         return content.getHeight() * 0.33;
     }
 
-    public static double openHeight(Pane content){
+    public static double openHeight(Pane content) {
         return content.getHeight() * 0.66;
+    }
+
+    enum eventType {
+        MOUSE_DRAG,
+        DRAG,
+        MOUSE_OVER
+    }
+
+    HashMap properties = new HashMap();
+
+
+    boolean mouseDrag = false;
+    boolean drag = false;
+    boolean mouseOver = false;
+
+    public static boolean isDragged() {
+        return false;
+    }
+
+    public static boolean disableProperty(eventType type) {
+        return false;
     }
 
 

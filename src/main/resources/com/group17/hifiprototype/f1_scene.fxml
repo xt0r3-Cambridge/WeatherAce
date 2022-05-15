@@ -2,8 +2,7 @@
 
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,293 +10,321 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="500.0" prefWidth="225.0" stylesheets="@../../../style.css" xmlns="http://javafx.com/javafx/18"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group17.hifiprototype.scenes.f1_scene.F1Controller">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="400.0" stylesheets="@../../../style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group17.hifiprototype.scenes.f1_scene.F1Controller">
     <children>
-    <GridPane fx:id="mainContent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-              prefHeight="400.0" prefWidth="600.0" styleClass="transparent" AnchorPane.bottomAnchor="0.0"
-              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.60003662109375" minWidth="10.0" percentWidth="30.0"/>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0"
-                               prefWidth="278.39996337890625"/>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.60003662109375" minWidth="10.0" percentWidth="30.0"/>
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-            <RowConstraints minHeight="10.0" percentHeight="25.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-            <RowConstraints minHeight="10.0" percentHeight="25.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-            <RowConstraints minHeight="10.0" percentHeight="33.3" prefHeight="30.0" vgrow="SOMETIMES"/>
-        </rowConstraints>
-        <children>
-            <GridPane GridPane.columnIndex="1">
-                <columnConstraints>
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                </columnConstraints>
-                <rowConstraints>
-                    <RowConstraints maxHeight="38.00000419616699" minHeight="10.0" percentHeight="60.0"
-                                    prefHeight="37.20000114440918" vgrow="SOMETIMES"/>
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                </rowConstraints>
-                <children>
-                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Miami Grand Prix"
-                          textAlignment="CENTER" wrappingWidth="400.0" GridPane.halignment="CENTER"
-                          GridPane.valignment="CENTER">
-                        <GridPane.margin>
-                            <Insets/>
-                        </GridPane.margin>
-                        <font>
-                            <Font size="24.0"/>
-                        </font>
+        <GridPane fx:id="mainContent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="transparent" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.60003662109375" minWidth="10.0" percentWidth="30.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="278.39996337890625" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.60003662109375" minWidth="10.0" percentWidth="30.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" percentHeight="25.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" percentHeight="25.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" percentHeight="33.3" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <GridPane GridPane.columnIndex="1">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="38.00000419616699" minHeight="10.0" percentHeight="60.0" prefHeight="37.20000114440918" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Miami Grand Prix" textAlignment="CENTER" wrappingWidth="400.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                            <GridPane.margin>
+                                <Insets />
+                            </GridPane.margin>
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                            <styleClass>
+                                <String fx:value="roboto" />
+                                <String fx:value="bold" />
+                            </styleClass>
+                        </Text>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="06-08 May" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                            <styleClass>
+                                <String fx:value="roboto" />
+                                <String fx:value="bold" />
+                            </styleClass>
+                        </Text>
+                    </children>
+                </GridPane>
+                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                    <image>
+                        <Image url="@images/f1/Miami.png" />
+                    </image>
+                </ImageView>
+                <GridPane GridPane.columnSpan="3" GridPane.rowIndex="2">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="SUNDAY - 15:30" GridPane.halignment="CENTER">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                            <styleClass>
+                                <String fx:value="roboto" />
+                                <String fx:value="bold" />
+                            </styleClass>
+                        </Text>
+                        <GridPane maxHeight="150.0" maxWidth="300.0" minHeight="100.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="64.0" minHeight="64.0" prefHeight="64.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <GridPane.margin>
+                                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                            </GridPane.margin>
+                            <children>
+                                <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                    <image>
+                                        <Image url="@images/logos/wind.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                    <image>
+                                        <Image url="@images/logos/temp.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                    <image>
+                                        <Image url="@images/logos/rain.png" />
+                                    </image>
+                                </ImageView>
+                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="roboto" text="Text" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="roboto" text="Text" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="roboto" text="Text" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="roboto" text="Text" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="roboto" text="Text" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="roboto" text="Text" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                            </children>
+                            <styleClass>
+                                <String fx:value="content-box" />
+                                <String fx:value="depth-1" />
+                            </styleClass>
+                        </GridPane>
+                    </children>
+                </GridPane>
+                <GridPane GridPane.columnIndex="2">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" percentHeight="60.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <ImageView fitHeight="32.0" fitWidth="32.0" onMouseClicked="#openOverlay" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                            <image>
+                                <Image url="@images/logos/menu.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </GridPane>
+                <GridPane>
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" percentHeight="60.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <ImageView fitHeight="32.0" fitWidth="32.0" onMouseClicked="#backToMain" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                            <image>
+                                <Image url="@images/logos/back.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </GridPane>
+            </children>
+        </GridPane>
+        <ScrollPane fx:id="myScrollPane" hbarPolicy="NEVER" prefHeight="500.0" prefWidth="500.0" vbarPolicy="NEVER">
+            <content>
+                <AnchorPane fx:id="myAnchorPane" maxWidth="0.0" minHeight="0.0" minWidth="100.0" prefHeight="2000.0">
+                    <children>
+                        <GridPane fx:id="bottomContainer" onDragOver="#disableBottomScroll" onMouseDragOver="#disableBottomScroll" onMouseEntered="#enableBottomScroll" onMouseExited="#disableBottomScroll" prefHeight="400.0" prefWidth="457.0" AnchorPane.leftAnchor="0" AnchorPane.topAnchor="200.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints prefHeight="60.0" vgrow="NEVER" />
+                                <RowConstraints prefHeight="30.0" vgrow="NEVER" />
+                            </rowConstraints>
+                            <children>
+                                <ImageView fitHeight="150.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                    <image>
+                                        <Image url="@images/logos/rain.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="150.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                    <image>
+                                        <Image url="@images/logos/temp.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="150.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                    <image>
+                                        <Image url="@images/logos/road_temp.png" />
+                                    </image>
+                                    <GridPane.margin>
+                                        <Insets left="10.0" />
+                                    </GridPane.margin>
+                                </ImageView>
+                                <ImageView fitHeight="150.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                    <image>
+                                        <Image url="@images/logos/wind.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="150.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                    <image>
+                                        <Image url="@images/logos/eye.png" />
+                                    </image>
+                                </ImageView>
+                                <GridPane>
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label alignment="CENTER" styleClass="bold" text="FRI" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                                        <Label alignment="CENTER" styleClass="bold" text="FP1" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                                    </children>
+                                </GridPane>
+
+      
+                                  </children>
+                     <padding>
+                        <Insets left="32.0" right="32.0" />
+                     </padding>
                         <styleClass>
-                            <String fx:value="roboto"/>
-                            <String fx:value="bold"/>
+                            <String fx:value="content-box" />
+                            <String fx:value="straight-bottom" />
+                            <String fx:value="depth-1" />
                         </styleClass>
-                    </Text>
-                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="06-08 May"
-                          GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
-                        <font>
-                            <Font size="16.0"/>
-                        </font>
-                        <styleClass>
-                            <String fx:value="roboto"/>
-                            <String fx:value="bold"/>
-                        </styleClass>
-                    </Text>
-                </children>
-            </GridPane>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"
-                       GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1"
-                       GridPane.valignment="CENTER">
-                <image>
-                    <Image url="@images/f1/Miami.png"/>
-                </image>
-            </ImageView>
-            <GridPane GridPane.columnSpan="3" GridPane.rowIndex="2">
-                <columnConstraints>
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                </columnConstraints>
-                <rowConstraints>
-                    <RowConstraints vgrow="SOMETIMES"/>
-                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
-                </rowConstraints>
-                <children>
-                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="SUNDAY - 15:30"
-                          GridPane.halignment="CENTER">
-                        <font>
-                            <Font size="24.0"/>
-                        </font>
-                        <styleClass>
-                            <String fx:value="roboto"/>
-                            <String fx:value="bold"/>
-                        </styleClass>
-                    </Text>
-                    <GridPane maxHeight="150.0" maxWidth="300.0" minHeight="100.0" GridPane.halignment="CENTER"
-                              GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                        <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                        </columnConstraints>
-                        <rowConstraints>
-                            <RowConstraints maxHeight="64.0" minHeight="64.0" prefHeight="64.0" vgrow="SOMETIMES"/>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                        </rowConstraints>
-                        <GridPane.margin>
-                            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
-                        </GridPane.margin>
-                        <children>
-                            <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true"
-                                       GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                                <image>
-                                    <Image url="@images/logos/wind2%202.png"/>
-                                </image>
-                            </ImageView>
-                            <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true"
-                                       GridPane.columnIndex="2" GridPane.halignment="CENTER"
-                                       GridPane.valignment="CENTER">
-                                <image>
-                                    <Image url="@images/logos/temp2%202.png"/>
-                                </image>
-                            </ImageView>
-                            <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true"
-                                       GridPane.columnIndex="1" GridPane.halignment="CENTER"
-                                       GridPane.valignment="CENTER">
-                                <image>
-                                    <Image url="@images/logos/rain2%202.png"/>
-                                </image>
-                            </ImageView>
-                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="roboto" text="Text"
-                                  GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER"/>
-                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="roboto" text="Text"
-                                  GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2"
-                                  GridPane.valignment="CENTER"/>
-                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="roboto" text="Text"
-                                  GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2"
-                                  GridPane.valignment="CENTER"/>
-                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="roboto" text="Text"
-                                  GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER"/>
-                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="roboto" text="Text"
-                                  GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1"
-                                  GridPane.valignment="CENTER"/>
-                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="roboto" text="Text"
-                                  GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1"
-                                  GridPane.valignment="CENTER"/>
-                        </children>
-                        <styleClass>
-                            <String fx:value="content-box"/>
-                            <String fx:value="depth-1"/>
-                        </styleClass>
-                    </GridPane>
-                </children>
-            </GridPane>
-            <GridPane GridPane.columnIndex="2">
-                <columnConstraints>
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
-                </columnConstraints>
-                <rowConstraints>
-                    <RowConstraints minHeight="10.0" percentHeight="60.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                </rowConstraints>
-                <children>
-                    <ImageView fitHeight="32.0" fitWidth="32.0" onMouseClicked="#openOverlay" pickOnBounds="true"
-                               preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                        <image>
-                            <Image url="@images/logos/menu.png"/>
-                        </image>
-                    </ImageView>
-                </children>
-            </GridPane>
-            <GridPane>
-                <columnConstraints>
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
-                </columnConstraints>
-                <rowConstraints>
-                    <RowConstraints minHeight="10.0" percentHeight="60.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                </rowConstraints>
-                <children>
-                    <ImageView fitHeight="32.0" fitWidth="32.0" onMouseClicked="#backToMain" pickOnBounds="true"
-                               preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                        <image>
-                            <Image url="@images/logos/back.png"/>
-                        </image>
-                    </ImageView>
-                </children>
-            </GridPane>
-        </children>
-    </GridPane>
-    <GridPane fx:id="scrollbar" alignment="BOTTOM_CENTER" onMouseExited="#closeScrollbar" visible="false"
-              AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints fillHeight="false" maxHeight="64.0" minHeight="64.0" prefHeight="64.0" valignment="CENTER"
-                            vgrow="SOMETIMES"/>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        </rowConstraints>
-        <children>
-            <ListView fx:id="scrollList" maxHeight="400.0" onMouseEntered="#openScrollbar"
-                      onMouseExited="#closeScrollbar" stylesheets="@../../../style.css" visible="false"
-                      GridPane.rowIndex="1"/>
-            <GridPane visible="false" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                <columnConstraints>
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                </columnConstraints>
-                <rowConstraints>
-                    <RowConstraints fillHeight="false" maxHeight="32.0" minHeight="32.0" prefHeight="32.0"
-                                    valignment="CENTER" vgrow="SOMETIMES"/>
-                </rowConstraints>
-                <children>
-                    <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true"
-                               GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                        <image>
-                            <Image url="@images/logos/rain2%202.png"/>
-                        </image>
-                    </ImageView>
-                    <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true"
-                               GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                        <image>
-                            <Image url="@images/logos/eye2%201.png"/>
-                        </image>
-                    </ImageView>
-                    <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true"
-                               GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                        <image>
-                            <Image url="@images/logos/wind2%202.png"/>
-                        </image>
-                    </ImageView>
-                    <ImageView fitHeight="32.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true"
-                               GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                        <image>
-                            <Image url="@images/logos/Group%205.png"/>
-                        </image>
-                    </ImageView>
-                    <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true"
-                               GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                        <image>
-                            <Image url="@images/logos/temp2%202.png"/>
-                        </image>
-                    </ImageView>
-                </children>
-            </GridPane>
-        </children>
-        <styleClass>
-            <String fx:value="content-box"/>
-            <String fx:value="straight-bottom"/>
-            <String fx:value="depth-1"/>
-        </styleClass>
-    </GridPane>
-    <ScrollPane fitToWidth="true" hbarPolicy="NEVER" pannable="true" prefHeight="600.0" prefWidth="400.0" vbarPolicy="NEVER">
-        <styleClass>
-            <String fx:value="transparent"/>
-        </styleClass>
-    <content>
-    <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="1000">
-    <children>
-        <Button layoutX="127.0" layoutY="546.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="163.0"
-                style="-fx-background-color: yellow;" text="Button"/>
-        <Button layoutX="144.0" layoutY="615.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="163.0"
-                style="-fx-background-color: #f00;" text="Button"/>
-    </children>
-</AnchorPane>
-        </content>
-<opaqueInsets>
-<Insets/>
-</opaqueInsets>
+                        </GridPane>
+                    </children>
+                </AnchorPane>
+            </content>
+            <styleClass>
+                <String fx:value="transparent" />
+            </styleClass>
         </ScrollPane>
-<ScrollPane fx:id="overlay" hbarPolicy="NEVER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0"
-            vbarPolicy="NEVER" visible="false" AnchorPane.bottomAnchor="15" AnchorPane.leftAnchor="15"
-            AnchorPane.rightAnchor="15" AnchorPane.topAnchor="15">
-<styleClass>
-    <String fx:value="depth-2"/>
-    <String fx:value="content-box"/>
-</styleClass>
-<content>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0"/>
-</content>
-</ScrollPane>
-<ImageView fx:id="overlayCloseButton" fitHeight="32.0" fitWidth="32.0" onMouseClicked="#closeOverlay"
-           pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.rightAnchor="20"
-           AnchorPane.topAnchor="20">
-<image>
-    <Image url="@images/logos/close.png"/>
-</image>
-</ImageView>
-        </children>
-<styleClass>
-<String fx:value="transparent"/>
-<String fx:value="bg-image"/>
-</styleClass>
-        </AnchorPane>
+      <AnchorPane fx:id="overlay" maxWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+         <children>
+              <ScrollPane hbarPolicy="NEVER" maxWidth="-Infinity" pannable="true" prefHeight="200.0" prefWidth="200.0" styleClass="transparent" vbarPolicy="NEVER" visible="true" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="62">
+               <content>
+                  <VBox fx:id="popupvbox" alignment="CENTER" maxWidth="-Infinity" prefHeight="168.0" prefWidth="343.0">
+                     <children>
+                        <GridPane fx:id="cardGrid" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="266.0" prefWidth="342.0" VBox.vgrow="SOMETIMES">
+                          <columnConstraints>
+                              <ColumnConstraints maxWidth="1.7976931348623157E308" percentWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints fillHeight="false" vgrow="SOMETIMES" />
+                            <RowConstraints fillHeight="false" vgrow="SOMETIMES" />
+                              <RowConstraints />
+                          </rowConstraints>
+                           <children>
+                              <ImageView fx:id="popupFlag" fitHeight="174.0" fitWidth="324.0" pickOnBounds="true" preserveRatio="true" styleClass="content-box" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                                 <image>
+                                    <Image url="@images/flags/usa.png" />
+                                 </image>
+                              </ImageView>
+                              <GridPane>
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="75.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="Miami Grand Prix" GridPane.halignment="LEFT">
+                                       <styleClass>
+                                          <String fx:value="roboto" />
+                                          <String fx:value="bold" />
+                                       </styleClass>
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label styleClass="roboto" text="06-08 May" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                 </padding>
+                              </GridPane>
+                           </children>
+                           <styleClass>
+                              <String fx:value="depth-3" />
+                              <String fx:value="content-box" />
+                           </styleClass>
+                           <VBox.margin>
+                              <Insets bottom="20.0" />
+                           </VBox.margin>
+                        </GridPane>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+                     </children>
+                     <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" />
+                     </padding>
+                  </VBox>
+               </content>
+              </ScrollPane>
+         </children>
+         <styleClass>
+            <String fx:value="depth-2" />
+            <String fx:value="content-box" />
+         </styleClass>
+      </AnchorPane>
+        <ImageView fx:id="overlayCloseButton" fitHeight="32.0" fitWidth="32.0" onMouseClicked="#closeOverlay" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="30" AnchorPane.topAnchor="30">
+            <image>
+                <Image url="@images/logos/close.png" />
+            </image>
+        </ImageView>
+    </children>
+    <styleClass>
+        <String fx:value="transparent" />
+        <String fx:value="bg-image" />
+    </styleClass>
+</AnchorPane>

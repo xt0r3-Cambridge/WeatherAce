@@ -43,13 +43,6 @@ public class F1Scene extends BaseScene {
         // ADD SCENE TO CONTROLLER
         SceneController.addScene(returnedScene);
 
-        // ArrayList<T> data = DataLoader.loadData(SceneId.FORMULA_1) TODO: Add support for DataLoader
-        ArrayList<String> data = new ArrayList<String>(List.of("One", "Two", "long text", "even longer text to test the overflow capabilities of the listview system", "Five"));
-        for (int i = 0; i < 30; i++) {
-            data.add("Pain");
-        }
-        controller.addData(data);
-
         // ADD STYLESHEET
         returnedScene.getScene().getStylesheets().add("style.css");
 

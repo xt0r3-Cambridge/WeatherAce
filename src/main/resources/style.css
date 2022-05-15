@@ -21,6 +21,7 @@
 
 .transparent{
     -fx-background-color: transparent;
+    -fx-background: transparent;
 }
 
 .roboto{
@@ -45,6 +46,7 @@
 
 .content-box{
     -fx-background-radius: 20;
+    -fx-border-radius: 20;
     -fx-text-fill: white!important;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);
 }
@@ -78,4 +80,8 @@
 .grid-pane .grid-cell{
     -fx-text-fill: white;
 
+}
+
+.popup-card{
+    -fx-background-radius: 20px;
 }
