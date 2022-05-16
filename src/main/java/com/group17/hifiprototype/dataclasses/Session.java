@@ -9,7 +9,7 @@ import java.time.temporal.TemporalField;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Session {
+public class Session implements Comparable<Session>{
 
 
     private final String name;
@@ -26,10 +26,11 @@ public class Session {
         this.dataPoints = new ArrayList<>();
     }
 
-    public void createDataPoints(Granularity granularity) {
+    public void createEmptyDataPoints(Granularity granularity) {
+        dataPoints = new ArrayList<>();
         int step = granularity.getStep();
         ZonedDateTime time = startTime;
-        while (time.isBefore(endTime)) {
+        while (time.isBefore(endTime.plusSeconds(1))) {
             dataPoints.add(new DataPoint(latitude,longitude,time));
             time = time.plusMinutes(step);
         }
@@ -50,4 +51,21 @@ public class Session {
         return dataPoints;
     }
 
+    /**
+     * Sort by start time
+     * @param o
+     * @return
+     */
+    @Override
+    public int compareTo(Session o) {
+        return startTime.compareTo(o.startTime);
+    }
+
+    public ZonedDateTime getStartTime() {
+        return startTime;
+    }
+
+    public ZonedDateTime getEndTime() {
+        return endTime;
+    }
 }

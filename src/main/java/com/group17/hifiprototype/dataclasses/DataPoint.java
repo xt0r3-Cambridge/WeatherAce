@@ -5,7 +5,7 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 
-public class DataPoint {
+public class DataPoint implements Comparable<DataPoint>{
     private final double latitude, longitude;
     private final ZonedDateTime time;
     private double airTemperature;
@@ -120,9 +120,26 @@ public class DataPoint {
         StringBuilder sb = new StringBuilder();
         sb.append("DP(");
         sb.append(time.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT)));
+        sb.append(", Temp: ").append(airTemperature);
+        sb.append(", Rain Chance: ").append(precipitationChance);
         sb.append(")");
         return sb.toString();
     }
 
+    public void copyDataFrom(DataPoint other) {
+        this.airTemperature = other.airTemperature;
+        this.precipitation = other.precipitation;
+        this.groundTemperature = other.groundTemperature;
+        this.humidity = other.humidity;
+        this.precipitationChance = other.precipitationChance;
+        this.windSpeed = other.windSpeed;
+        this.windDirection = other.windDirection;
+        this.visibility = other.visibility;
+    }
 
+
+    @Override
+    public int compareTo(DataPoint o) {
+        return time.compareTo(o.time);
+    }
 }

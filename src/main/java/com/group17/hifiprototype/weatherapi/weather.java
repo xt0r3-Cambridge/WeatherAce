@@ -3,6 +3,7 @@ package com.group17.hifiprototype.weatherapi;
 import com.group17.hifiprototype.dataclasses.DataPoint;
 import org.json.*;
 
+import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.DecimalFormat;
@@ -17,6 +18,16 @@ public class weather {
 
     static final String apikey = "xaJtVMAcUEmoocLbBBvcFzC16AhkJKlu";
     private static final String website = "https://api.tomorrow.io/v4/timelines";
+
+    /**
+     * Number of hours from present moment in which we can get minute-by-minute updates.
+     */
+    public static final int API_MINUTE_UPDATE_LIMIT = 12;
+
+    /**
+     * Number of hours from present moment in which we can get hourly updates.
+     */
+    public static final int API_HOURLY_UPDATE_LIMIT = 72;
 
     /**
      * @param JSONText JSON file text
@@ -58,7 +69,7 @@ public class weather {
         return dp;
     }
 
-    static ArrayList<DataPoint> call(double latitude, double longitude, ZonedDateTime startDate, ZonedDateTime endDate) {
+    static ArrayList<DataPoint> call(double latitude, double longitude, ZonedDateTime startDate, ZonedDateTime endDate) throws IOException {
         DecimalFormat df = new DecimalFormat("#.####");
 
         DateTimeFormatter dtf = java.time.format.DateTimeFormatter.ofPattern("uuuu-MM-dd+HH:mm:ss.SSS");
@@ -130,15 +141,13 @@ public class weather {
 
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new IOException(e);
         }
-        return null;
-
     }
 
     public static void main(String[] args) {
-        ArrayList<DataPoint> arr = call(40.758, -73.9855, ZonedDateTime.now(), ZonedDateTime.now().plusDays(3));
-        System.out.println(arr);
+        //ArrayList<DataPoint> arr = call(40.758, -73.9855, ZonedDateTime.now(), ZonedDateTime.now().plusDays(3));
+        //System.out.println(arr);
     }
 }
 
