@@ -15,11 +15,13 @@ Model race json:
 {
   "Group": "F1",
   "Name": "F1 Race 1",
-  "ThumbnailPath": "//aaaaaaa//aaaaaaa//bbbbb",
+  "ThumbnailPath": "//aaaaaaa//aaaaaaa//bbbbb", (optional)
   "Latitude": 52.1951,
   "Longitude": 0.1313,
   "StartTime": "2022-05-17T05:00:00+01:00",
   "EndTime": "2022-05-25T19:00:00+01:00",
+  "Favourite": false,
+  
   "Sessions": [
     {"Name": "S1",
       "StartTime": "2022-05-17T07:00:00+01:00",
