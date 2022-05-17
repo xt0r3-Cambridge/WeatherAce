@@ -2,6 +2,7 @@ package com.group17.hifiprototype.weatherapi;
 
 import com.group17.hifiprototype.dataclasses.DataPoint;
 import com.group17.hifiprototype.dataclasses.Direction;
+import com.group17.hifiprototype.dataclasses.Precipitation;
 import org.json.*;
 
 import java.io.IOException;
@@ -60,9 +61,15 @@ public class weather {
         DataPoint dp = new DataPoint(latitude,longitude,time);
         JObj = JObj.getJSONObject("values");
 
-        dp.setAirTemperature(JObj.getDouble("temperature"));
+        double airTemperature = JObj.getDouble("temperature");
+        dp.setAirTemperature(airTemperature);
+        dp.setAirTemperature(airTemperature + Math.random() * 5 - 2.5);
+
         dp.setHumidity(JObj.getDouble("humidity"));
         dp.setPrecipitationChance(JObj.getDouble("precipitationProbability"));
+
+        int precipitationId = JObj.getInt("precipitationType");
+        dp.setPrecipitation(Precipitation.values()[precipitationId]);
 
         double windDirectionDegrees = JObj.getDouble("windDirection");
         int windDirectionIndex = (int) Math.round(windDirectionDegrees / 360 * Direction.values().length);
@@ -71,7 +78,6 @@ public class weather {
         dp.setWindSpeed(JObj.getDouble("windSpeed"));
         dp.setVisibility(JObj.getDouble("visibility"));
 
-        //TODO: precipitation type (api documentation), ground temperature (approximate?)
         return dp;
     }
 
