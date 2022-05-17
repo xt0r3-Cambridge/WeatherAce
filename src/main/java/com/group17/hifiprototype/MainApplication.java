@@ -1,6 +1,6 @@
 package com.group17.hifiprototype;
 
-import com.group17.hifiprototype.scenes.f1_scene.F1Scene;
+import com.group17.hifiprototype.scenes.example_scene.ExampleScene;
 import com.group17.hifiprototype.scenes.main_menu_scene.MainMenuScene;
 import com.group17.hifiprototype.scenes.utils.SceneController;
 import com.group17.hifiprototype.scenes.utils.SceneId;
@@ -27,9 +27,8 @@ public class MainApplication extends Application {
         SceneController.init(stage);
 
         // LOAD APPLICATION PAGES (and add them to the controller)
-        MainMenuScene mainMenuScene = MainMenuScene.init(stage, SceneId.MAIN_MENU);
-        F1Scene f1Scene = F1Scene.init(stage, SceneId.FORMULA_1);
-
+        MainMenuScene.init(stage, SceneId.MAIN_MENU);
+        ExampleScene.init(stage, SceneId.EXAMPLE);
 
         SceneController.setScene(SceneId.MAIN_MENU);
     }

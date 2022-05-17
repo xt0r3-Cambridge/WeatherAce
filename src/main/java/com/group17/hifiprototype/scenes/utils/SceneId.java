@@ -1,10 +1,11 @@
 package com.group17.hifiprototype.scenes.utils;
 
 public enum SceneId {
+    /**
+     * IDs for each of the scenes
+     */
     MAIN_MENU,
-    FORMULA_1,
-    NASCAR,
-    WEC,
-    LOCAL,
-    FAVOURITES
+    F1_MIAMI,
+    F1_SPAIN,
+    EXAMPLE
 }

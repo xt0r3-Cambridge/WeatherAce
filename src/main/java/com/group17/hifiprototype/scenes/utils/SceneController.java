@@ -29,6 +29,10 @@ public class SceneController {
     }
 
     public static BaseScene getScene(SceneId id){
+        /**
+         * Returns the scene with the given id
+         * Throws exception if it does not exist
+         */
         BaseScene newScene = sceneMap.get(id);
         if (newScene == null) {
             throw new InvalidParameterException("That scene does not exist.");
@@ -37,6 +41,10 @@ public class SceneController {
     }
 
     public static void setScene(SceneId id) {
+        /**
+         * sets the displayed scene to another
+         * throws exception if the requested scene does not exist
+         */
         if(currentScene() != null){
             currentScene().resetScene();
         }

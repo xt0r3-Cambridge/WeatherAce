@@ -20,10 +20,13 @@ public class MainMenuController {
     private javafx.scene.control.Button FavouritesButton;
 
     public void init(){
-        F1Button.setOnAction(actionEvent -> SceneController.setScene(SceneId.FORMULA_1));
+        F1Button.setOnAction(actionEvent -> SceneController.setScene(SceneId.EXAMPLE));
+        // TODO: Add
+        /*
         WECButton.setOnAction(actionEvent -> SceneController.setScene(SceneId.WEC));
         NascarButton.setOnAction(actionEvent -> SceneController.setScene(SceneId.NASCAR));
         LocalButton.setOnAction(actionEvent -> SceneController.setScene(SceneId.LOCAL));
         FavouritesButton.setOnAction(actionEvent -> SceneController.setScene(SceneId.FAVOURITES));
+         */
     }
 }

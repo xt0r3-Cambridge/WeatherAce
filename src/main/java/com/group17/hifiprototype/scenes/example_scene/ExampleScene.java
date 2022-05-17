@@ -1,38 +1,40 @@
-package com.group17.hifiprototype.scenes.f1_scene;
+package com.group17.hifiprototype.scenes.example_scene;
+
 import com.group17.hifiprototype.MainApplication;
-import com.group17.hifiprototype.scenes.utils.SceneController;
 import com.group17.hifiprototype.scenes.base_scene.BaseScene;
+import com.group17.hifiprototype.scenes.utils.SceneController;
 import com.group17.hifiprototype.scenes.utils.SceneId;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 
-public class F1Scene extends BaseScene {
-    private static F1Controller controller;
+public class ExampleScene extends BaseScene {
+    private static ExampleController controller;
 
-    private F1Scene(){}
+    private ExampleScene(){}
 
     @Override
     public void resetScene() {
         controller.resetScene();
     }
 
-    public static F1Scene init(Stage stage, SceneId sceneId) throws IOException {
+    public static ExampleScene init(Stage stage, SceneId sceneId) throws IOException {
+        /**
+         * Initializes the scene from its fxml file and the controller
+         * Adds the stylesheet
+         */
+
         // LOAD SCENE
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("f1_scene.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("example_scene.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
 
         // CREATE SCENE
-        F1Scene returnedScene = new F1Scene();
+        ExampleScene returnedScene = new ExampleScene();
         returnedScene.setSceneValues(sceneId, stage, scene);
 
         controller = fxmlLoader.getController();
