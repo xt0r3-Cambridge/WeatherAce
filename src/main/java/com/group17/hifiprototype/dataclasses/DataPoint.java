@@ -125,6 +125,28 @@ public class DataPoint implements Comparable<DataPoint>{
         return sb.toString();
     }
 
+    public String prettyAirTemperature() {
+        return (int)(airTemperature)+"°C";
+    }
+    public String prettyGroundTemperature() {
+        return (int)(groundTemperature)+"°C";
+    }
+    public String prettyWind() {
+        return (int)(windSpeed)+" m/s "+windDirection;
+    }
+    public String prettyTime() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("hh:mm");
+        return dtf.format(time);
+    }
+    public String prettyVisibility() {
+        return String.format("%.2f",visibility)+" km";
+    }
+
+    public String prettyPrecipitation() {
+        return (int)(precipitationChance*100)+"%";
+    }
+
+
     public void copyDataFrom(DataPoint other) {
         this.airTemperature = other.airTemperature;
         this.precipitation = other.precipitation;
