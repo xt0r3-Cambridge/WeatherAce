@@ -3,7 +3,6 @@ package com.group17.hifiprototype.scenes.f1_scene;
 import com.group17.hifiprototype.scenes.base_scene.BaseMotorsportController;
 import com.group17.hifiprototype.scenes.utils.GridControls;
 import com.group17.hifiprototype.scenes.utils.VBoxControls;
-import com.group17.hifiprototype.scenes.utils.WindDirections;
 
 public class F1Controller extends BaseMotorsportController {
 

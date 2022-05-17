@@ -18,19 +18,19 @@ import java.util.stream.Collectors;
 public class GridControls extends PaneControls {
 
     public static void newRowFromData(GridPane grid, String... data) {
-        /*
-        grid: The grid containing the items (detailedDataContainer in /scenes/base_scene/BaseMotorsportController.java)
-        data: A list of stings the need to be added to the grid.
-
-        For our purposes, it needs to have 5 elements, that are
-        (time, rain probability, temperature, road temperature, visibility)
-        Example:
-        ("14:20", "12%", "36°C", "200°C", "700km/h", "1.5m")
+        /**
+         * @param grid: The grid containing the items (detailedDataContainer in /scenes/base_scene/BaseMotorsportController.java)
+         * @param data: A list of stings the need to be added to the grid.
+         *              For our purposes, it needs to have 5 elements, that are
+         *              (time, rain probability, temperature, road temperature, visibility)
+         *              Example:
+         *              ("14:20", "12%", "36°C", "200°C", "700km/h", "1.5m")
          */
 
         int colCount = grid.getColumnCount();
-        int rowCount = grid.getRowCount() + 1; // Because of a change in implementation
+        int rowCount = grid.getRowCount() + 1; // Ugly modification because of a change in implementation
 
+        // Check whether we have the correct number of data points
         if(data.length != colCount){
             throw new InvalidParameterException(String.format(
                     "The number of items in grid [%d] are not matched by the number of data points [%d]",
@@ -40,7 +40,7 @@ public class GridControls extends PaneControls {
         }
 
 
-
+        // Add a row consisting of all the labels
         grid.addRow(rowCount - 1, Arrays.stream(data).map(
                 text -> {
                     Node label = new Label(text);
@@ -50,12 +50,14 @@ public class GridControls extends PaneControls {
                 }
         ).toArray(value -> new Node[colCount]));
 
+        // Rewrite the first row to be bold
         Node first = new Label(data[0]);
         GridPane.setHalignment(first, HPos.CENTER);
         GridPane.setValignment(first, VPos.CENTER);
         first.getStyleClass().add("bold");
         grid.add(first, 0, rowCount - 1);
 
+        // Set the row height to be 30 pixels
         RowConstraints rowConstraints = new RowConstraints();
         rowConstraints.setPrefHeight(30);
         rowConstraints.setVgrow(Priority.NEVER);
