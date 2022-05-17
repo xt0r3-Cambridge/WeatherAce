@@ -1,6 +1,5 @@
 package com.group17.hifiprototype.dataclasses;
 
-import java.time.Instant;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
@@ -14,12 +13,12 @@ public class DataPoint implements Comparable<DataPoint>{
     private double humidity;
     private double precipitationChance;
     private double windSpeed;
-    private double windDirection;
+    private Direction windDirection;
     private double visibility;
 
     public DataPoint(double latitude, double longitude, ZonedDateTime time, double airTemperature,
                      Precipitation precipitation, double groundTemperature, double humidity,
-                     double precipitationChance, double windSpeed, double windDirection,double visibility) {
+                     double precipitationChance, double windSpeed, Direction windDirection,double visibility) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.time = time;
@@ -71,7 +70,7 @@ public class DataPoint implements Comparable<DataPoint>{
         return windSpeed;
     }
 
-    public double getWindDirection() {
+    public Direction getWindDirection() {
         return windDirection;
     }
 
@@ -107,7 +106,7 @@ public class DataPoint implements Comparable<DataPoint>{
         this.windSpeed = windSpeed;
     }
 
-    public void setWindDirection(double windDirection) {
+    public void setWindDirection(Direction windDirection) {
         this.windDirection = windDirection;
     }
 
