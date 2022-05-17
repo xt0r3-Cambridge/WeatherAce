@@ -8,7 +8,8 @@
   "Favourite": false,
 
   "Sessions": [
-    {"Name": "Practice 1",
+    {
+      "Name": "Practice 1",
       "StartTime": "2022-05-27T013:00:00+01:00",
       "EndTime": "2022-05-27T14:00:00+01:00"
     },
