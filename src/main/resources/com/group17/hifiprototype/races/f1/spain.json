@@ -1,0 +1,36 @@
+{
+  "Group": "F1",
+  "Name": "Spanish Grand Prix",
+  "Latitude": 41.56842052448163,
+  "Longitude": 2.2572413399282762,
+  "StartTime": "2022-05-20T13:00:00+01:00",
+  "EndTime": "2022-05-22T16:00:00+01:00",
+  "Favourite": false,
+
+  "Sessions": [
+    {"Name": "Practice 1",
+      "StartTime": "2022-05-20T013:00:00+01:00",
+      "EndTime": "2022-05-20T14:00:00+01:00"
+    },
+    {
+      "Name": "Practice 2",
+      "StartTime": "2022-05-20T16:00:00+01:00",
+      "EndTime": "2022-05-20T17:00:00+01:00"
+    },
+    {
+      "Name": "Practice 3",
+      "StartTime": "2022-05-21T12:00:00+01:00",
+      "EndTime": "2022-05-21T13:00:00+01:00"
+    },
+    {
+      "Name": "Qualifying",
+      "StartTime": "2022-05-21T15:00:00+01:00",
+      "EndTime": "2022-05-21T16:00:00+01:00"
+    },
+    {
+      "Name": "Race",
+      "StartTime": "2022-05-22T14:00:00+01:00",
+      "EndTime": "2022-05-22T16:00:00+01:00"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "Group": "F1",
+  "Name": "Monaco Grand Prix",
+  "Latitude": 43.737537236494376,
+  "Longitude": 7.418602803364024,
+  "StartTime": "2022-05-27T13:00:00+01:00",
+  "EndTime": "2022-05-29T16:00:00+01:00",
+  "Favourite": false,
+
+  "Sessions": [
+    {"Name": "Practice 1",
+      "StartTime": "2022-05-27T013:00:00+01:00",
+      "EndTime": "2022-05-27T14:00:00+01:00"
+    },
+    {
+      "Name": "Practice 2",
+      "StartTime": "2022-05-27T16:00:00+01:00",
+      "EndTime": "2022-05-27T17:00:00+01:00"
+    },
+    {
+      "Name": "Practice 3",
+      "StartTime": "2022-05-28T12:00:00+01:00",
+      "EndTime": "2022-05-28T13:00:00+01:00"
+    },
+    {
+      "Name": "Qualifying",
+      "StartTime": "2022-05-28T15:00:00+01:00",
+      "EndTime": "2022-05-28T16:00:00+01:00"
+    },
+    {
+      "Name": "Race",
+      "StartTime": "2022-05-29T14:00:00+01:00",
+      "EndTime": "2022-05-29T16:00:00+01:00"
+    }
+  ]
+}

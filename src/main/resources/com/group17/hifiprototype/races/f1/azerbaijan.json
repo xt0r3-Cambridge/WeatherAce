@@ -1,0 +1,36 @@
+{
+  "Group": "F1",
+  "Name": "Azerbaijan Grand Prix",
+  "Latitude": 40.37288544865702,
+  "Longitude": 49.853575972598165,
+  "StartTime": "2022-06-10T12:00:00+01:00",
+  "EndTime": "2022-06-12T14:00:00+01:00",
+  "Favourite": false,
+
+  "Sessions": [
+    {"Name": "Practice 1",
+      "StartTime": "2022-06-10T012:00:00+01:00",
+      "EndTime": "2022-06-10T13:00:00+01:00"
+    },
+    {
+      "Name": "Practice 2",
+      "StartTime": "2022-06-10T15:00:00+01:00",
+      "EndTime": "2022-06-10T16:00:00+01:00"
+    },
+    {
+      "Name": "Practice 3",
+      "StartTime": "2022-06-11T12:00:00+01:00",
+      "EndTime": "2022-06-11T13:00:00+01:00"
+    },
+    {
+      "Name": "Qualifying",
+      "StartTime": "2022-06-11T15:00:00+01:00",
+      "EndTime": "2022-06-11T16:00:00+01:00"
+    },
+    {
+      "Name": "Race",
+      "StartTime": "2022-06-12T12:00:00+01:00",
+      "EndTime": "2022-06-12T14:00:00+01:00"
+    }
+  ]
+}
