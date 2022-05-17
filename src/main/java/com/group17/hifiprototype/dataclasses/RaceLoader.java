@@ -64,7 +64,8 @@ public class RaceLoader {
             Race race = Race.loadRaceFromJSON(jobj);
             raceFile.put(race, file);
             String group = jobj.getString("Group");
-            groupRaces.getOrDefault(group, new ArrayList<>()).add(race);
+            if (!groupRaces.containsKey(group)) groupRaces.put(group,new ArrayList<>());
+            groupRaces.get(group).add(race);
         }
     }
 
