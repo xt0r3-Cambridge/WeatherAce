@@ -75,7 +75,7 @@ public class weather {
         dp.setPrecipitation(Precipitation.values()[precipitationId]);
 
         double windDirectionDegrees = JObj.getDouble("windDirection");
-        int windDirectionIndex = (int) Math.round(windDirectionDegrees / 360 * Direction.values().length);
+        int windDirectionIndex = (int) Math.floor(windDirectionDegrees / 360 * Direction.values().length);
         dp.setWindDirection(Direction.values()[windDirectionIndex]);
 
         dp.setWindSpeed(JObj.getDouble("windSpeed"));
