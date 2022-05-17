@@ -14,7 +14,7 @@ import java.util.TreeSet;
 public class WeatherLoader {
     private final double latitude, longitude;
     private final ZonedDateTime startTime, endTime;
-    private TreeSet<DataPoint> dataPoints;
+    private ArrayList<DataPoint> dataPoints;
     private ZonedDateTime lastTimeUpdated;
     private boolean isLoaded;
 
@@ -52,14 +52,21 @@ public class WeatherLoader {
     }
 
     public void load() throws IOException {
-        dataPoints = new TreeSet<>(weather.call(latitude, longitude, startTime, endTime));
+        dataPoints = weather.call(latitude, longitude, startTime, endTime);
+        dataPoints.sort(DataPoint::compareTo);
         isLoaded = true;
         lastTimeUpdated = ZonedDateTime.now();
 
     }
 
     public void populate(DataPoint dataPoint) {
-        DataPoint closestDP = dataPoints.lower(dataPoint);
+        DataPoint closestDP = null;
+        int i = 0;
+        while (dataPoints.get(i).compareTo(dataPoint)<=0) {
+            closestDP = dataPoints.get(i);
+            i++;
+        }
+        assert closestDP != null;
         dataPoint.copyDataFrom(closestDP);
     }
 
