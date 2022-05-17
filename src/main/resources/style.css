@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 .root{
     -fx-background-color: black;
+    -fx-text-fill: white;
 }
 
 .button{
@@ -10,4 +13,75 @@
 .list-view .scroll-bar:vertical{
     -fx-padding: -10;
     -fx-opacity: 0;
+}
+
+.scroll-focus{
+
+}
+
+.transparent{
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+
+.roboto{
+    -fx-font-family: Roboto;
+    -fx-text-fill: white;
+}
+
+.bold{
+    -fx-font-weight: bolder;
+}
+
+.bg-image{
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+    -fx-background-image:  url('./com/group17/hifiprototype/images/f1/background.png');
+}
+
+.list-view{
+    -fx-background-color: transparent;
+}
+
+.content-box{
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-text-fill: white!important;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);
+}
+
+.depth-1{
+    -fx-background-color: #2a2a2a;
+}
+
+.depth-2{
+    -fx-background-color: #343434;
+}
+
+.depth-3{
+    -fx-background-color: #565656;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.straight-bottom{
+    -fx-background-radius: 20 20 0 0;
+}
+
+.list-view .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+
+}
+
+.grid-pane .grid-cell{
+    -fx-text-fill: white;
+
+}
+
+.popup-card{
+    -fx-background-radius: 20px;
 }

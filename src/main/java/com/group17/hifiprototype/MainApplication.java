@@ -22,6 +22,7 @@ public class MainApplication extends Application {
 
          stage.setWidth(480);  // can be resized during runtime
          stage.setHeight(800);  // can be resized during runtime
+
         // INIT SCENE CONTROLLER
         SceneController.init(stage);
 

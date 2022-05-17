@@ -18,6 +18,11 @@ public class MainMenuScene extends BaseScene {
 
     private MainMenuScene(){}
 
+    @Override
+    public void resetScene() {
+
+    }
+
     public static MainMenuScene init(Stage stage, SceneId sceneId) throws IOException {
         // LOAD SCENE
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main_menu_scene.fxml"));
