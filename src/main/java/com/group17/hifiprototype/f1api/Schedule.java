@@ -50,7 +50,7 @@ public class Schedule {
                 ArrayList<Race> races = new ArrayList<>(racesJson.length());
 
                 for (int i = 0; i < racesJson.length(); i++) {
-                    races.add(new Race(racesJson.getJSONObject(i)));
+                    races.add(Race.createFromF1API(racesJson.getJSONObject(i)));
                 }
                 return races;
             }
