@@ -26,6 +26,7 @@ public class Race {
     private final WeatherLoader weatherLoader;
     private ArrayList<Session> sessions;
     private boolean loaded;
+    private String thumbnailPath;
 
     //Time used to display main weather info
 
@@ -40,6 +41,15 @@ public class Race {
         this.sessions = new ArrayList<>();
         this.weatherLoader = new WeatherLoader(latitude, longitude, startTime, endTime);
         this.loaded = false;
+        this.thumbnailPath = null;
+    }
+
+    public String getThumbnailPath() {
+        return thumbnailPath;
+    }
+
+    public boolean hasThumbnail() {
+        return thumbnailPath == null;
     }
 
     /**
@@ -47,24 +57,22 @@ public class Race {
      *
      * @param jsonObject
      */
-    public Race(JSONObject jsonObject) {
-        name = jsonObject.getString("raceName");
+    public static Race createFromF1API(JSONObject jsonObject) {
+        String name = jsonObject.getString("raceName");
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("uuuu-MM-dd:HH:mm:ss");
         ZoneId utc = ZoneId.of("UTC");
 
-        startTime = ZonedDateTime.of(LocalDateTime.parse(jsonObject.getJSONObject("FirstPractice").getString("date") + ":" +
+        ZonedDateTime startTime = ZonedDateTime.of(LocalDateTime.parse(jsonObject.getJSONObject("FirstPractice").getString("date") + ":" +
                 StringUtils.chop(jsonObject.getJSONObject("FirstPractice").getString("time")), formatter), utc);
-        endTime = ZonedDateTime.of(LocalDateTime.parse(jsonObject.getString("date") + ":" +
+        ZonedDateTime endTime = ZonedDateTime.of(LocalDateTime.parse(jsonObject.getString("date") + ":" +
                 StringUtils.chop(jsonObject.getString("time")), formatter).plusHours(2), utc);
         JSONObject location = jsonObject.getJSONObject("Circuit").getJSONObject("Location");
-        latitude = Double.parseDouble(location.getString("lat"));
-        longitude = Double.parseDouble(location.getString("long"));
+        double latitude = Double.parseDouble(location.getString("lat"));
+        double longitude = Double.parseDouble(location.getString("long"));
 
         ZonedDateTime mainTime = endTime.truncatedTo(ChronoUnit.DAYS).withHour(12);
-        this.weatherLoader = new WeatherLoader(latitude, longitude, startTime, endTime);
-        this.loaded = false;
-        sessions = new ArrayList<>(5);
+        ArrayList<Session> sessions = new ArrayList<>(5);
 
         if (jsonObject.has("ThirdPractice")) {
             LocalDateTime fp1 = LocalDateTime.parse(jsonObject.getJSONObject("FirstPractice").getString("date") +
@@ -111,14 +119,18 @@ public class Race {
         }
 
         sessions.add(new Session("Race", endTime.minus(2, ChronoUnit.HOURS), endTime, latitude, longitude));
-
+        Race output = new Race(name,startTime,endTime,latitude,longitude);
+        for (Session sess:sessions) {
+            output.addSession(sess);
+        }
+        return output;
     }
 
     /**
      * @param jsonObject JSON Object encoding information about a race
      * @return a Race with the information provided in the JSON
      */
-    public static Race LoadRace(JSONObject jsonObject) throws IllegalArgumentException {
+    public static Race loadRaceFromJSON(JSONObject jsonObject) throws IllegalArgumentException {
         try {
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssz");
 
@@ -142,6 +154,10 @@ public class Race {
                 Session session = new Session(sessionName, sessionStart, sessionEnd, latitude, longitude);
                 outputRace.addSession(session);
 
+            }
+
+            if (jsonObject.has("ThumbnailPath")) {
+                outputRace.thumbnailPath = jsonObject.getString("ThumbnailPath");
             }
 
             return outputRace;
