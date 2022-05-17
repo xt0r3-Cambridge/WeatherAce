@@ -8,8 +8,11 @@ import org.json.*;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -96,8 +99,9 @@ public class weather {
         endTime = endTime.replace(":", "%3A");
 
         String timesteps = "15m,1h,1d";
-        String timezone = "Europe%2FLondon";
-        //TODO: call wrt to zoned time
+
+        // Encoding to escape the slash /
+        String timezone = URLEncoder.encode(ZoneId.systemDefault().toString(), StandardCharsets.UTF_8.toString());
         String units = "metric";
         String location = df.format(latitude) + "," + df.format(longitude);
 
