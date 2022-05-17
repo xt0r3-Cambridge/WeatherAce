@@ -38,7 +38,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Azerbaijan Grand Prix" textAlignment="CENTER" wrappingWidth="400.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="6 Hours of Monza" textAlignment="CENTER" wrappingWidth="400.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                             <GridPane.margin>
                                 <Insets />
                             </GridPane.margin>
@@ -50,7 +50,7 @@
                                 <String fx:value="bold" />
                             </styleClass>
                         </Text>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="20-22 June" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="10 July" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
                             <font>
                                 <Font size="16.0" />
                             </font>
@@ -63,7 +63,7 @@
                 </GridPane>
                 <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                     <image>
-                        <Image url="@images/f1/Azerbaijan.png" />
+                        <Image url="@images/wec/italy.png" />
                     </image>
                 </ImageView>
                 <GridPane GridPane.columnSpan="3" GridPane.rowIndex="2">
