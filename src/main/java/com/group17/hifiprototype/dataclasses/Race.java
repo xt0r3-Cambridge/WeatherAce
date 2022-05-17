@@ -16,7 +16,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Race {
+public class Race implements Comparable<Race>{
     private static final int HOUR_OF_MAIN_POINT = 14;
 
     private final String name;
@@ -26,6 +26,27 @@ public class Race {
     private final WeatherLoader weatherLoader;
     private ArrayList<Session> sessions;
     private boolean loaded;
+
+    public String getName() {
+        return name;
+    }
+
+    public ZonedDateTime getStartTime() {
+        return startTime;
+    }
+
+    public ZonedDateTime getEndTime() {
+        return endTime;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
     private String thumbnailPath;
 
     //Time used to display main weather info
@@ -246,5 +267,10 @@ public class Race {
 
     public ArrayList<Session> getSessions() {
         return sessions;
+    }
+
+    @Override
+    public int compareTo(Race o) {
+        return startTime.compareTo(o.startTime);
     }
 }
