@@ -2,6 +2,7 @@ package com.group17.hifiprototype.dataclasses;
 
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class Group {
 
@@ -39,5 +40,12 @@ public class Group {
         }
         goodRaces.sort(Race::compareTo);
         races = goodRaces;
+    }
+
+    public <T extends Collection<Race>> void addRaces(T rs) {
+        for (Race race: rs) {
+            races.add(race);
+        }
+        races.sort(Race::compareTo);
     }
 }
