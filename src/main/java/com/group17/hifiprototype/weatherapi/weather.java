@@ -85,6 +85,7 @@ public class weather {
 
         String timesteps = "15m,1h,1d";
         String timezone = "Europe%2FLondon";
+        //TODO: call wrt to zoned time
         String units = "metric";
         String location = df.format(latitude) + "," + df.format(longitude);
 
