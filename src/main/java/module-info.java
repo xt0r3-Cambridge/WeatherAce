@@ -24,4 +24,7 @@ module com.group17.hifiprototype {
     exports com.group17.hifiprototype.scenes.base_scene;
     exports com.group17.hifiprototype.scenes.utils;
 
+    opens com.group17.hifiprototype.scenes.example_scene to javafx.fxml;  // This needs to be duplicated for other scenes
+    exports com.group17.hifiprototype.scenes.example_scene;  // This needs to be duplicated for other scenes
+
 }

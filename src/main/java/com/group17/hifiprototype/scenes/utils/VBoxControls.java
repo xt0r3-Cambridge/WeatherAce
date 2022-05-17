@@ -14,10 +14,16 @@ import java.security.InvalidParameterException;
 
 public class VBoxControls {
     public static void addBlock(String name, String date, String url, AnchorPane anchorPane, VBox container, Runnable onClick) {
-        /*
-        Creates a new block where the name of the block is {name}, the date of the block is {date}, and the image of
-        the block is loaded from the path to the image (e.g. /images/logos/example.png for resources/images/...)
-        When clicked, the pane will run the onClick() function. (The function can have no arguments).
+        /**
+         * Creates a new block where the name of the block is {name}, the date of the block is {date}, and the image of
+         * the block is loaded from the path to the image (e.g. /images/logos/example.png for resources/images/...)
+         * When clicked, the pane will run the onClick() function. (The function can have no arguments).
+         * @param name: The name of the competition on the overlay
+         * @param: date: The date when the competition will take place
+         * @param url: The url of the background image
+         * @param anchorPane: anchorPane to contain the VBox container of the block
+         * @param container: The VBox container which contains all the boxes
+         * @param onClick: The function that gets called when the block is clicked.
          */
 
         final double labelPadding = 15;
@@ -135,12 +141,6 @@ public class VBoxControls {
 
         // Add grid to VBox
         container.getChildren().add(cardGrid);
-
-        anchorPane.widthProperty().addListener(event -> {
-            System.out.println(cardGrid.getHeight());
-            System.out.println(popupFlag.getFitHeight());
-            System.out.println(labelGrid.getHeight());
-        });
 
         // CREATE BINDINGS
         {

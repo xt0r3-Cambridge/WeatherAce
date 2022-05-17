@@ -1,11 +1,10 @@
-package com.group17.hifiprototype.scenes.f1_scene;
+package com.group17.hifiprototype.scenes.example_scene;
 
 import com.group17.hifiprototype.scenes.base_scene.BaseMotorsportController;
 import com.group17.hifiprototype.scenes.utils.GridControls;
 import com.group17.hifiprototype.scenes.utils.VBoxControls;
-import com.group17.hifiprototype.scenes.utils.WindDirections;
 
-public class F1Controller extends BaseMotorsportController {
+public class ExampleController extends BaseMotorsportController {
 
     public void loadWeatherData(){
         /**
@@ -39,7 +38,8 @@ public class F1Controller extends BaseMotorsportController {
 
     public void setMainWeatherData(){
         /**
-         * Sets the main wea
+         * Sets the main weather data for the non-scrollable box in the middle of the screen
+         * Needs to be implemented
          */
         super.mainWind.setText("75km/h ↗");
         super.mainRain.setText("99%");

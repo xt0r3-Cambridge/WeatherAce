@@ -10,11 +10,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 public abstract class BaseMotorsportController {
 
     public abstract void loadWeatherData();
     public abstract void loadRaceData();
+    public abstract void setMainWeatherData();
 
     public void resetScene() {
         detailedDataScrollPane.setVvalue(0);
@@ -23,6 +25,9 @@ public abstract class BaseMotorsportController {
     }
 
     public void init() {
+        /**
+         * Initializes the base motorsport scene that will be the same for all race scenes (e.g. F1 Grand Prix in Miami)
+         */
 
         // BOTTOM SCROLLBAR
         {
@@ -63,6 +68,9 @@ public abstract class BaseMotorsportController {
 
         // Load race data for the overlay
         this.loadRaceData();
+
+        // Set the main component's text
+        this.setMainWeatherData();
     }
 
     @FXML
@@ -83,6 +91,12 @@ public abstract class BaseMotorsportController {
     protected ImageView overlayCloseButton;
     @FXML
     protected VBox popupvbox;
+    @FXML
+    protected Text mainWind;
+    @FXML
+    protected Text mainRain;
+    @FXML
+    protected Text mainTemp;
 
     @FXML
     void backToMain() {
@@ -114,7 +128,6 @@ public abstract class BaseMotorsportController {
 
     @FXML
     void disableBottomScroll() {
-        System.out.println("disabled");
         if (!detailedDataScrollPane.isPressed()) {
             detailedDataScrollPane.setPannable(false);
         }

@@ -3,6 +3,9 @@ package com.group17.hifiprototype.scenes.base_scene;
 import com.group17.hifiprototype.scenes.utils.SceneId;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.apache.commons.lang3.NotImplementedException;
+
+import java.io.IOException;
 
 public abstract class BaseScene {
 
@@ -23,6 +26,10 @@ public abstract class BaseScene {
     }
 
     public abstract void resetScene();
+
+    public static BaseScene init(Stage stage, SceneId sceneId) throws IOException {
+        throw new NotImplementedException("Init must be implemented individually for every scene");
+    }
 
     public SceneId getId(){
         return this.id;
