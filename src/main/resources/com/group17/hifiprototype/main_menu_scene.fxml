@@ -8,10 +8,10 @@
     <padding>
         <Insets bottom="20" left="20" right="20" top="20" />
     </padding>
-    <Button fx:id="F1Button" prefHeight="${contentWindow.height*0.15}" prefWidth="${contentWindow.width * 0.7}" styleClass="button" text="Formula 1" />
-    <Button fx:id="WECButton" prefHeight="${contentWindow.height*0.15}" prefWidth="${contentWindow.width * 0.7}" styleClass="button" text="WEC" />
-    <Button fx:id="NascarButton" prefHeight="${contentWindow.height*0.15}" prefWidth="${contentWindow.width * 0.7}" styleClass="button" text="NASCAR!" />
-    <Button fx:id="LocalButton" prefHeight="${contentWindow.height*0.15}" prefWidth="${contentWindow.width * 0.7}" styleClass="button" text="Local events!" />
-    <Button fx:id="FavouritesButton" prefHeight="${contentWindow.height*0.15}" prefWidth="${contentWindow.width * 0.7}" styleClass="button" text="Favourites" />
+    <Button fx:id="F1Button" prefHeight="${contentWindow.height*0.15}" prefWidth="${contentWindow.width * 0.7}" styleClass="content-box" text="Formula 1" />
+    <Button fx:id="WECButton" prefHeight="${contentWindow.height*0.15}" prefWidth="${contentWindow.width * 0.7}" styleClass="content-box" text="WEC" />
+    <Button fx:id="NascarButton" prefHeight="${contentWindow.height*0.15}" prefWidth="${contentWindow.width * 0.7}" styleClass="content-box" text="NASCAR!" />
+    <Button fx:id="LocalButton" prefHeight="${contentWindow.height*0.15}" prefWidth="${contentWindow.width * 0.7}" styleClass="content-box" text="Local events!" />
+    <Button fx:id="FavouritesButton" prefHeight="${contentWindow.height*0.15}" prefWidth="${contentWindow.width * 0.7}" styleClass="content-box" text="Favourites" />
 
 </VBox>

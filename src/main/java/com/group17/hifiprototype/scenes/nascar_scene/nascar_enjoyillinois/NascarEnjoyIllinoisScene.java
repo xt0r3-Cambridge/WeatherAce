@@ -2,7 +2,6 @@ package com.group17.hifiprototype.scenes.nascar_scene.nascar_enjoyillinois;
 
 import com.group17.hifiprototype.MainApplication;
 import com.group17.hifiprototype.scenes.base_scene.BaseScene;
-import com.group17.hifiprototype.scenes.f1_scene.F1Controller;
 import com.group17.hifiprototype.scenes.utils.SceneController;
 import com.group17.hifiprototype.scenes.utils.SceneId;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +13,7 @@ import java.io.IOException;
 
 
 public class NascarEnjoyIllinoisScene extends BaseScene {
-    private static F1Controller controller;
+    private static NascarEnjoyIllinoisController controller;
 
     private NascarEnjoyIllinoisScene(){}
 

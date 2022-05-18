@@ -21,8 +21,8 @@ public class MainMenuController {
 
     public void init(){
         F1Button.setOnAction(actionEvent -> SceneController.setScene(SceneId.F1_MIAMI));
-        WECButton.setOnAction(actionEvent -> SceneController.setScene(SceneId.NASCAR_ALLSTAROPEN));
-        NascarButton.setOnAction(actionEvent -> SceneController.setScene(SceneId.WEC_LEMANS));
+        WECButton.setOnAction(actionEvent -> SceneController.setScene(SceneId.WEC_LEMANS));
+        NascarButton.setOnAction(actionEvent -> SceneController.setScene(SceneId.NASCAR_ALLSTAROPEN));
         // LocalButton.setOnAction(actionEvent -> SceneController.setScene(SceneId.LOCAL));
         // FavouritesButton.setOnAction(actionEvent -> SceneController.setScene(SceneId.FAVOURITES));
     }
