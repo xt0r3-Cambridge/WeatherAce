@@ -50,7 +50,7 @@
                                 <String fx:value="bold" />
                             </styleClass>
                         </Text>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="17-19 June" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="17-19 Jun" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
                             <font>
                                 <Font size="16.0" />
                             </font>

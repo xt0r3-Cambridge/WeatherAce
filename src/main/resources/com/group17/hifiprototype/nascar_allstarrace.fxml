@@ -38,7 +38,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="British Grand Prix" textAlignment="CENTER" wrappingWidth="400.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="NASCAR All-Star Race" textAlignment="CENTER" wrappingWidth="400.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                             <GridPane.margin>
                                 <Insets />
                             </GridPane.margin>
@@ -50,7 +50,7 @@
                                 <String fx:value="bold" />
                             </styleClass>
                         </Text>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="01-03 Jul" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="23 May" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
                             <font>
                                 <Font size="16.0" />
                             </font>
@@ -63,7 +63,7 @@
                 </GridPane>
                 <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                     <image>
-                        <Image url="@images/f1/Britain.png" />
+                        <Image url="@images/f1/Miami.png" />
                     </image>
                 </ImageView>
                 <GridPane GridPane.columnSpan="3" GridPane.rowIndex="2">
@@ -75,7 +75,7 @@
                         <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="SUNDAY - 15:00" GridPane.halignment="CENTER">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="MONDAY - 01:00" GridPane.halignment="CENTER">
                             <font>
                                 <Font size="24.0" />
                             </font>
