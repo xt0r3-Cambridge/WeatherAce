@@ -1,7 +1,8 @@
-package com.group17.hifiprototype.scenes.main_menu_scene;
+package com.group17.hifiprototype.scenes.nascar_scene.nascar_cocacola;
+
 import com.group17.hifiprototype.MainApplication;
-import com.group17.hifiprototype.scenes.utils.SceneController;
 import com.group17.hifiprototype.scenes.base_scene.BaseScene;
+import com.group17.hifiprototype.scenes.utils.SceneController;
 import com.group17.hifiprototype.scenes.utils.SceneId;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,24 +12,26 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 
-public class MainMenuScene extends BaseScene {
-    private static MainMenuController controller;
+public class NascarCocaColaScene extends BaseScene {
+    private static NascarCocaColaController controller;
 
-    private MainMenuScene(){}
+    private NascarCocaColaScene(){}
 
     @Override
     public void resetScene() {
-
+        controller.resetScene();
     }
 
-    public static MainMenuScene init(Stage stage, SceneId sceneId) throws IOException {
+    public static NascarCocaColaScene init(Stage stage, SceneId sceneId) throws IOException {
         // LOAD SCENE
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main_menu_scene.fxml"));
+
+        //TODO: CHANGE SCENE
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("nascar_cocacola.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
 
         // CREATE SCENE
-        MainMenuScene returnedScene = new MainMenuScene();
+        NascarCocaColaScene returnedScene = new NascarCocaColaScene();
         returnedScene.setSceneValues(sceneId, stage, scene);
 
         controller = fxmlLoader.getController();
@@ -36,12 +39,11 @@ public class MainMenuScene extends BaseScene {
         // SET ACTION VARIABLES
         controller.init();
 
-        // ADD STYLESHEET
-        returnedScene.getScene().getStylesheets().add("style.css");
-
-
         // ADD SCENE TO CONTROLLER
         SceneController.addScene(returnedScene);
+
+        // ADD STYLESHEET
+        returnedScene.getScene().getStylesheets().add("style.css");
 
         return returnedScene;
     }
