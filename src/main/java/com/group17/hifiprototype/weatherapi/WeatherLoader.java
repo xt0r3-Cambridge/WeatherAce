@@ -53,7 +53,9 @@ public class WeatherLoader {
 
     public void load() throws IOException {
         ZonedDateTime initialTime = ZonedDateTime.now().compareTo(startTime) >=0 ? ZonedDateTime.now() : startTime;
+        //API call
         dataPoints = weather.call(latitude, longitude, initialTime, endTime);
+
         dataPoints.sort(DataPoint::compareTo);
         isLoaded = true;
         lastTimeUpdated = ZonedDateTime.now();

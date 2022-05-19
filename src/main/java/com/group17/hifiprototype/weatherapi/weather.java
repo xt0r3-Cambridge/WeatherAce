@@ -113,7 +113,7 @@ public class weather {
         try {
             String combined = website + "?apikey=" + apikey + parameters;
 
-            //System.out.println(combined);
+            System.out.println("CALLING FOR: "+combined);
 
             URL url = new URL(combined);
 
