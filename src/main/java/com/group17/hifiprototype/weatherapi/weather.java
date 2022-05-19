@@ -91,12 +91,12 @@ public class weather {
     }
 
     /**
-     * @param apikey
-     * @param latitude
-     * @param longitude
-     * @param startDate
-     * @param endDate
-     * @return
+     * @param apikey API key to be used in building the URL
+     * @param latitude double showing the latitude of the location to be queried
+     * @param longitude double showing the longitude of the location to be queried
+     * @param startDate start datetime to be queried
+     * @param endDate end datetime to be queried
+     * @return URL that can be used to make a weather API call
      * @throws Exception
      */
     private static URL buildCallURL(String apikey, double latitude, double longitude, ZonedDateTime startDate, ZonedDateTime endDate) throws Exception {
@@ -128,9 +128,17 @@ public class weather {
         return new URL(combined);
     }
 
+    /**
+     * Gets the weather data in the specified location at the specified time. Tries to get the data using all API keys in case the call limit has been reached.
+     *
+     * @param latitude double showing the latitude of the location to be queried
+     * @param longitude double showing the longitude of the location to be queried
+     * @param startDate start datetime to be queried
+     * @param endDate end datetime to be queried
+     * @return array of weather DataPoint containing the data returned by the API
+     * @throws IOException
+     */
     static ArrayList<DataPoint> call(double latitude, double longitude, ZonedDateTime startDate, ZonedDateTime endDate) throws IOException {
-        // Gets the weather data. Attempts to make calls using all API keys to work around the call limit.
-
         for (String apikey : apikeys) {
             try {
                 URL url = buildCallURL(apikey, latitude, longitude, startDate, endDate);
@@ -142,7 +150,7 @@ public class weather {
                 // Check if connect is made
                 int responseCode = conn.getResponseCode();
 
-                if (responseCode == 200) {
+                if (responseCode == 200) { // OK code
                     StringBuilder informationString = new StringBuilder();
                     Scanner scanner = new Scanner(url.openStream());
 
@@ -158,7 +166,7 @@ public class weather {
                     return new ArrayList<>(flatten(jsonString).stream().map(x -> JSONToDataPoint(latitude, longitude, x)).collect(Collectors.toList()));
 
                 }
-                else if (responseCode != 429) {
+                else if (responseCode != 429) { // 429 is the code for exceeding call limit
                     throw new RuntimeException("HttpResponseCode: " + responseCode);
                 }
 
