@@ -1,6 +1,7 @@
 package com.group17.hifiprototype.scenes.example_scene;
 
 import com.group17.hifiprototype.MainApplication;
+import com.group17.hifiprototype.backend.dataclasses.RaceGroups;
 import com.group17.hifiprototype.scenes.base_scene.BaseScene;
 import com.group17.hifiprototype.scenes.utils.SceneController;
 import com.group17.hifiprototype.scenes.utils.SceneId;
@@ -22,7 +23,7 @@ public class ExampleScene extends BaseScene {
         controller.resetScene();
     }
 
-    public static ExampleScene init(Stage stage, SceneId sceneId, String raceName) throws IOException {
+    public static ExampleScene init(Stage stage, SceneId sceneId, RaceGroups group, String raceName) throws IOException {
         /**
          * Initializes the scene from its fxml file and the controller
          * Adds the stylesheet
@@ -40,7 +41,7 @@ public class ExampleScene extends BaseScene {
         controller = fxmlLoader.getController();
 
         // SET ACTION VARIABLES
-        controller.init(raceName);
+        controller.init(group, raceName);
 
         // ADD SCENE TO CONTROLLER
         SceneController.addScene(returnedScene);
