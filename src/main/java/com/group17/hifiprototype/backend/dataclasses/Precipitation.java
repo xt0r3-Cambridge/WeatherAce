@@ -1,4 +1,4 @@
-package com.group17.hifiprototype.dataclasses;
+package com.group17.hifiprototype.backend.dataclasses;
 
 /**
  * The different kinds of precipitation the weather API gives us.

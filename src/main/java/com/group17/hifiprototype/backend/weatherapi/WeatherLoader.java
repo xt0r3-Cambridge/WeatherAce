@@ -1,12 +1,10 @@
-package com.group17.hifiprototype.weatherapi;
+package com.group17.hifiprototype.backend.weatherapi;
 
-import com.group17.hifiprototype.dataclasses.DataPoint;
+import com.group17.hifiprototype.backend.dataclasses.DataPoint;
 
 import java.io.IOException;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
-import java.util.NoSuchElementException;
-import java.util.TreeSet;
 
 /**
  * Interface between races and weather api

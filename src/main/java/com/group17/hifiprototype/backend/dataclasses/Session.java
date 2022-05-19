@@ -1,11 +1,8 @@
-package com.group17.hifiprototype.dataclasses;
+package com.group17.hifiprototype.backend.dataclasses;
 
-import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
-import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalField;
 import java.util.ArrayList;
 import java.util.List;
 

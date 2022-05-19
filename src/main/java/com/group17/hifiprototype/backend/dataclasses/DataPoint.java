@@ -1,4 +1,4 @@
-package com.group17.hifiprototype.dataclasses;
+package com.group17.hifiprototype.backend.dataclasses;
 
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
