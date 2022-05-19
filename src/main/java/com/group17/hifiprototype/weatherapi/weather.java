@@ -21,7 +21,13 @@ import java.util.stream.Collectors;
 
 public class weather {
 
-    static final String apikey = "xaJtVMAcUEmoocLbBBvcFzC16AhkJKlu";
+    static final String[] apikeys = {
+        "xaJtVMAcUEmoocLbBBvcFzC16AhkJKlu",
+        "Q7nAqJ9H73PSH0bA4vdKpfETnI1BVtJh",
+        "IL2A1UcRWrqDnw75IRGJFzxtZ6Qq0bwx",
+        "3T5L7PzhIFIcNWUiHurqZqWVRze5y3vZ",
+        "0BifX7fmfrz86vOfWA6ABRSJD9bWC6Te"
+    };
     private static final String website = "https://api.tomorrow.io/v4/timelines";
 
     /**
@@ -54,14 +60,14 @@ public class weather {
     /**
      * @param latitude
      * @param longitude
-     * @param JObj JSON object in a format returned by flatten
+     * @param JObj      JSON object in a format returned by flatten
      * @return
      */
     public static DataPoint JSONToDataPoint(double latitude, double longitude, JSONObject JObj) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssz");
         ZonedDateTime time = ZonedDateTime.from(dtf.parse(JObj.getString("startTime")));
 
-        DataPoint dp = new DataPoint(latitude,longitude,time);
+        DataPoint dp = new DataPoint(latitude, longitude, time);
         JObj = JObj.getJSONObject("values");
 
         double airTemperature = JObj.getDouble("temperature");
@@ -84,7 +90,7 @@ public class weather {
         return dp;
     }
 
-    static ArrayList<DataPoint> call(double latitude, double longitude, ZonedDateTime startDate, ZonedDateTime endDate) throws IOException {
+    private static URL buildCallURL(String apikey, double latitude, double longitude, ZonedDateTime startDate, ZonedDateTime endDate) throws Exception {
         DecimalFormat df = new DecimalFormat("#.####");
 
         DateTimeFormatter dtf = java.time.format.DateTimeFormatter.ofPattern("uuuu-MM-dd+HH:mm:ss.SSS");
@@ -106,61 +112,52 @@ public class weather {
         String location = df.format(latitude) + "," + df.format(longitude);
 
         String parameters = "&fields=" + fields + "&startTime=" + startTime + "Z&endTime=" + endTime +
-                "Z&timesteps=" + timesteps + "&timezone=" + timezone + "&units=" + units + "&location=" + location;
+            "Z&timesteps=" + timesteps + "&timezone=" + timezone + "&units=" + units + "&location=" + location;
 
-        //System.out.println(parameters);
+        String combined = website + "?apikey=" + apikeys[0] + parameters;
 
-        try {
-            String combined = website + "?apikey=" + apikey + parameters;
-
-            System.out.println("CALLING FOR: "+combined);
-
-            URL url = new URL(combined);
-
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("GET");
-            conn.connect();
-
-            //Check if connect is made
-            int responseCode = conn.getResponseCode();
-
-            // 200 OK
-            if (responseCode != 200) {
-                throw new RuntimeException("HttpResponseCode: " + responseCode);
-            } else {
-
-                StringBuilder informationString = new StringBuilder();
-                Scanner scanner = new Scanner(url.openStream());
-
-                while (scanner.hasNext()) {
-                    informationString.append(scanner.nextLine());
-                }
-                //Close the scanner
-                scanner.close();
-
-                //System.out.println(informationString);
-
-                String jsonString = String.valueOf(informationString);
-                //JSONObject obj = new JSONObject(jsonString);
-                //JSONArray dataObject = obj.getJSONArray("data");
-                //JSONArray dataObject = obj.getJSONArray("consolidated_weather");
-                //JSON simple library Setup with Maven is used to convert strings to JSON
-                //JSONArray dataObject = new JSONArray(String.valueOf(informationString));
-
-                //Get the first JSON object in the JSON array
-                //System.out.println(dataObject.get(0));
-
-                //JSONObject countryData = (JSONObject) dataObject.get(0);
-
-                //System.out.println(countryData.get("visibility"));
-                conn.disconnect();
-                return new ArrayList<>(flatten(jsonString).stream().map(x -> JSONToDataPoint(latitude,longitude,x)).collect(Collectors.toList()));
-
-            }
-        } catch (Exception e) {
-            throw new IOException(e);
-        }
+        return new URL(combined);
     }
+
+    static ArrayList<DataPoint> call(double latitude, double longitude, ZonedDateTime startDate, ZonedDateTime endDate) throws IOException {
+        // Gets the weather data. Attempts to make calls using all API keys to work around the call limit.
+
+        for (String apikey : apikeys) {
+            try {
+                URL url = buildCallURL(apikey, latitude, longitude, startDate, endDate);
+
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("GET");
+                conn.connect();
+
+                // Check if connect is made
+                int responseCode = conn.getResponseCode();
+
+                if (responseCode != 200 && responseCode != 429) {
+                    throw new RuntimeException("HttpResponseCode: " + responseCode);
+                } else if (responseCode != 429) {
+
+                    StringBuilder informationString = new StringBuilder();
+                    Scanner scanner = new Scanner(url.openStream());
+
+                    while (scanner.hasNext()) {
+                        informationString.append(scanner.nextLine());
+                    }
+                    //Close the scanner
+                    scanner.close();
+
+                    String jsonString = String.valueOf(informationString);
+
+                    conn.disconnect();
+                    return new ArrayList<>(flatten(jsonString).stream().map(x -> JSONToDataPoint(latitude, longitude, x)).collect(Collectors.toList()));
+
+                }
+            } catch (Exception e) { }
+        }
+        throw new IOException("Failed to get weather data. API call limit has possibly been reached.");
+    }
+
+
 
     public static void main(String[] args) {
         //ArrayList<DataPoint> arr = call(40.758, -73.9855, ZonedDateTime.now(), ZonedDateTime.now().plusDays(3));
