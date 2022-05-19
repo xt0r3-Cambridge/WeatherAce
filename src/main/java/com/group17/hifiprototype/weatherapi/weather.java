@@ -90,6 +90,15 @@ public class weather {
         return dp;
     }
 
+    /**
+     * @param apikey
+     * @param latitude
+     * @param longitude
+     * @param startDate
+     * @param endDate
+     * @return
+     * @throws Exception
+     */
     private static URL buildCallURL(String apikey, double latitude, double longitude, ZonedDateTime startDate, ZonedDateTime endDate) throws Exception {
         DecimalFormat df = new DecimalFormat("#.####");
 
@@ -114,7 +123,7 @@ public class weather {
         String parameters = "&fields=" + fields + "&startTime=" + startTime + "Z&endTime=" + endTime +
             "Z&timesteps=" + timesteps + "&timezone=" + timezone + "&units=" + units + "&location=" + location;
 
-        String combined = website + "?apikey=" + apikeys[0] + parameters;
+        String combined = website + "?apikey=" + apikey + parameters;
 
         return new URL(combined);
     }
@@ -133,10 +142,7 @@ public class weather {
                 // Check if connect is made
                 int responseCode = conn.getResponseCode();
 
-                if (responseCode != 200 && responseCode != 429) {
-                    throw new RuntimeException("HttpResponseCode: " + responseCode);
-                } else if (responseCode != 429) {
-
+                if (responseCode == 200) {
                     StringBuilder informationString = new StringBuilder();
                     Scanner scanner = new Scanner(url.openStream());
 
@@ -152,9 +158,16 @@ public class weather {
                     return new ArrayList<>(flatten(jsonString).stream().map(x -> JSONToDataPoint(latitude, longitude, x)).collect(Collectors.toList()));
 
                 }
-            } catch (Exception e) { }
+                else if (responseCode != 429) {
+                    throw new RuntimeException("HttpResponseCode: " + responseCode);
+                }
+
+            } catch (Exception e) {
+                System.out.println("Exception " + e);
+                System.out.println("Failed to get weather data using key: " + apikey);
+            }
         }
-        throw new IOException("Failed to get weather data. API call limit has possibly been reached.");
+        throw new IOException("Failed to get weather data. API call limit has been reached.");
     }
 
 
