@@ -1,8 +1,12 @@
 package com.group17.hifiprototype.scenes.example_scene;
 
+import com.group17.hifiprototype.dataclasses.*;
 import com.group17.hifiprototype.scenes.base_scene.BaseMotorsportController;
 import com.group17.hifiprototype.scenes.utils.GridControls;
 import com.group17.hifiprototype.scenes.utils.VBoxControls;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ExampleController extends BaseMotorsportController {
 
@@ -11,18 +15,28 @@ public class ExampleController extends BaseMotorsportController {
          * This will add the rows containing weather data to the current scene.
          * This needs to be implemented for all controllers.
          */
-        GridControls.newRowFromData(super.detailedDataContainer, "FRI", "", "", "", "", "");
-        GridControls.newRowFromData(super.detailedDataContainer, "14:20", "12%", "36°C", "200°C", "70km/h SE", "1.5m");
-        GridControls.newRowFromData(super.detailedDataContainer, "14:20", "12%", "36°C", "200°C", "700km/h", "1.5m");
-        GridControls.newRowFromData(super.detailedDataContainer, "14:20", "12%", "36°C", "200°C", "700km/h", "1.5m");
-        GridControls.newRowFromData(super.detailedDataContainer, "14:20", "12%", "36°C", "200°C", "700km/h", "1.5m");
-        GridControls.newRowFromData(super.detailedDataContainer, "14:20", "12%", "36°C", "200°C", "700km/h", "1.5m");
-        GridControls.newRowFromData(super.detailedDataContainer, "14:20", "12%", "36°C", "200°C", "700km/h", "1.5m");
-        GridControls.newRowFromData(super.detailedDataContainer, "", "", "", "", "", "");
-        GridControls.newRowFromData(super.detailedDataContainer, "SAT", "", "", "", "", "");
-        GridControls.newRowFromData(super.detailedDataContainer, "14:20", "12%", "36°C", "200°C", "700km/h", "1.5m");
-        GridControls.newRowFromData(super.detailedDataContainer, "14:20", "12%", "36°C", "200°C", "700km/h", "1.5m");
-        GridControls.newRowFromData(super.detailedDataContainer, "14:20", "12%", "36°C", "200°C", "700km/h", "1.5m");
+        Race currentRace = RaceLoader.getGroup(RaceGroups.F1).getRaces().get(0);
+        currentRace.loadWeatherData();
+
+        ArrayList<Session> sessions = currentRace.getSessions();
+
+        for(Session session: sessions){
+            GridControls.newRowFromData(super.detailedDataContainer, session.getName(), "", "", "", "", "");
+            System.out.println(session.getName());
+            List<DataPoint> dataPointList = session.getDataPoints();
+            for(DataPoint dataPoint: dataPointList){
+                GridControls.newRowFromData(
+                        super.detailedDataContainer,
+                        dataPoint.prettyTime(),
+                        dataPoint.prettyPrecipitation(),
+                        dataPoint.prettyAirTemperature(),
+                        dataPoint.prettyGroundTemperature(),
+                        dataPoint.prettyWind(),
+                        dataPoint.prettyVisibility()
+                );
+            }
+            GridControls.newRowFromData(super.detailedDataContainer, "", "", "", "", "", "");
+        }
     }
 
     public void loadRaceData(){
@@ -42,9 +56,13 @@ public class ExampleController extends BaseMotorsportController {
          * Sets the main weather data for the non-scrollable box in the middle of the screen
          * Needs to be implemented
          */
-        super.mainWind.setText("75km/h ↗");
-        super.mainRain.setText("99%");
-        super.mainTemp.setText("658°C");
+        Race currentRace = RaceLoader.getGroup(RaceGroups.F1).getRaces().get(0);
+        currentRace.loadWeatherData();
+        DataPoint mainDataPoint = currentRace.getMainDataPoint();
+
+        super.mainWind.setText(mainDataPoint.prettyWind());
+        super.mainRain.setText(mainDataPoint.prettyAirTemperature());
+        super.mainTemp.setText(mainDataPoint.prettyGroundTemperature());
     }
 }
 

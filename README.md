@@ -11,31 +11,32 @@
 8. Implement the loadWeatherData() and loadRaces() functions
 9. Add the Scene to MainApplication.java as seen for F1Scene.
 
-Model race json:
-{
-  "Group": "F1",
-  "Name": "F1 Race 1",
-  "ThumbnailPath": "//aaaaaaa//aaaaaaa//bbbbb", (optional)
-  "Latitude": 52.1951,
-  "Longitude": 0.1313,
-  "StartTime": "2022-05-17T05:00:00+01:00",
-  "EndTime": "2022-05-25T19:00:00+01:00",
-  "Favourite": false,
-  
-  "Sessions": [
-    {"Name": "S1",
-      "StartTime": "2022-05-17T07:00:00+01:00",
-      "EndTime": "2022-05-17T10:00:00+01:00"
-    },
-    {
-      "Name": "S2",
-      "StartTime": "2022-05-18T18:00:00+01:00",
-      "EndTime": "2022-05-18T19:00:00+01:00"
-    },
-    {
-      "Name": "Main Race",
-      "StartTime": "2022-05-25T13:00:00+01:00",
-      "EndTime": "2022-05-25T15:00:00+01:00"
-    }
-  ]
+Model race json:  
+{  
+"Group": "F1",  
+&ensp;"Name": "F1 Race 1",  
+&ensp;"ThumbnailPath": "//aaaaaaa//aaaaaaa//bbbbb", (optional)  
+&ensp;"Latitude": 52.1951,  
+&ensp;"Longitude": 0.1313,  
+&ensp;"StartTime": "2022-05-17T05:00:00+01:00",  
+&ensp;"EndTime": "2022-05-25T19:00:00+01:00",  
+&ensp;"Favourite": false,  
+&ensp;  
+&ensp;"Sessions": [  
+&ensp;&ensp;{  
+&ensp;&ensp;&ensp;"Name": "S1",  
+&ensp;&ensp;&ensp;"StartTime": "2022-05-17T07:00:00+01:00",  
+&ensp;&ensp;&ensp;"EndTime": "2022-05-17T10:00:00+01:00"  
+&ensp;&ensp;},  
+&ensp;&ensp;{  
+&ensp;&ensp;&ensp;"Name": "S2",  
+&ensp;&ensp;&ensp;"StartTime": "2022-05-18T18:00:00+01:00",  
+&ensp;&ensp;&ensp;"EndTime": "2022-05-18T19:00:00+01:00"  
+&ensp;&ensp;},  
+&ensp;&ensp;{  
+&ensp;&ensp;&ensp;"Name": "Main Race",  
+&ensp;&ensp;&ensp;"StartTime": "2022-05-25T13:00:00+01:00",  
+&ensp;&ensp;&ensp;"EndTime": "2022-05-25T15:00:00+01:00"  
+&ensp;&ensp;}  
+&ensp;]  
 }

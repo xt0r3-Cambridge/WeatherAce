@@ -15,6 +15,36 @@ import java.util.stream.Collectors;
  */
 public class RaceLoader {
 
+    private static RaceLoaderObject loader;
+
+    /**
+     * @param directoryPath Directory with race JSONs
+     * @throws UnsupportedOperationException
+     * @throws IOException
+     */
+    public static void initialise(String directoryPath) throws UnsupportedOperationException,IOException{
+        if (loader==null) {
+            loader = new RaceLoaderObject(directoryPath);
+            loader.init();
+        }
+        else throw new UnsupportedOperationException("Loader already initialised!");
+    }
+
+    /**
+     * @param group A race group.
+     * @return All races from that group.
+     */
+    public static Group getGroup(RaceGroups group) {
+        return loader.getGroup(group.toString());
+    }
+
+    /**
+     * @return All loaded races.
+     */
+    public static Set<Race> getAllRaces() {
+        return loader.getAllRaces();
+    }
+
     private static class RaceLoaderObject {
         private final String dirPath;
         private List<File> JSONs;
@@ -109,34 +139,6 @@ public class RaceLoader {
         }
 
     }
-    private static RaceLoaderObject loader;
 
-    /**
-     * @param directoryPath Directory with race JSONs
-     * @throws UnsupportedOperationException
-     * @throws IOException
-     */
-    public static void initialise(String directoryPath) throws UnsupportedOperationException,IOException{
-        if (loader==null) {
-            loader = new RaceLoaderObject(directoryPath);
-            loader.init();
-        }
-        else throw new UnsupportedOperationException("Loader already initialised!");
-    }
-
-    /**
-     * @param group A race group.
-     * @return All races from that group.
-     */
-    public static Group getGroup(RaceGroups group) {
-        return loader.getGroup(group.toString());
-    }
-
-    /**
-     * @return All loaded races.
-     */
-    public static Set<Race> getAllRaces() {
-        return loader.getAllRaces();
-    }
 
 }

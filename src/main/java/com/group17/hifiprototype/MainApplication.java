@@ -1,5 +1,9 @@
 package com.group17.hifiprototype;
 
+import com.group17.hifiprototype.dataclasses.Group;
+import com.group17.hifiprototype.dataclasses.Race;
+import com.group17.hifiprototype.dataclasses.RaceGroups;
+import com.group17.hifiprototype.dataclasses.RaceLoader;
 import com.group17.hifiprototype.scenes.example_scene.ExampleScene;
 import com.group17.hifiprototype.scenes.f1_scene.f1_azerbaijan.F1AzerbaijanScene;
 import com.group17.hifiprototype.scenes.f1_scene.f1_britain.F1BritainScene;
@@ -42,6 +46,10 @@ public class MainApplication extends Application {
         // INIT SCENE CONTROLLER
         SceneController.init(stage);
 
+        // INIT RACES
+        RaceLoader.initialise("src/main/resources/com/group17/hifiprototype/races");
+
+
         // LOAD APPLICATION PAGES (and add them to the controller)
         MainMenuScene.init(stage, SceneId.MAIN_MENU);
         ExampleScene.init(stage, SceneId.EXAMPLE);
@@ -64,7 +72,7 @@ public class MainApplication extends Application {
         WecLeMansScene.init(stage, SceneId.WEC_LEMANS);
         WecMonzaScene.init(stage, SceneId.WEC_MONZA);
 
-        SceneController.setScene(SceneId.MAIN_MENU);
+        SceneController.setScene(SceneId.EXAMPLE);
     }
 
     public static void main(String[] args) {
