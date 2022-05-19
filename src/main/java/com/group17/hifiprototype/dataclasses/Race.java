@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
-public class Race implements Comparable<Race>{
+public class Race implements Comparable<Race> {
     private static final int HOUR_OF_MAIN_POINT = 14;
 
     private final String name;
@@ -143,8 +143,8 @@ public class Race implements Comparable<Race>{
         }
 
         sessions.add(new Session("Race", endTime.minus(2, ChronoUnit.HOURS), endTime, latitude, longitude));
-        Race output = new Race(name,startTime,endTime,latitude,longitude);
-        for (Session sess:sessions) {
+        Race output = new Race(name, startTime, endTime, latitude, longitude);
+        for (Session sess : sessions) {
             output.addSession(sess);
         }
         return output;
@@ -227,16 +227,12 @@ public class Race implements Comparable<Race>{
     /**
      * Downloads relevant weather data from the weather api and populates dynamically-created data points with it.
      */
-    public void loadWeatherData() {
-        if(!loaded){
-            try {
-                weatherLoader.load();
-                createDataPoints();
-                fetchWeatherData();
-                loaded = true;
-            } catch (IOException ioe) {
-                ioe.printStackTrace();
-            }
+    public void loadWeatherData() throws IOException {
+        if (!loaded) {
+            weatherLoader.load();
+            createDataPoints();
+            fetchWeatherData();
+            loaded = true;
         }
     }
 
