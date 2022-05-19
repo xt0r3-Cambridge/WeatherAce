@@ -40,3 +40,23 @@ Model race json:
 &ensp;&ensp;}  
 &ensp;]  
 }
+
+
+Using the backend:
+
+Getting races/groups and loading weather data:
+1. create a raceLoader object -- pass it the path of the directory with ALL the .json race files
+2. call init() on it
+3. you can now either get a whole group of races or a set of all the races
+4. to load the weather data into a race or group (loads it for all races in the group): call loadWeatherData()
+
+Retrieving weather information once loaded:
+
+For a race:
+1. getMainDataPoint() -- this gives you a data point for the last day of the event
+2. getSessions() -- gives you a list of sessions, sorted by start time, followed by:
+3. session.getDataPoints() -- gives you a list of data points for the session, sorted by time
+
+Retrieving weather information from a DataPoint:
+dataPoint.prettyAirTemperature, prettyWind, etc... -- these return strings formatted for printing.
+
