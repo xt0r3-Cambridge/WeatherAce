@@ -94,12 +94,12 @@ public abstract class BaseMotorsportController {
             // If successful, get the main datapoints and load them to the main content box
             DataPoint mainDataPoint = currentRace.getMainDataPoint();
             mainWind.setText(mainDataPoint.prettyWind());
-            mainRain.setText(mainDataPoint.prettyAirTemperature());
-            mainTemp.setText(mainDataPoint.prettyGroundTemperature());
+            mainRain.setText(mainDataPoint.prettyPrecipitation());
+            mainTemp.setText(mainDataPoint.prettyAirTemperature());
         } catch (Exception ignored) {
             // Otherwise add default data
             mainWind.setText("4 m/s " + Direction.NE);
-            mainRain.setText("36°C");
+            mainRain.setText("36%");
             mainTemp.setText("42°C");
         }
     }
