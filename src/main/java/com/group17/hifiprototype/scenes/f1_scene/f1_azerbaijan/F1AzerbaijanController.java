@@ -1,16 +1,22 @@
 package com.group17.hifiprototype.scenes.f1_scene.f1_azerbaijan;
 
-import com.group17.hifiprototype.dataclasses.RaceGroups;
-import com.group17.hifiprototype.dataclasses.RaceLoader;
+import com.group17.hifiprototype.dataclasses.*;
 import com.group17.hifiprototype.scenes.base_scene.BaseMotorsportController;
 import com.group17.hifiprototype.scenes.utils.GridControls;
 import com.group17.hifiprototype.scenes.utils.SceneController;
 import com.group17.hifiprototype.scenes.utils.SceneId;
 import com.group17.hifiprototype.scenes.utils.VBoxControls;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class F1AzerbaijanController extends BaseMotorsportController {
 
     public void loadWeatherData(){
+        /**
+         * This will add the rows containing weather data to the current scene.
+         * This needs to be implemented for all controllers.
+         */
         GridControls.newRowFromData(super.detailedDataContainer, "FRI", "", "", "", "", "");
         GridControls.newRowFromData(super.detailedDataContainer, "14:20", "12%", "36°C", "200°C", "700km/h", "1.5m");
         GridControls.newRowFromData(super.detailedDataContainer, "14:20", "12%", "36°C", "200°C", "700km/h", "1.5m");
@@ -18,7 +24,6 @@ public class F1AzerbaijanController extends BaseMotorsportController {
         GridControls.newRowFromData(super.detailedDataContainer, "14:20", "12%", "36°C", "200°C", "700km/h", "1.5m");
         GridControls.newRowFromData(super.detailedDataContainer, "14:20", "12%", "36°C", "200°C", "700km/h", "1.5m");
         GridControls.newRowFromData(super.detailedDataContainer, "14:20", "12%", "36°C", "200°C", "700km/h", "1.5m");
-        // todo later
     }
 
     public void loadRaceData(){

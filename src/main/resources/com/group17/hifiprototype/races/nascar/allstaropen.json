@@ -1,0 +1,17 @@
+{
+  "Group": "NASCAR",
+  "Name": "All-Star Open",
+  "Latitude": 33.0369,
+  "Longitude": -97.2819,
+  "StartTime": "2022-05-22T22:30:00+01:00",
+  "EndTime": "2022-05-23T02:30:00+01:00",
+  "Favourite": false,
+
+  "Sessions": [
+    {
+      "Name": "Race",
+      "StartTime": "2022-05-22T22:30:00+01:00",
+      "EndTime": "2022-05-23T02:30:00+01:00"
+    }
+  ]
+}
