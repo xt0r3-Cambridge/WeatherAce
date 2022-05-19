@@ -193,6 +193,9 @@ public class Race implements Comparable<Race>{
         sessions.sort(Session::compareTo);
     }
 
+    /**
+     * @return The main data point for the race, defined as being at 14:00 on the last day of the event.
+     */
     public DataPoint getMainDataPoint() {
         return mainDataPoint;
     }
