@@ -26,7 +26,8 @@ public class weather {
         "Q7nAqJ9H73PSH0bA4vdKpfETnI1BVtJh",
         "IL2A1UcRWrqDnw75IRGJFzxtZ6Qq0bwx",
         "3T5L7PzhIFIcNWUiHurqZqWVRze5y3vZ",
-        "0BifX7fmfrz86vOfWA6ABRSJD9bWC6Te"
+        "0BifX7fmfrz86vOfWA6ABRSJD9bWC6Te",
+        "SFr1U172TFyceGdYovG5RA7mTYRpVRYU"
     };
     private static final String website = "https://api.tomorrow.io/v4/timelines";
 

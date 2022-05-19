@@ -151,7 +151,6 @@ public class DataPoint implements Comparable<DataPoint> {
     }
 
     public String prettyPrecipitation() {
-        System.out.println(precipitationChance);
         return (int) (precipitationChance) + "%";
     }
 
