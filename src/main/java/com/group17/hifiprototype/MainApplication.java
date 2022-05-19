@@ -1,9 +1,9 @@
 package com.group17.hifiprototype;
 
-import com.group17.hifiprototype.dataclasses.Group;
-import com.group17.hifiprototype.dataclasses.Race;
-import com.group17.hifiprototype.dataclasses.RaceGroups;
-import com.group17.hifiprototype.dataclasses.RaceLoader;
+import com.group17.hifiprototype.backend.dataclasses.Group;
+import com.group17.hifiprototype.backend.dataclasses.Race;
+import com.group17.hifiprototype.backend.dataclasses.RaceGroups;
+import com.group17.hifiprototype.backend.dataclasses.RaceLoader;
 import com.group17.hifiprototype.scenes.example_scene.ExampleScene;
 import com.group17.hifiprototype.scenes.f1_scene.f1_azerbaijan.F1AzerbaijanScene;
 import com.group17.hifiprototype.scenes.f1_scene.f1_britain.F1BritainScene;

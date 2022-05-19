@@ -1,6 +1,6 @@
 package com.group17.hifiprototype.scenes.utils;
 
-import com.group17.hifiprototype.dataclasses.Direction;
+import com.group17.hifiprototype.backend.dataclasses.Direction;
 import eu.hansolo.tilesfx.Tile;
 import javafx.collections.ObservableList;
 import javafx.geometry.HPos;

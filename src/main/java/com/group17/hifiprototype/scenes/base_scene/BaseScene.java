@@ -8,6 +8,9 @@ import org.apache.commons.lang3.NotImplementedException;
 import java.io.IOException;
 
 public abstract class BaseScene {
+    /**
+     * Generic controller for functionality that is the same across all race scenes
+     */
 
     private SceneId id;
     private Stage stage;

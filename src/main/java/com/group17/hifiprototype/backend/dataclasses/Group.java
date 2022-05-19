@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
+import com.group17.hifiprototype.backend.dataclasses.Race;
 
 /**
  * Group of races. These correspond to the different motorsports.

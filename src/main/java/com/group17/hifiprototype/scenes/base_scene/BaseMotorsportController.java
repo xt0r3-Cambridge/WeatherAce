@@ -1,6 +1,6 @@
 package com.group17.hifiprototype.scenes.base_scene;
 
-import com.group17.hifiprototype.dataclasses.*;
+import com.group17.hifiprototype.backend.dataclasses.*;
 import com.group17.hifiprototype.scenes.utils.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
@@ -17,6 +17,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class BaseMotorsportController {
+    /**
+     * Generic controller for functionality that is the same across all race scenes
+     */
 
     public abstract void loadRaceData();
 

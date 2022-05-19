@@ -1,7 +1,7 @@
-package com.group17.hifiprototype.dataclasses;
+package com.group17.hifiprototype.backend.dataclasses;
 
-import com.group17.hifiprototype.weatherapi.WeatherLoader;
-import com.group17.hifiprototype.weatherapi.weather;
+import com.group17.hifiprototype.backend.weatherapi.WeatherLoader;
+import com.group17.hifiprototype.backend.weatherapi.weather;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.apache.commons.lang3.StringUtils;
