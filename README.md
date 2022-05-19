@@ -45,10 +45,9 @@ Model race json:
 Using the backend:
 
 Getting races/groups and loading weather data:
-1. create a raceLoader object -- pass it the path of the directory with ALL the .json race files
-2. call init() on it
-3. you can now either get a whole group of races or a set of all the races
-4. to load the weather data into a race or group (loads it for all races in the group): call loadWeatherData()
+1. call init() on the RaceLoader class, with a directory containing all race jsons (or other directories that contain jsons)
+2. you can now either get a whole group of races or a set of all the races
+3. to load the weather data into a race or group (loads it for all races in the group): call loadWeatherData()
 
 Retrieving weather information once loaded:
 
