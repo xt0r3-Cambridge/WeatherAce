@@ -1,7 +1,8 @@
 package com.group17.hifiprototype.scenes.main_menu_scene;
+
 import com.group17.hifiprototype.MainApplication;
-import com.group17.hifiprototype.scenes.utils.SceneController;
 import com.group17.hifiprototype.scenes.base_scene.BaseScene;
+import com.group17.hifiprototype.scenes.utils.SceneController;
 import com.group17.hifiprototype.scenes.utils.SceneId;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

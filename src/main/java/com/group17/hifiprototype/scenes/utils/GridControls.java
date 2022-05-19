@@ -1,23 +1,17 @@
 package com.group17.hifiprototype.scenes.utils;
 
 import com.group17.hifiprototype.backend.dataclasses.Direction;
-import eu.hansolo.tilesfx.Tile;
-import javafx.collections.ObservableList;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.RowConstraints;
 
 import java.security.InvalidParameterException;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.concurrent.Callable;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.stream.Collectors;
 
 public class GridControls extends PaneControls {
 

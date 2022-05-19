@@ -3,7 +3,8 @@ package com.group17.hifiprototype.backend.weatherapi;
 import com.group17.hifiprototype.backend.dataclasses.DataPoint;
 import com.group17.hifiprototype.backend.dataclasses.Direction;
 import com.group17.hifiprototype.backend.dataclasses.Precipitation;
-import org.json.*;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;

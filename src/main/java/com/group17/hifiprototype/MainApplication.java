@@ -1,8 +1,5 @@
 package com.group17.hifiprototype;
 
-import com.group17.hifiprototype.backend.dataclasses.Group;
-import com.group17.hifiprototype.backend.dataclasses.Race;
-import com.group17.hifiprototype.backend.dataclasses.RaceGroups;
 import com.group17.hifiprototype.backend.dataclasses.RaceLoader;
 import com.group17.hifiprototype.scenes.example_scene.ExampleScene;
 import com.group17.hifiprototype.scenes.f1_scene.f1_azerbaijan.F1AzerbaijanScene;
@@ -24,7 +21,6 @@ import com.group17.hifiprototype.scenes.wec_scene.wec_fuji.WecFujiScene;
 import com.group17.hifiprototype.scenes.wec_scene.wec_lemans.WecLeMansScene;
 import com.group17.hifiprototype.scenes.wec_scene.wec_monza.WecMonzaScene;
 import javafx.application.Application;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;

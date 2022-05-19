@@ -3,13 +3,11 @@ package com.group17.hifiprototype.scenes.base_scene;
 import com.group17.hifiprototype.backend.dataclasses.*;
 import com.group17.hifiprototype.scenes.utils.*;
 import javafx.fxml.FXML;
-import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 

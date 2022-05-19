@@ -1,8 +1,6 @@
 package com.group17.hifiprototype.scenes.example_scene;
 
 import com.group17.hifiprototype.scenes.base_scene.BaseMotorsportController;
-import com.group17.hifiprototype.scenes.utils.SceneController;
-import com.group17.hifiprototype.scenes.utils.SceneId;
 import com.group17.hifiprototype.scenes.utils.VBoxControls;
 
 public class ExampleController extends BaseMotorsportController {

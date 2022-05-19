@@ -2,7 +2,6 @@ package com.group17.hifiprototype.scenes.utils;
 
 import javafx.beans.value.ObservableValue;
 import javafx.scene.layout.Pane;
-import org.w3c.dom.Node;
 
 public class PaneControls {
     public static void setExactWidth(Pane node, double width) {
