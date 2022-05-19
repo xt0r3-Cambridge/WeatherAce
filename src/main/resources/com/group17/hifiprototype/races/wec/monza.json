@@ -1,0 +1,27 @@
+{
+  "Group": "WEC",
+  "Name": "6 Hours of Monza",
+  "Latitude": 45.61684720614527,
+  "Longitude": 9.283242644840595,
+  "StartTime": "2022-07-08T13:00:00+01:00",
+  "EndTime": "2022-07-10T16:00:00+01:00",
+  "Favourite": false,
+
+  "Sessions": [
+    {
+      "Name": "Practice",
+      "StartTime": "2022-07-08T13:00:00+01:00",
+      "EndTime": "2022-07-08T15:00:00+01:00"
+    },
+    {
+      "Name": "Qualifying",
+      "StartTime": "2022-07-09T14:00:00+01:00",
+      "EndTime": "2022-07-09T16:00:00+01:00"
+    },
+    {
+      "Name": "Race",
+      "StartTime": "2022-07-10T12:00:00+01:00",
+      "EndTime": "2022-07-10T18:00:00+01:00"
+    }
+  ]
+}

@@ -19,6 +19,9 @@ public class Group {
         return name;
     }
 
+    /**
+     * @return List of races, sorted by start time.
+     */
     public ArrayList<Race> getRaces() {
         return new ArrayList<>(races);
     }

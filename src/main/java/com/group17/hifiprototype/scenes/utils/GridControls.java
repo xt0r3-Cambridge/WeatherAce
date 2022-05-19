@@ -1,5 +1,7 @@
 package com.group17.hifiprototype.scenes.utils;
 
+import eu.hansolo.tilesfx.Tile;
+import javafx.collections.ObservableList;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.Node;
@@ -39,29 +41,32 @@ public class GridControls extends PaneControls {
             ));
         }
 
+        // CREATING ROW DATA
+        {
+            // Create data for a row consisting of all the labels
+            Node[] rowData = Arrays.stream(data).map(
+                    text -> {
+                        Node label = new Label(text);
+                        GridPane.setHalignment(label, HPos.CENTER);
+                        GridPane.setValignment(label, VPos.CENTER);
+                        return label;
+                    }
+            ).toArray(value -> new Node[colCount]);
+            // Add bold style to the first column
+            rowData[0].getStyleClass().add("bold");
+            // Add row to grid
+            grid.addRow(rowCount - 1, rowData);
+        }
 
-        // Add a row consisting of all the labels
-        grid.addRow(rowCount - 1, Arrays.stream(data).map(
-                text -> {
-                    Node label = new Label(text);
-                    GridPane.setHalignment(label, HPos.CENTER);
-                    GridPane.setValignment(label, VPos.CENTER);
-                    return label;
-                }
-        ).toArray(value -> new Node[colCount]));
+        // CREATING ROW CONSTRAINTS
+        {
+            // Set the row height to be 30 pixels
+            RowConstraints rowConstraints = new RowConstraints();
+            rowConstraints.setPrefHeight(30);
+            rowConstraints.setVgrow(Priority.NEVER);
+            grid.getRowConstraints().add(rowCount - 1, rowConstraints);
+        }
 
-        // Rewrite the first row to be bold
-        Node first = new Label(data[0]);
-        GridPane.setHalignment(first, HPos.CENTER);
-        GridPane.setValignment(first, VPos.CENTER);
-        first.getStyleClass().add("bold");
-        grid.add(first, 0, rowCount - 1);
-
-        // Set the row height to be 30 pixels
-        RowConstraints rowConstraints = new RowConstraints();
-        rowConstraints.setPrefHeight(30);
-        rowConstraints.setVgrow(Priority.NEVER);
-        grid.getRowConstraints().add(rowCount - 1, rowConstraints);
     }
 
 }

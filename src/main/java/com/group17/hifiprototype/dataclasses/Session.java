@@ -9,11 +9,11 @@ import java.time.temporal.TemporalField;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Session implements Comparable<Session>{
+public class Session implements Comparable<Session> {
 
 
     private final String name;
-    private final ZonedDateTime startTime,endTime;
+    private final ZonedDateTime startTime, endTime;
     private final double latitude, longitude;
     private ArrayList<DataPoint> dataPoints;
 
@@ -31,7 +31,7 @@ public class Session implements Comparable<Session>{
         int step = granularity.getStep();
         ZonedDateTime time = startTime;
         while (time.isBefore(endTime.plusSeconds(1))) {
-            dataPoints.add(new DataPoint(latitude,longitude,time));
+            dataPoints.add(new DataPoint(latitude, longitude, time));
             time = time.plusMinutes(step);
         }
     }
@@ -53,6 +53,7 @@ public class Session implements Comparable<Session>{
 
     /**
      * Sort by start time
+     *
      * @param o
      * @return
      */
@@ -67,5 +68,9 @@ public class Session implements Comparable<Session>{
 
     public ZonedDateTime getEndTime() {
         return endTime;
+    }
+
+    public String getName() {
+        return name;
     }
 }

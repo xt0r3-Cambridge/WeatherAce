@@ -1,5 +1,7 @@
 package com.group17.hifiprototype.scenes.f1_scene.f1_azerbaijan;
 
+import com.group17.hifiprototype.dataclasses.RaceGroups;
+import com.group17.hifiprototype.dataclasses.RaceLoader;
 import com.group17.hifiprototype.scenes.base_scene.BaseMotorsportController;
 import com.group17.hifiprototype.scenes.utils.GridControls;
 import com.group17.hifiprototype.scenes.utils.SceneController;
