@@ -1,8 +1,6 @@
 package com.group17.hifiprototype.scenes.base_scene;
 
-import com.group17.hifiprototype.dataclasses.Group;
-import com.group17.hifiprototype.dataclasses.RaceGroups;
-import com.group17.hifiprototype.dataclasses.RaceLoader;
+import com.group17.hifiprototype.dataclasses.*;
 import com.group17.hifiprototype.scenes.utils.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
@@ -15,16 +13,30 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class BaseMotorsportController {
 
-    public abstract void loadWeatherData();
     public abstract void loadRaceData();
-    public abstract void setMainWeatherData();
 
     public void resetScene() {
         detailedDataScrollPane.setVvalue(0);
         detailedDataScrollPane.setHvalue(0);
         this.closeOverlay();
+    }
+
+    public void init(String raceName){
+        // Load weather data
+        this.loadWeatherData(raceName);
+
+        // Set the main component's text
+        this.setMainWeatherData(raceName);
+
+        // Add other races to the overlay (hard coded)
+        this.loadRaceData();
+        // Setup generic methods
+        this.init();
     }
 
     public void init() {
@@ -45,8 +57,6 @@ public abstract class BaseMotorsportController {
 
             // SETUP SCROLLABLE WEATHER DATA
             {
-                // Load weather data
-                this.loadWeatherData();
                 // Set anchorPane height to have a height that overflows the scrollpane to the data height minus the offset
                 detailedDataContainer.setPrefHeight((detailedDataContainer.getRowCount() + 1) * 30);
                 final int offset = -60;  // The first row with the icons is 60px tall. We make that stick out.
@@ -68,12 +78,66 @@ public abstract class BaseMotorsportController {
                 });
             }
         }
+    }
 
-        // Load race data for the overlay
-        this.loadRaceData();
+    public void setMainWeatherData(String raceName) {
+        /**
+         * Attempts to load the weather data for the race with name raceName and set the main weather content box
+         * If it fails, it defaults to loading mock data
+         */
+        try {
+            // Get the race
+            Race currentRace = RaceLoader.getGroup(RaceGroups.F1).getRace(raceName);
+            // Load the weather data
+            currentRace.loadWeatherData();
+            // If successful, get the main datapoints and load them to the main content box
+            DataPoint mainDataPoint = currentRace.getMainDataPoint();
+            mainWind.setText(mainDataPoint.prettyWind());
+            mainRain.setText(mainDataPoint.prettyAirTemperature());
+            mainTemp.setText(mainDataPoint.prettyGroundTemperature());
+        } catch (Exception ignored) {
+            // Otherwise add default data
+            mainWind.setText("4 m/s " + Direction.NE);
+            mainRain.setText("36°C");
+            mainTemp.setText("42°C");
+        }
+    }
 
-        // Set the main component's text
-        this.setMainWeatherData();
+    public void loadWeatherData(String raceName) {
+        /**
+         * Attempts to load the weather data for the race with name raceName into the scrollable panel
+         * If it fails, it defaults to loading mock data
+         */
+        try {
+            // Get the race
+            Race currentRace = RaceLoader.getGroup(RaceGroups.F1).getRace(raceName);
+            // Load the weather data
+            currentRace.loadWeatherData();
+
+            // If it is successful, add the datapoints from the weather data to the scrollbar
+            ArrayList<Session> sessions = currentRace.getSessions();
+            for (Session session : sessions) {
+                GridControls.newRowFromData(detailedDataContainer, session.getName(), "", "", "", "", "");
+                System.out.println(session.getName());
+                List<DataPoint> dataPointList = session.getDataPoints();
+                for (DataPoint dataPoint : dataPointList) {
+                    GridControls.newRowFromData(
+                            detailedDataContainer,
+                            dataPoint.prettyTime(),
+                            dataPoint.prettyPrecipitation(),
+                            dataPoint.prettyAirTemperature(),
+                            dataPoint.prettyGroundTemperature(),
+                            dataPoint.prettyWind(),
+                            dataPoint.prettyVisibility()
+                    );
+                }
+                GridControls.newRowFromData(detailedDataContainer, "", "", "", "", "", "");
+            }
+        } catch (Exception ignored) {
+            // Otherwise fill rows with mock data
+            GridControls.newRowFromData(detailedDataContainer, "ERROR:", "Race at", "an invalid", "time", "Filled with", "mock data");
+            GridControls.fillWithMock(detailedDataContainer);
+        }
     }
 
     @FXML

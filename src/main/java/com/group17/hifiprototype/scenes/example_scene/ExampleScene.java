@@ -22,7 +22,7 @@ public class ExampleScene extends BaseScene {
         controller.resetScene();
     }
 
-    public static ExampleScene init(Stage stage, SceneId sceneId) throws IOException {
+    public static ExampleScene init(Stage stage, SceneId sceneId, String raceName) throws IOException {
         /**
          * Initializes the scene from its fxml file and the controller
          * Adds the stylesheet
@@ -40,7 +40,7 @@ public class ExampleScene extends BaseScene {
         controller = fxmlLoader.getController();
 
         // SET ACTION VARIABLES
-        controller.init();
+        controller.init(raceName);
 
         // ADD SCENE TO CONTROLLER
         SceneController.addScene(returnedScene);
