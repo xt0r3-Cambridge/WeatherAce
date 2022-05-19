@@ -72,7 +72,7 @@ public class MainApplication extends Application {
         WecLeMansScene.init(stage, SceneId.WEC_LEMANS);
         WecMonzaScene.init(stage, SceneId.WEC_MONZA);
 
-        SceneController.setScene(SceneId.EXAMPLE);
+        SceneController.setScene(SceneId.F1_SPAIN);
     }
 
     public static void main(String[] args) {

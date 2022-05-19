@@ -52,10 +52,9 @@ public class F1AzerbaijanController extends BaseMotorsportController {
          * This will add the rows containing all other scenes in the overlay.
          * This needs to be implemented for all controllers.
          */
-        // HAPPENS BEFORE DEADLINE VBoxControls.addBlock("Miami Grand Prix", "06-08 May", "images/flags/usa.png", super.overlay, super.popupvbox, () -> System.out.println("I am the best"));
-        VBoxControls.addBlock("Fasz2", "soinfqoienfoqi", "images/flags/usa.png", super.overlay, super.popupvbox, () -> System.out.println("click"));
-        VBoxControls.addBlock("Fasz3", "soinfqoienfoqi", "images/flags/usa.png", super.overlay, super.popupvbox, () -> System.out.println("click2"));
-        VBoxControls.addBlock("Fasz4", "soinfqoienfoqi", "images/flags/usa.png", super.overlay, super.popupvbox, () -> System.out.println("click3"));
+        VBoxControls.addBlock("Spanish Grand Prix", "20-22 May", "images/f1/spain.png", super.overlay, super.popupvbox, () -> SceneController.setScene(SceneId.F1_SPAIN));
+        VBoxControls.addBlock("Monaco Grand Prix", "27-29 May", "images/f1/monaco.png", super.overlay, super.popupvbox, () -> SceneController.setScene(SceneId.F1_MONACO));
+        VBoxControls.addBlock("Azerbaijan Grand Prix", "10-12 Jun", "images/f1/azerbaijan.png", super.overlay, super.popupvbox, () -> SceneController.setScene(SceneId.F1_AZERBAIJAN));
     }
 
     //TODO copy paste
