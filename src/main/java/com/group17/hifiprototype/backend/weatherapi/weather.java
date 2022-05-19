@@ -170,7 +170,12 @@ public class weather {
                     throw new RuntimeException("HttpResponseCode: " + responseCode);
                 }
 
-            } catch (Exception e) {
+            }
+            catch (RuntimeException re) {
+                System.out.println("API Exception -- "+re);
+                break;
+            }
+            catch (Exception e) {
                 System.out.println("Exception " + e);
                 System.out.println("Failed to get weather data using key: " + apikey);
             }
