@@ -4,9 +4,8 @@ public enum Granularity {
     Minutes,Hours,Days;
 
     /**
-     Returns time step, in minutes.
+     @return Time step, in minutes.
      **/
-
     public int getStep() {
         int output;
         switch(this) {
