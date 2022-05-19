@@ -32,6 +32,7 @@ public class Session implements Comparable<Session> {
     /**
      * Populates session with data points between its start and end time, at a specified granularity.
      * This creates empty data points, which need to be filled by a weather loader.
+     *
      * @param granularity
      */
     public void createEmptyDataPoints(Granularity granularity) {
@@ -46,6 +47,7 @@ public class Session implements Comparable<Session> {
 
     /**
      * This is for debugging purposes
+     *
      * @return
      */
     @Override

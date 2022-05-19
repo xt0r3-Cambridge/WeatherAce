@@ -20,16 +20,16 @@ public class RaceLoader {
 
     /**
      * Retrieves JSONs, creates races, creates groups.
+     *
      * @param directoryPath Directory with race JSONs
      * @throws UnsupportedOperationException
      * @throws IOException
      */
-    public static void initialise(String directoryPath) throws UnsupportedOperationException,IOException{
-        if (loader==null) {
+    public static void initialise(String directoryPath) throws UnsupportedOperationException, IOException {
+        if (loader == null) {
             loader = new RaceLoaderObject(directoryPath);
             loader.init();
-        }
-        else throw new UnsupportedOperationException("Loader already initialised!");
+        } else throw new UnsupportedOperationException("Loader already initialised!");
     }
 
     /**
@@ -82,7 +82,7 @@ public class RaceLoader {
                 File dir = dirs.poll();
                 JSONs.addAll(List.of(dir.listFiles(f -> f.getName().endsWith(".json"))));
                 List<File> otherDirs = List.of(dir.listFiles(f -> f.isDirectory()));
-                for (File file:otherDirs) {
+                for (File file : otherDirs) {
                     dirs.offer(file);
                 }
             }
@@ -91,6 +91,7 @@ public class RaceLoader {
 
         /**
          * This exists for debugging.
+         *
          * @return File names of all read JSONs.
          */
         public List<String> getFileNames() {

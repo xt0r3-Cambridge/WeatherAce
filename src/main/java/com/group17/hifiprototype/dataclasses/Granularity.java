@@ -12,15 +12,15 @@ public enum Granularity {
     Days;
 
     /**
-     @return Time step, in minutes.
+     * @return Time step, in minutes.
      **/
     public int getStep() {
         int output;
-        switch(this) {
+        switch (this) {
             case Minutes -> output = 15;
             case Hours -> output = 60;
-            case Days -> output = 60*24;
-            default -> output = 60*24;
+            case Days -> output = 60 * 24;
+            default -> output = 60 * 24;
         }
         return output;
     }

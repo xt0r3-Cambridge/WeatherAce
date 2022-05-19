@@ -44,7 +44,7 @@ public class Group {
      * @throws NoSuchElementException
      */
     public Race getRace(String name) throws NoSuchElementException {
-        for (Race race: races) {
+        for (Race race : races) {
             if (race.getName().equals(name)) {
                 return race;
             }
@@ -54,6 +54,7 @@ public class Group {
 
     /**
      * Checks if a provided race is in this group.
+     *
      * @param r
      * @return
      */
@@ -63,6 +64,7 @@ public class Group {
 
     /**
      * Manually add a race to this group. You probably shouldn't do this unless you know what you're doing.
+     *
      * @param race
      */
     public void addRace(Race race) {
@@ -87,7 +89,8 @@ public class Group {
 
     /**
      * Adds all provided races to this group. You probably shouldn't do this unless you know what you're doing.
-     * @param rs A collection of races.
+     *
+     * @param rs  A collection of races.
      * @param <T>
      */
     public <T extends Collection<Race>> void addRaces(T rs) {

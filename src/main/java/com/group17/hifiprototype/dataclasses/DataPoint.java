@@ -7,7 +7,7 @@ import java.time.format.FormatStyle;
 /**
  * Weather information for a specific location, at a specific time.
  */
-public class DataPoint implements Comparable<DataPoint>{
+public class DataPoint implements Comparable<DataPoint> {
     private final double latitude, longitude;
     private final ZonedDateTime time;
     private double airTemperature;
@@ -21,7 +21,7 @@ public class DataPoint implements Comparable<DataPoint>{
 
     public DataPoint(double latitude, double longitude, ZonedDateTime time, double airTemperature,
                      Precipitation precipitation, double groundTemperature, double humidity,
-                     double precipitationChance, double windSpeed, Direction windDirection,double visibility) {
+                     double precipitationChance, double windSpeed, Direction windDirection, double visibility) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.time = time;
@@ -57,60 +57,60 @@ public class DataPoint implements Comparable<DataPoint>{
         return airTemperature;
     }
 
-    public double getGroundTemperature() {
-        return groundTemperature;
-    }
-
-    public double getHumidity() {
-        return humidity;
-    }
-
-    public double getPrecipitationChance() {
-        return precipitationChance;
-    }
-
-    public double getWindSpeed() {
-        return windSpeed;
-    }
-
-    public Direction getWindDirection() {
-        return windDirection;
-    }
-
-    public Precipitation getPrecipitation() {
-        return precipitation;
-    }
-
-    public double getVisibility() {
-        return visibility;
-    }
-
     public void setAirTemperature(double airTemperature) {
         this.airTemperature = airTemperature;
     }
 
-    public void setPrecipitation(Precipitation precipitation) {
-        this.precipitation = precipitation;
+    public double getGroundTemperature() {
+        return groundTemperature;
     }
 
     public void setGroundTemperature(double groundTemperature) {
         this.groundTemperature = groundTemperature;
     }
 
+    public double getHumidity() {
+        return humidity;
+    }
+
     public void setHumidity(double humidity) {
         this.humidity = humidity;
+    }
+
+    public double getPrecipitationChance() {
+        return precipitationChance;
     }
 
     public void setPrecipitationChance(double precipitationChance) {
         this.precipitationChance = precipitationChance;
     }
 
+    public double getWindSpeed() {
+        return windSpeed;
+    }
+
     public void setWindSpeed(double windSpeed) {
         this.windSpeed = windSpeed;
     }
 
+    public Direction getWindDirection() {
+        return windDirection;
+    }
+
     public void setWindDirection(Direction windDirection) {
         this.windDirection = windDirection;
+    }
+
+    public Precipitation getPrecipitation() {
+        return precipitation;
+    }
+
+    public void setPrecipitation(Precipitation precipitation) {
+        this.precipitation = precipitation;
+    }
+
+    public double getVisibility() {
+        return visibility;
     }
 
     public void setVisibility(double visibility) {
@@ -130,28 +130,33 @@ public class DataPoint implements Comparable<DataPoint>{
     }
 
     public String prettyAirTemperature() {
-        return (int)(airTemperature)+"°C";
+        return (int) (airTemperature) + "°C";
     }
+
     public String prettyGroundTemperature() {
-        return (int)(groundTemperature)+"°C";
+        return (int) (groundTemperature) + "°C";
     }
+
     public String prettyWind() {
-        return (int)(windSpeed)+" m/s "+windDirection;
+        return (int) (windSpeed) + " m/s " + windDirection;
     }
+
     public String prettyTime() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm");
         return dtf.format(time);
     }
+
     public String prettyVisibility() {
-        return String.format("%.2f",visibility)+" km";
+        return String.format("%.2f", visibility) + " km";
     }
 
     public String prettyPrecipitation() {
-        return (int)(precipitationChance*100)+"%";
+        return (int) (precipitationChance * 100) + "%";
     }
 
     /**
      * Copies the weather data from another data point.
+     *
      * @param other
      */
     public void copyDataFrom(DataPoint other) {

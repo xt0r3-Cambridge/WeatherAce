@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
-public class Race implements Comparable<Race>{
+public class Race implements Comparable<Race> {
     private static final int HOUR_OF_MAIN_POINT = 14;
 
     private final String name;
@@ -29,31 +29,7 @@ public class Race implements Comparable<Race>{
     private final WeatherLoader weatherLoader;
     private ArrayList<Session> sessions;
     private boolean loaded;
-
-    public String getName() {
-        return name;
-    }
-
-    public ZonedDateTime getStartTime() {
-        return startTime;
-    }
-
-    public ZonedDateTime getEndTime() {
-        return endTime;
-    }
-
-    public double getLatitude() {
-        return latitude;
-    }
-
-    public double getLongitude() {
-        return longitude;
-    }
-
     private String thumbnailPath;
-
-    //Time used to display main weather info
-
     private DataPoint mainDataPoint;
 
     public Race(String name, ZonedDateTime startTime, ZonedDateTime endTime, double latitude, double longitude) {
@@ -68,13 +44,6 @@ public class Race implements Comparable<Race>{
         this.thumbnailPath = null;
     }
 
-    public String getThumbnailPath() {
-        return thumbnailPath;
-    }
-
-    public boolean hasThumbnail() {
-        return thumbnailPath == null;
-    }
     /**
      * @param jsonObject JSON Object encoding information about a race.
      * @return a Race with the information provided in the JSON.
@@ -116,6 +85,36 @@ public class Race implements Comparable<Race>{
         }
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public ZonedDateTime getStartTime() {
+        return startTime;
+    }
+
+    //Time used to display main weather info
+
+    public ZonedDateTime getEndTime() {
+        return endTime;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public String getThumbnailPath() {
+        return thumbnailPath;
+    }
+
+    public boolean hasThumbnail() {
+        return thumbnailPath == null;
+    }
+
     public void addSession(Session session) {
         sessions.add(session);
         sessions.sort(Session::compareTo);
@@ -153,9 +152,9 @@ public class Race implements Comparable<Race>{
      * Downloads relevant weather data from the weather api and populates dynamically-created data points with it.
      */
     public void loadWeatherData() {
-        if(!loaded){
+        if (!loaded) {
             try {
-                System.out.println("Loading weather data for: "+getName());
+                System.out.println("Loading weather data for: " + getName());
                 weatherLoader.load();
                 createDataPoints();
                 fetchWeatherData();
@@ -183,7 +182,7 @@ public class Race implements Comparable<Race>{
 
             session.createEmptyDataPoints(granularity);
         }
-        long hoursToEnd = Duration.between(ZonedDateTime.now(),endTime).toHours();
+        long hoursToEnd = Duration.between(ZonedDateTime.now(), endTime).toHours();
         if (hoursToEnd <= weather.API_HOURLY_UPDATE_LIMIT) {
             Session HourlySession = new Session("Hourly", startTime, endTime, latitude, longitude);
             HourlySession.createEmptyDataPoints(Granularity.Hours);
@@ -233,6 +232,7 @@ public class Race implements Comparable<Race>{
 
     /**
      * Compare by start time.
+     *
      * @param o
      * @return
      */
