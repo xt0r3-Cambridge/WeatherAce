@@ -22,7 +22,7 @@ public class F1BritainScene extends BaseScene {
         controller.resetScene();
     }
 
-    public static F1BritainScene init(Stage stage, SceneId sceneId) throws IOException {
+    public static F1BritainScene init(Stage stage, SceneId sceneId, String raceName) throws IOException {
         // LOAD SCENE
 
         //TODO: CHANGE SCENE
@@ -37,7 +37,7 @@ public class F1BritainScene extends BaseScene {
         controller = fxmlLoader.getController();
 
         // SET ACTION VARIABLES
-        controller.init();
+        controller.init(raceName);
 
         // ADD SCENE TO CONTROLLER
         SceneController.addScene(returnedScene);

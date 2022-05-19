@@ -22,7 +22,7 @@ public class NascarToyotaScene extends BaseScene {
         controller.resetScene();
     }
 
-    public static NascarToyotaScene init(Stage stage, SceneId sceneId) throws IOException {
+    public static NascarToyotaScene init(Stage stage, SceneId sceneId, String raceName) throws IOException {
         // LOAD SCENE
 
         //TODO: CHANGE SCENE
@@ -37,7 +37,7 @@ public class NascarToyotaScene extends BaseScene {
         controller = fxmlLoader.getController();
 
         // SET ACTION VARIABLES
-        controller.init();
+        controller.init(raceName);
 
         // ADD SCENE TO CONTROLLER
         SceneController.addScene(returnedScene);

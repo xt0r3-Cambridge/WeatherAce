@@ -52,27 +52,27 @@ public class MainApplication extends Application {
 
         // LOAD APPLICATION PAGES (and add them to the controller)
         MainMenuScene.init(stage, SceneId.MAIN_MENU);
-        ExampleScene.init(stage, SceneId.EXAMPLE);
+        ExampleScene.init(stage, SceneId.EXAMPLE, "Monaco Grand Prix");
 
-        F1AzerbaijanScene.init(stage, SceneId.F1_AZERBAIJAN);
-        F1BritainScene.init(stage, SceneId.F1_BRITAIN);
-        F1CanadaScene.init(stage, SceneId.F1_CANADA);
-        F1MiamiScene.init(stage, SceneId.F1_MIAMI);
-        F1MonacoScene.init(stage, SceneId.F1_MONACO);
-        F1SpainScene.init(stage, SceneId.F1_SPAIN);
+        F1AzerbaijanScene.init(stage, SceneId.F1_AZERBAIJAN, "Azerbaijan Grand Prix");
+        F1BritainScene.init(stage, SceneId.F1_BRITAIN, "Britain Grand Prix");
+        F1CanadaScene.init(stage, SceneId.F1_CANADA, "Canada Grand Prix");
+        F1MiamiScene.init(stage, SceneId.F1_MIAMI, "Miami Grand Prix");
+        F1MonacoScene.init(stage, SceneId.F1_MONACO, "Monaco Grand Prix");
+        F1SpainScene.init(stage, SceneId.F1_SPAIN, "Spanish Grand Prix");
 
-        NascarAllStarOpenScene.init(stage, SceneId.NASCAR_ALLSTAROPEN);
-        NascarAllStarRaceScene.init(stage, SceneId.NASCAR_ALLSTARRACE);
-        NascarCocaColaScene.init(stage, SceneId.NASCAR_COCACOLA);
-        NascarEnjoyIllinoisScene.init(stage, SceneId.NASCAR_ENJOYILLINOIS);
-        NascarToyotaScene.init(stage, SceneId.NASCAR_TOYOTA);
+        NascarAllStarOpenScene.init(stage, SceneId.NASCAR_ALLSTAROPEN, "All-Star Open");
+        NascarAllStarRaceScene.init(stage, SceneId.NASCAR_ALLSTARRACE, "All-Star Race");
+        NascarCocaColaScene.init(stage, SceneId.NASCAR_COCACOLA, "Coca-Cola 600");
+        NascarEnjoyIllinoisScene.init(stage, SceneId.NASCAR_ENJOYILLINOIS, "Enjoy Illinois 300");
+        NascarToyotaScene.init(stage, SceneId.NASCAR_TOYOTA, "Toyota/Save Mart 350");
 
-        WecBahrainScene.init(stage, SceneId.WEC_BAHRAIN);
-        WecFujiScene.init(stage, SceneId.WEC_FUJI);
-        WecLeMansScene.init(stage, SceneId.WEC_LEMANS);
-        WecMonzaScene.init(stage, SceneId.WEC_MONZA);
+        WecBahrainScene.init(stage, SceneId.WEC_BAHRAIN, "Bahrain Race");
+        WecFujiScene.init(stage, SceneId.WEC_FUJI, "6 Hours of Fuji");
+        WecLeMansScene.init(stage, SceneId.WEC_LEMANS, "24 Hours of Le Mans");
+        WecMonzaScene.init(stage, SceneId.WEC_MONZA, "6 Hours of Monza");
 
-        SceneController.setScene(SceneId.EXAMPLE);
+        SceneController.setScene(SceneId.MAIN_MENU);
     }
 
     public static void main(String[] args) {

@@ -1,5 +1,6 @@
 package com.group17.hifiprototype.scenes.utils;
 
+import com.group17.hifiprototype.dataclasses.Direction;
 import eu.hansolo.tilesfx.Tile;
 import javafx.collections.ObservableList;
 import javafx.geometry.HPos;
@@ -15,6 +16,7 @@ import java.security.InvalidParameterException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.concurrent.Callable;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
 public class GridControls extends PaneControls {
@@ -67,6 +69,32 @@ public class GridControls extends PaneControls {
             grid.getRowConstraints().add(rowCount - 1, rowConstraints);
         }
 
+    }
+
+    // FILL WITH MOCK DATA
+    public static void fillWithMock(GridPane grid){
+        Direction[] directions = {Direction.E, Direction.N, Direction.NE, Direction.NW, Direction.S, Direction.W, Direction.SE, Direction.SW};
+        GridControls.newRowFromData(grid, "FRI", "", "", "", "", "");
+        for(int i = 0; i < 10; i++){
+            addMockRow(grid, directions, i * 5);
+        }
+        GridControls.newRowFromData(grid, "", "", "", "", "", "");
+        GridControls.newRowFromData(grid, "SAT", "", "", "", "", "");
+        for(int i = 0; i < 10; i++){
+            addMockRow(grid, directions, i * 5);
+        }
+    }
+
+    public static void addMockRow(GridPane grid, Direction[] directions, int time){
+        GridControls.newRowFromData(
+                grid,
+                "14:" + time,
+                ThreadLocalRandom.current().nextInt(0, 101) + "%",
+                ThreadLocalRandom.current().nextInt(0, 40) + "°C",
+                ThreadLocalRandom.current().nextInt(0, 40) + "°C",
+                ThreadLocalRandom.current().nextInt(0, 15) + "m/s " + directions[ThreadLocalRandom.current().nextInt(0, directions.length)],
+                ThreadLocalRandom.current().nextInt(1, 20) +" km"
+        );
     }
 
 }

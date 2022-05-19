@@ -1,5 +1,6 @@
 package com.group17.hifiprototype.backend.dataclasses;
 
+import java.io.IOException;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -112,7 +113,7 @@ public class Group {
     /**
      * Loads weather data for all races in the group
      */
-    public void loadWeatherData() {
+    public void loadWeatherData() throws IOException {
         for (Race race : races) {
             race.loadWeatherData();
         }
