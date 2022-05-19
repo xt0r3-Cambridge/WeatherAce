@@ -135,7 +135,7 @@ public class DataPoint implements Comparable<DataPoint>{
         return (int)(windSpeed)+" m/s "+windDirection;
     }
     public String prettyTime() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("hh:mm");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm");
         return dtf.format(time);
     }
     public String prettyVisibility() {

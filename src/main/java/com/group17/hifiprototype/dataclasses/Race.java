@@ -15,6 +15,9 @@ import java.time.format.*;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 public class Race implements Comparable<Race>{
     private static final int HOUR_OF_MAIN_POINT = 14;
@@ -268,8 +271,29 @@ public class Race implements Comparable<Race>{
         }
     }
 
+    /**
+     * @return All sessions of this race, sorted by start time.
+     */
     public ArrayList<Session> getSessions() {
         return sessions;
+    }
+
+    /**
+     * @param index
+     * @return The ith session of the race, sorted by start time.
+     */
+    public Session getSession(int index) {
+        return sessions.get(index);
+    }
+
+    /**
+     * @param name A session name
+     * @return The session with that name (assuming there is only one)
+     */
+    public Session getSession(String name) throws NoSuchElementException {
+        List<Session> ss = sessions.stream().filter(s -> s.getName().equals(name)).collect(Collectors.toList());
+        if (ss.isEmpty()) throw new NoSuchElementException();
+        else return ss.get(0);
     }
 
     @Override

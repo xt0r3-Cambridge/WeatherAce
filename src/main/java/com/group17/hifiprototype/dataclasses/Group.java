@@ -3,6 +3,7 @@ package com.group17.hifiprototype.dataclasses;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 public class Group {
@@ -24,6 +25,23 @@ public class Group {
      */
     public ArrayList<Race> getRaces() {
         return new ArrayList<>(races);
+    }
+
+    /**
+     * @param index
+     * @return The ith race in time sorted order.
+     */
+    public Race getRace(int index) {
+        return races.get(index);
+    }
+
+    public Race getRace(String name) throws NoSuchElementException {
+        for (Race race: races) {
+            if (race.getName().equals(name)) {
+                return race;
+            }
+        }
+        throw new NoSuchElementException();
     }
 
     public boolean isIn(Race r) {
