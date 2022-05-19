@@ -1,0 +1,17 @@
+{
+  "Group": "NASCAR",
+  "Name": "Cup Series at Charlotte",
+  "Latitude": 35.351350277346896,
+  "Longitude": -80.68831916039393,
+  "StartTime": "2022-05-29T23:00:00+01:00",
+  "EndTime": "2022-05-30T03:00:00+01:00",
+  "Favourite": false,
+
+  "Sessions": [
+    {
+      "Name": "Race",
+      "StartTime": "2022-05-29T23:00:00+01:00",
+      "EndTime": "2022-05-30T03:00:00+01:00"
+    }
+  ]
+}

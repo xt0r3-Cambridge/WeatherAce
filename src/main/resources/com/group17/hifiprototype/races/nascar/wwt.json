@@ -1,0 +1,17 @@
+{
+  "Group": "NASCAR",
+  "Name": "Cup Series at WWT",
+  "Latitude": 38.65049339670112,
+  "Longitude": -90.13565829831289,
+  "StartTime": "2022-06-05T20:30:00+01:00",
+  "EndTime": "2022-06-05T22:30:00+01:00",
+  "Favourite": false,
+
+  "Sessions": [
+    {
+      "Name": "Race",
+      "StartTime": "2022-06-05T20:30:00+01:00",
+      "EndTime": "2022-06-05T22:30:00+01:00"
+    }
+  ]
+}

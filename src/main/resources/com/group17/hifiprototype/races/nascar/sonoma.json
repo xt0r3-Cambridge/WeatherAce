@@ -1,0 +1,17 @@
+{
+  "Group": "NASCAR",
+  "Name": "Cup Series at Sonoma",
+  "Latitude": 38.16083865655786,
+  "Longitude": -122.45423313118889,
+  "StartTime": "2022-06-12T21:00:00+01:00",
+  "EndTime": "2022-06-12T23:00:00+01:00",
+  "Favourite": false,
+
+  "Sessions": [
+    {
+      "Name": "Race",
+      "StartTime": "2022-06-12T21:00:00+01:00",
+      "EndTime": "2022-06-12T23:00:00+01:00"
+    }
+  ]
+}

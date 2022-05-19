@@ -228,13 +228,15 @@ public class Race implements Comparable<Race>{
      * Downloads relevant weather data from the weather api and populates dynamically-created data points with it.
      */
     public void loadWeatherData() {
-        try {
-            weatherLoader.load();
-            createDataPoints();
-            fetchWeatherData();
-            loaded = true;
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
+        if(!loaded){
+            try {
+                weatherLoader.load();
+                createDataPoints();
+                fetchWeatherData();
+                loaded = true;
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
         }
     }
 

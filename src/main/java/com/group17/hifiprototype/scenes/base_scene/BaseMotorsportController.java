@@ -1,5 +1,8 @@
 package com.group17.hifiprototype.scenes.base_scene;
 
+import com.group17.hifiprototype.dataclasses.Group;
+import com.group17.hifiprototype.dataclasses.RaceGroups;
+import com.group17.hifiprototype.dataclasses.RaceLoader;
 import com.group17.hifiprototype.scenes.utils.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
