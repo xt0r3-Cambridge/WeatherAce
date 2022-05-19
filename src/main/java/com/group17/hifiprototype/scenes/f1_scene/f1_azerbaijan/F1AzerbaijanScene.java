@@ -1,6 +1,7 @@
 package com.group17.hifiprototype.scenes.f1_scene.f1_azerbaijan;
 
 import com.group17.hifiprototype.MainApplication;
+import com.group17.hifiprototype.backend.dataclasses.RaceGroups;
 import com.group17.hifiprototype.scenes.base_scene.BaseScene;
 import com.group17.hifiprototype.scenes.utils.SceneController;
 import com.group17.hifiprototype.scenes.utils.SceneId;
@@ -22,7 +23,7 @@ public class F1AzerbaijanScene extends BaseScene {
         controller.resetScene();
     }
 
-    public static F1AzerbaijanScene init(Stage stage, SceneId sceneId, String raceName) throws IOException {
+    public static F1AzerbaijanScene init(Stage stage, SceneId sceneId, RaceGroups group, String raceName) throws IOException {
         // LOAD SCENE
 
         //TODO: CHANGE SCENE
@@ -37,7 +38,7 @@ public class F1AzerbaijanScene extends BaseScene {
         controller = fxmlLoader.getController();
 
         // SET ACTION VARIABLES
-        controller.init(raceName);
+        controller.init(group, raceName);
 
         // ADD SCENE TO CONTROLLER
         SceneController.addScene(returnedScene);

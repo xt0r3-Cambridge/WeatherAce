@@ -27,12 +27,12 @@ public abstract class BaseMotorsportController {
         this.closeOverlay();
     }
 
-    public void init(String raceName){
+    public void init(RaceGroups group, String raceName){
         // Load weather data
-        this.loadWeatherData(raceName);
+        this.loadWeatherData(group, raceName);
 
         // Set the main component's text
-        this.setMainWeatherData(raceName);
+        this.setMainWeatherData(group, raceName);
 
         // Add other races to the overlay (hard coded)
         this.loadRaceData();
@@ -81,14 +81,14 @@ public abstract class BaseMotorsportController {
         }
     }
 
-    public void setMainWeatherData(String raceName) {
+    public void setMainWeatherData(RaceGroups group, String raceName) {
         /**
          * Attempts to load the weather data for the race with name raceName and set the main weather content box
          * If it fails, it defaults to loading mock data
          */
         try {
             // Get the race
-            Race currentRace = RaceLoader.getGroup(RaceGroups.F1).getRace(raceName);
+            Race currentRace = RaceLoader.getGroup(group).getRace(raceName);
             // Load the weather data
             currentRace.loadWeatherData();
             // If successful, get the main datapoints and load them to the main content box
@@ -104,14 +104,14 @@ public abstract class BaseMotorsportController {
         }
     }
 
-    public void loadWeatherData(String raceName) {
+    public void loadWeatherData(RaceGroups group, String raceName) {
         /**
          * Attempts to load the weather data for the race with name raceName into the scrollable panel
          * If it fails, it defaults to loading mock data
          */
         try {
             // Get the race
-            Race currentRace = RaceLoader.getGroup(RaceGroups.F1).getRace(raceName);
+            Race currentRace = RaceLoader.getGroup(group).getRace(raceName);
             // Load the weather data
             currentRace.loadWeatherData();
 

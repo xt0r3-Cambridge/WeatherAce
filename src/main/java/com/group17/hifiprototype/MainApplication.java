@@ -1,5 +1,6 @@
 package com.group17.hifiprototype;
 
+import com.group17.hifiprototype.backend.dataclasses.RaceGroups;
 import com.group17.hifiprototype.backend.dataclasses.RaceLoader;
 import com.group17.hifiprototype.scenes.example_scene.ExampleScene;
 import com.group17.hifiprototype.scenes.f1_scene.f1_azerbaijan.F1AzerbaijanScene;
@@ -48,25 +49,25 @@ public class MainApplication extends Application {
 
         // LOAD APPLICATION PAGES (and add them to the controller)
         MainMenuScene.init(stage, SceneId.MAIN_MENU);
-        ExampleScene.init(stage, SceneId.EXAMPLE, "Monaco Grand Prix");
+        ExampleScene.init(stage, SceneId.EXAMPLE, RaceGroups.F1, "Monaco Grand Prix");
 
-        F1AzerbaijanScene.init(stage, SceneId.F1_AZERBAIJAN, "Azerbaijan Grand Prix");
-        F1BritainScene.init(stage, SceneId.F1_BRITAIN, "Britain Grand Prix");
-        F1CanadaScene.init(stage, SceneId.F1_CANADA, "Canada Grand Prix");
-        F1MiamiScene.init(stage, SceneId.F1_MIAMI, "Miami Grand Prix");
-        F1MonacoScene.init(stage, SceneId.F1_MONACO, "Monaco Grand Prix");
-        F1SpainScene.init(stage, SceneId.F1_SPAIN, "Spanish Grand Prix");
+        F1AzerbaijanScene.init(stage, SceneId.F1_AZERBAIJAN, RaceGroups.F1,  "Azerbaijan Grand Prix");
+        F1BritainScene.init(stage, SceneId.F1_BRITAIN, RaceGroups.F1, "Britain Grand Prix");
+        F1CanadaScene.init(stage, SceneId.F1_CANADA, RaceGroups.F1, "Canada Grand Prix");
+        F1MiamiScene.init(stage, SceneId.F1_MIAMI, RaceGroups.F1, "Miami Grand Prix");
+        F1MonacoScene.init(stage, SceneId.F1_MONACO, RaceGroups.F1, "Monaco Grand Prix");
+        F1SpainScene.init(stage, SceneId.F1_SPAIN, RaceGroups.F1, "Spanish Grand Prix");
 
-        NascarAllStarOpenScene.init(stage, SceneId.NASCAR_ALLSTAROPEN, "All-Star Open");
-        NascarAllStarRaceScene.init(stage, SceneId.NASCAR_ALLSTARRACE, "All-Star Race");
-        NascarCocaColaScene.init(stage, SceneId.NASCAR_COCACOLA, "Coca-Cola 600");
-        NascarEnjoyIllinoisScene.init(stage, SceneId.NASCAR_ENJOYILLINOIS, "Enjoy Illinois 300");
-        NascarToyotaScene.init(stage, SceneId.NASCAR_TOYOTA, "Toyota/Save Mart 350");
+        NascarAllStarOpenScene.init(stage, SceneId.NASCAR_ALLSTAROPEN, RaceGroups.NASCAR, "All-Star Open");
+        NascarAllStarRaceScene.init(stage, SceneId.NASCAR_ALLSTARRACE, RaceGroups.NASCAR, "All-Star Race");
+        NascarCocaColaScene.init(stage, SceneId.NASCAR_COCACOLA, RaceGroups.NASCAR, "Coca-Cola 600");
+        NascarEnjoyIllinoisScene.init(stage, SceneId.NASCAR_ENJOYILLINOIS, RaceGroups.NASCAR, "Enjoy Illinois 300");
+        NascarToyotaScene.init(stage, SceneId.NASCAR_TOYOTA, RaceGroups.NASCAR, "Toyota/Save Mart 350");
 
-        WecBahrainScene.init(stage, SceneId.WEC_BAHRAIN, "Bahrain Race");
-        WecFujiScene.init(stage, SceneId.WEC_FUJI, "6 Hours of Fuji");
-        WecLeMansScene.init(stage, SceneId.WEC_LEMANS, "24 Hours of Le Mans");
-        WecMonzaScene.init(stage, SceneId.WEC_MONZA, "6 Hours of Monza");
+        WecBahrainScene.init(stage, SceneId.WEC_BAHRAIN, RaceGroups.WEC, "Bahrain Race");
+        WecFujiScene.init(stage, SceneId.WEC_FUJI, RaceGroups.WEC, "6 Hours of Fuji");
+        WecLeMansScene.init(stage, SceneId.WEC_LEMANS, RaceGroups.WEC, "24 Hours of Le Mans");
+        WecMonzaScene.init(stage, SceneId.WEC_MONZA, RaceGroups.WEC, "6 Hours of Monza");
 
         SceneController.setScene(SceneId.MAIN_MENU);
     }
