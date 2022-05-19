@@ -1,8 +1,8 @@
-package com.group17.hifiprototype.weatherapi;
+package com.group17.hifiprototype.backend.weatherapi;
 
-import com.group17.hifiprototype.dataclasses.DataPoint;
-import com.group17.hifiprototype.dataclasses.Direction;
-import com.group17.hifiprototype.dataclasses.Precipitation;
+import com.group17.hifiprototype.backend.dataclasses.DataPoint;
+import com.group17.hifiprototype.backend.dataclasses.Direction;
+import com.group17.hifiprototype.backend.dataclasses.Precipitation;
 import org.json.*;
 
 import java.io.IOException;
@@ -11,7 +11,6 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
-import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
