@@ -51,6 +51,10 @@ public class WeatherLoader {
         else return lastTimeUpdated;
     }
 
+    /**
+     * Calls the weather API to obtain its inner set of data points.
+     * @throws IOException
+     */
     public void load() throws IOException {
         ZonedDateTime initialTime = ZonedDateTime.now().compareTo(startTime) >=0 ? ZonedDateTime.now() : startTime;
         //API call
@@ -62,7 +66,13 @@ public class WeatherLoader {
 
     }
 
-    public void populate(DataPoint dataPoint) {
+    /**
+     * Populates data point with the closest match earlier than itself from the inner set.
+     * Only call this after load() has been called.
+     * @param dataPoint
+     */
+    public void populate(DataPoint dataPoint) throws UnsupportedOperationException{
+        if (!isLoaded) throw new UnsupportedOperationException();
         DataPoint closestDP = null;
         int i = 0;
         while (dataPoints.get(i).compareTo(dataPoint)<=0) {
