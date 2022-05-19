@@ -75,84 +75,9 @@ public class Race implements Comparable<Race>{
     public boolean hasThumbnail() {
         return thumbnailPath == null;
     }
-
     /**
-     * Create a Race from a JSON returned by the F1 api
-     *
-     * @param jsonObject
-     */
-    public static Race createFromF1API(JSONObject jsonObject) {
-        String name = jsonObject.getString("raceName");
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("uuuu-MM-dd:HH:mm:ss");
-        ZoneId utc = ZoneId.of("UTC");
-
-        ZonedDateTime startTime = ZonedDateTime.of(LocalDateTime.parse(jsonObject.getJSONObject("FirstPractice").getString("date") + ":" +
-                StringUtils.chop(jsonObject.getJSONObject("FirstPractice").getString("time")), formatter), utc);
-        ZonedDateTime endTime = ZonedDateTime.of(LocalDateTime.parse(jsonObject.getString("date") + ":" +
-                StringUtils.chop(jsonObject.getString("time")), formatter).plusHours(2), utc);
-        JSONObject location = jsonObject.getJSONObject("Circuit").getJSONObject("Location");
-        double latitude = Double.parseDouble(location.getString("lat"));
-        double longitude = Double.parseDouble(location.getString("long"));
-
-        ZonedDateTime mainTime = endTime.truncatedTo(ChronoUnit.DAYS).withHour(12);
-        ArrayList<Session> sessions = new ArrayList<>(5);
-
-        if (jsonObject.has("ThirdPractice")) {
-            LocalDateTime fp1 = LocalDateTime.parse(jsonObject.getJSONObject("FirstPractice").getString("date") +
-                    ":" + StringUtils.chop(jsonObject.getJSONObject("FirstPractice").getString("time")), formatter);
-            ZonedDateTime fp1Start = ZonedDateTime.of(fp1, utc);
-            sessions.add(new Session("FP1", fp1Start, fp1Start.plus(1, ChronoUnit.HOURS), latitude, longitude));
-
-            LocalDateTime fp2 = LocalDateTime.parse(jsonObject.getJSONObject("SecondPractice").getString("date") +
-                    ":" + StringUtils.chop(jsonObject.getJSONObject("SecondPractice").getString("time")), formatter);
-            ZonedDateTime fp2Start = ZonedDateTime.of(fp2, utc);
-            sessions.add(new Session("FP2", fp2Start, fp2Start.plus(1, ChronoUnit.HOURS), latitude, longitude));
-
-            LocalDateTime fp3 = LocalDateTime.parse(jsonObject.getJSONObject("ThirdPractice").getString("date") +
-                    ":" + StringUtils.chop(jsonObject.getJSONObject("ThirdPractice").getString("time")), formatter);
-            ZonedDateTime fp3Start = ZonedDateTime.of(fp3, utc);
-            sessions.add(new Session("FP3", fp3Start, fp3Start.plus(1, ChronoUnit.HOURS), latitude, longitude));
-
-            LocalDateTime qual = LocalDateTime.parse(jsonObject.getJSONObject("Qualifying").getString("date") +
-                    ":" + StringUtils.chop(jsonObject.getJSONObject("Qualifying").getString("time")), formatter);
-            ZonedDateTime qualStart = ZonedDateTime.of(qual, utc);
-            sessions.add(new Session("Q", qualStart, qualStart.plus(1, ChronoUnit.HOURS), latitude, longitude));
-        }
-
-        if (jsonObject.has("Sprint")) {
-            LocalDateTime fp1 = LocalDateTime.parse(jsonObject.getJSONObject("FirstPractice").getString("date") +
-                    ":" + StringUtils.chop(jsonObject.getJSONObject("FirstPractice").getString("time")), formatter);
-            ZonedDateTime fp1Start = ZonedDateTime.of(fp1, utc);
-            sessions.add(new Session("FP1", fp1Start, fp1Start.plus(1, ChronoUnit.HOURS), latitude, longitude));
-
-            LocalDateTime qual = LocalDateTime.parse(jsonObject.getJSONObject("Qualifying").getString("date") +
-                    ":" + StringUtils.chop(jsonObject.getJSONObject("Qualifying").getString("time")), formatter);
-            ZonedDateTime qualStart = ZonedDateTime.of(qual, utc);
-            sessions.add(new Session("Q", qualStart, qualStart.plus(1, ChronoUnit.HOURS), latitude, longitude));
-
-            LocalDateTime fp2 = LocalDateTime.parse(jsonObject.getJSONObject("SecondPractice").getString("date") +
-                    ":" + StringUtils.chop(jsonObject.getJSONObject("SecondPractice").getString("time")), formatter);
-            ZonedDateTime fp2Start = ZonedDateTime.of(fp2, utc);
-            sessions.add(new Session("FP2", fp2Start, fp2Start.plus(1, ChronoUnit.HOURS), latitude, longitude));
-
-            LocalDateTime sprint = LocalDateTime.parse(jsonObject.getJSONObject("Sprint").getString("date") +
-                    ":" + StringUtils.chop(jsonObject.getJSONObject("Sprint").getString("time")), formatter);
-            ZonedDateTime sprintStart = ZonedDateTime.of(sprint, utc);
-            sessions.add(new Session("Sprint", sprintStart, sprintStart.plus(1, ChronoUnit.HOURS), latitude, longitude));
-        }
-
-        sessions.add(new Session("Race", endTime.minus(2, ChronoUnit.HOURS), endTime, latitude, longitude));
-        Race output = new Race(name,startTime,endTime,latitude,longitude);
-        for (Session sess:sessions) {
-            output.addSession(sess);
-        }
-        return output;
-    }
-
-    /**
-     * @param jsonObject JSON Object encoding information about a race
-     * @return a Race with the information provided in the JSON
+     * @param jsonObject JSON Object encoding information about a race.
+     * @return a Race with the information provided in the JSON.
      */
     public static Race loadRaceFromJSON(JSONObject jsonObject) throws IllegalArgumentException {
         try {
@@ -191,7 +116,7 @@ public class Race implements Comparable<Race>{
         }
     }
 
-    private void addSession(Session session) {
+    public void addSession(Session session) {
         sessions.add(session);
         sessions.sort(Session::compareTo);
     }
@@ -230,10 +155,12 @@ public class Race implements Comparable<Race>{
     public void loadWeatherData() {
         if(!loaded){
             try {
+                System.out.println("Loading weather data for: "+getName());
                 weatherLoader.load();
                 createDataPoints();
                 fetchWeatherData();
                 loaded = true;
+                System.out.println("Loading complete! \n");
             } catch (IOException ioe) {
                 ioe.printStackTrace();
             }
@@ -255,6 +182,12 @@ public class Race implements Comparable<Race>{
             else granularity = Granularity.Days;
 
             session.createEmptyDataPoints(granularity);
+        }
+        long hoursToEnd = Duration.between(ZonedDateTime.now(),endTime).toHours();
+        if (hoursToEnd <= weather.API_HOURLY_UPDATE_LIMIT) {
+            Session HourlySession = new Session("Hourly", startTime, endTime, latitude, longitude);
+            HourlySession.createEmptyDataPoints(Granularity.Hours);
+            sessions.add(HourlySession);
         }
     }
 
@@ -289,8 +222,8 @@ public class Race implements Comparable<Race>{
     }
 
     /**
-     * @param name A session name
-     * @return The session with that name (assuming there is only one)
+     * @param name A session name.
+     * @return The session with that name (assuming there is only one).
      */
     public Session getSession(String name) throws NoSuchElementException {
         List<Session> ss = sessions.stream().filter(s -> s.getName().equals(name)).collect(Collectors.toList());
@@ -298,6 +231,11 @@ public class Race implements Comparable<Race>{
         else return ss.get(0);
     }
 
+    /**
+     * Compare by start time.
+     * @param o
+     * @return
+     */
     @Override
     public int compareTo(Race o) {
         return startTime.compareTo(o.startTime);

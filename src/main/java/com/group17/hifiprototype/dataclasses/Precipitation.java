@@ -1,5 +1,8 @@
 package com.group17.hifiprototype.dataclasses;
 
+/**
+ * The different kinds of precipitation the weather API gives us.
+ */
 public enum Precipitation {
     None("☀"),
     Rain("\uD83C\uDF27"),

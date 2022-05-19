@@ -4,6 +4,9 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 
+/**
+ * Weather information for a specific location, at a specific time.
+ */
 public class DataPoint implements Comparable<DataPoint>{
     private final double latitude, longitude;
     private final ZonedDateTime time;
@@ -114,6 +117,7 @@ public class DataPoint implements Comparable<DataPoint>{
         this.visibility = visibility;
     }
 
+    // Just for debugging
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -146,7 +150,10 @@ public class DataPoint implements Comparable<DataPoint>{
         return (int)(precipitationChance*100)+"%";
     }
 
-
+    /**
+     * Copies the weather data from another data point.
+     * @param other
+     */
     public void copyDataFrom(DataPoint other) {
         this.airTemperature = other.airTemperature;
         this.precipitation = other.precipitation;

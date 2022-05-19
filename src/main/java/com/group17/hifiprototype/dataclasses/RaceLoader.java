@@ -11,13 +11,15 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * Reads all JSONs from a given directory (assumes they are races).
+ * Manages loading race JSONs from a specified directory. Supports loading the JSONs,
+ * creating races from them, and grouping them by category.
  */
 public class RaceLoader {
 
     private static RaceLoaderObject loader;
 
     /**
+     * Retrieves JSONs, creates races, creates groups.
      * @param directoryPath Directory with race JSONs
      * @throws UnsupportedOperationException
      * @throws IOException
@@ -67,13 +69,12 @@ public class RaceLoader {
         }
 
         /**
-         * Gets list of JSON files from directory.
+         * Traverses directory structure to get all JSON files. Assumes these are races.
          *
          * @throws IOException
          */
-        public void getJSONs() throws IOException {
+        private void getJSONs() throws IOException {
             File mainDir = new File(dirPath);
-            //JSONs = List.of(dir.listFiles(f -> f.getName().endsWith(".json")));
             JSONs = new ArrayList<>();
             Queue<File> dirs = new LinkedList<>();
             dirs.offer(mainDir);
@@ -89,6 +90,7 @@ public class RaceLoader {
 
 
         /**
+         * This exists for debugging.
          * @return File names of all read JSONs.
          */
         public List<String> getFileNames() {
@@ -100,7 +102,7 @@ public class RaceLoader {
          *
          * @throws IOException
          */
-        public void loadRaces() throws IOException {
+        private void loadRaces() throws IOException {
 
             raceFile = new HashMap<>();
             groupRaces = new HashMap<>();

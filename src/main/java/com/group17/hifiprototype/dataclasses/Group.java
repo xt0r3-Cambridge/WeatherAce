@@ -6,6 +6,9 @@ import java.util.Collection;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
+/**
+ * Group of races. These correspond to the different motorsports.
+ */
 public class Group {
 
     private final String name;
@@ -35,6 +38,11 @@ public class Group {
         return races.get(index);
     }
 
+    /**
+     * @param name
+     * @return A race with the provided name.
+     * @throws NoSuchElementException
+     */
     public Race getRace(String name) throws NoSuchElementException {
         for (Race race: races) {
             if (race.getName().equals(name)) {
@@ -44,15 +52,27 @@ public class Group {
         throw new NoSuchElementException();
     }
 
+    /**
+     * Checks if a provided race is in this group.
+     * @param r
+     * @return
+     */
     public boolean isIn(Race r) {
         return races.contains(r);
     }
 
+    /**
+     * Manually add a race to this group. You probably shouldn't do this unless you know what you're doing.
+     * @param race
+     */
     public void addRace(Race race) {
         races.add(race);
         races.sort(Race::compareTo);
     }
 
+    /**
+     * Removes all races whose end time is before the current time.
+     */
     public void flushOldRaces() {
         ArrayList<Race> goodRaces = new ArrayList<>();
         for (Race race : races) {
@@ -64,6 +84,12 @@ public class Group {
         races = goodRaces;
     }
 
+
+    /**
+     * Adds all provided races to this group. You probably shouldn't do this unless you know what you're doing.
+     * @param rs A collection of races.
+     * @param <T>
+     */
     public <T extends Collection<Race>> void addRaces(T rs) {
         for (Race race : rs) {
             races.add(race);
@@ -85,9 +111,7 @@ public class Group {
      */
     public void loadWeatherData() {
         for (Race race : races) {
-            System.out.println("Loading data for race: "+race.getName());
             race.loadWeatherData();
-            System.out.println("Loading complete!");
         }
     }
 }

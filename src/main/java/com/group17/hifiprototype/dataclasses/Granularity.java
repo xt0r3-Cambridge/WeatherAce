@@ -1,7 +1,15 @@
 package com.group17.hifiprototype.dataclasses;
 
+/**
+ * API request granularity
+ */
 public enum Granularity {
-    Minutes,Hours,Days;
+    //15 Minutes
+    Minutes,
+    //1 Hour
+    Hours,
+    //1 Day
+    Days;
 
     /**
      @return Time step, in minutes.

@@ -9,6 +9,9 @@ import java.time.temporal.TemporalField;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * An event session (what we think of as an individual race event).
+ */
 public class Session implements Comparable<Session> {
 
 
@@ -26,6 +29,11 @@ public class Session implements Comparable<Session> {
         this.dataPoints = new ArrayList<>();
     }
 
+    /**
+     * Populates session with data points between its start and end time, at a specified granularity.
+     * This creates empty data points, which need to be filled by a weather loader.
+     * @param granularity
+     */
     public void createEmptyDataPoints(Granularity granularity) {
         dataPoints = new ArrayList<>();
         int step = granularity.getStep();
@@ -36,6 +44,10 @@ public class Session implements Comparable<Session> {
         }
     }
 
+    /**
+     * This is for debugging purposes
+     * @return
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -47,6 +59,9 @@ public class Session implements Comparable<Session> {
         return sb.toString();
     }
 
+    /**
+     * @return List of all data points.
+     */
     public List<DataPoint> getDataPoints() {
         return dataPoints;
     }

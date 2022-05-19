@@ -1,5 +1,8 @@
 package com.group17.hifiprototype.dataclasses;
 
+/**
+ * Cardinal directions.
+ */
 public enum Direction {
     // World directions in clockwise order starting from North
     N("↑"),
