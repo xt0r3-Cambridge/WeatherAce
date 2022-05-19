@@ -36,6 +36,7 @@ public class ExampleController extends BaseMotorsportController {
         VBoxControls.addBlock("Fasz4", "soinfqoienfoqi", "images/flags/usa.png", super.overlay, super.popupvbox, () -> System.out.println("click3"));
     }
 
+    //TODO copy paste
     public void setMainWeatherData(){
         /**
          * Sets the main weather data for the non-scrollable box in the middle of the screen

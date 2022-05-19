@@ -5,7 +5,21 @@ public enum SceneId {
      * IDs for each of the scenes
      */
     MAIN_MENU,
+    EXAMPLE,
+    LOCAL,
+    F1_AZERBAIJAN,
+    F1_CANADA,
+    F1_BRITAIN,
     F1_MIAMI,
+    F1_MONACO,
     F1_SPAIN,
-    EXAMPLE
+    NASCAR_ALLSTAROPEN,
+    NASCAR_ALLSTARRACE,
+    NASCAR_COCACOLA,
+    NASCAR_ENJOYILLINOIS,
+    NASCAR_TOYOTA,
+    WEC_BAHRAIN,
+    WEC_FUJI,
+    WEC_LEMANS,
+    WEC_MONZA
 }

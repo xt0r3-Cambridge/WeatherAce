@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="400.0" stylesheets="@../../../style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group17.hifiprototype.scenes.f1_scene.F1Controller">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="400.0" stylesheets="@../../../style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group17.hifiprototype.scenes.f1_scene.f1_miami.F1MiamiController">
     <children>
         <GridPane fx:id="mainContent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="transparent" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <columnConstraints>
@@ -114,12 +114,33 @@
                                         <Image url="@images/logos/rain.png" />
                                     </image>
                                 </ImageView>
-                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="roboto" text="Text" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="roboto" text="Text" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="roboto" text="Text" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="roboto" text="Text" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="roboto" text="Text" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="roboto" text="Text" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                                <Text fx:id="mainWind" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="roboto" />
+                              <String fx:value="bold" />
+                           </styleClass></Text>
+                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="roboto" text="Temperature" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="roboto" text="Precipitation" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="roboto" text="Wind" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                <Text fx:id="mainTemp" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="roboto" />
+                              <String fx:value="bold" />
+                           </styleClass></Text>
+                                <Text fx:id="mainRain" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="roboto" />
+                              <String fx:value="bold" />
+                           </styleClass></Text>
                             </children>
                             <styleClass>
                                 <String fx:value="content-box" />
