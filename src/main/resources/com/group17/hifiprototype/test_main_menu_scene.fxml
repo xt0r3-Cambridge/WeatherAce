@@ -15,65 +15,65 @@
 
     <Button fx:id="F1Button" contentDisplay="CENTER" prefHeight="${contentWindow.height*0.15}" prefWidth="${contentWindow.width * 0.55}" style="-fx-background-color:#DE3331" styleClass="content-box" text="Formula 1">
         <font>
-            <Font name="System Bold" size="30.0"/>
+            <Font name="Arial Black" size="30.0" />
         </font>
 
         <graphic>
             <ImageView blendMode="SCREEN" fitHeight="${contentWindow.height*0.15}" fitWidth="${contentWindow.width * 0.55}">
                 <image>
-                    <Image url="@images/race_images/default.jpg" />
+                    <Image url="@images/main_menu/f1_main.png" />
                 </image>
             </ImageView>
         </graphic>
     </Button>
-    <Button fx:id="WECButton" contentDisplay="CENTER" prefHeight="${contentWindow.height*0.15}" prefWidth="${contentWindow.width * 0.55}" style="-fx-background-color:#DE3331" styleClass="content-box" text="WEC">
+    <Button fx:id="WECButton" contentDisplay="CENTER" prefHeight="${contentWindow.height*0.15}" prefWidth="${contentWindow.width * 0.55}" style="-fx-background-color:#DE3331" styleClass="content-box" text="WEC" textFill="black">
         <font>
-            <Font name="System Bold" size="30.0"/>
-        </font>
-
-        <graphic>
-            <ImageView blendMode="SCREEN" fitHeight="${contentWindow.height*0.15}" fitWidth="${contentWindow.width * 0.55}" >
-                <image>
-                    <Image url="@images/race_images/default.jpg" />
-                </image>
-            </ImageView>
-        </graphic>
-    </Button>
-    <Button fx:id="NascarButton" contentDisplay="CENTER" prefHeight="${contentWindow.height*0.15}" prefWidth="${contentWindow.width * 0.55}" style="-fx-background-color:#DE3331" styleClass="content-box" text="NASCAR!">
-        <font>
-            <Font name="System Bold" size="30.0"/>
+            <Font name="Arial Black" size="30.0" />
         </font>
 
         <graphic>
             <ImageView blendMode="SCREEN" fitHeight="${contentWindow.height*0.15}" fitWidth="${contentWindow.width * 0.55}">
                 <image>
-                    <Image url="@images/race_images/default.jpg" />
+                    <Image url="@images/main_menu/nascar_main.png" />
                 </image>
             </ImageView>
         </graphic>
     </Button>
-    <Button fx:id="LocalButton" contentDisplay="CENTER" prefHeight="${contentWindow.height*0.15}" prefWidth="${contentWindow.width * 0.55}" style="-fx-background-color:#DE3331" styleClass="content-box" text="Local events!">
+    <Button fx:id="NascarButton" contentDisplay="CENTER" prefHeight="${contentWindow.height*0.15}" prefWidth="${contentWindow.width * 0.55}" style="-fx-background-color:#DE3331" styleClass="content-box" text="NASCAR!" textFill="black">
         <font>
-            <Font name="System Bold" size="30.0"/>
+            <Font name="Arial Black" size="30.0" />
         </font>
 
         <graphic>
             <ImageView blendMode="SCREEN" fitHeight="${contentWindow.height*0.15}" fitWidth="${contentWindow.width * 0.55}">
                 <image>
-                    <Image url="@images/race_images/default.jpg" />
+                    <Image url="@images/main_menu/wec_main.png" />
                 </image>
             </ImageView>
         </graphic>
     </Button>
-    <Button fx:id="FavouritesButton" contentDisplay="CENTER" prefHeight="${contentWindow.height*0.15}" prefWidth="${contentWindow.width * 0.55}" style="-fx-background-color:#A1A1A1" styleClass="content-box" text="Favourites">
+    <Button fx:id="LocalButton" contentDisplay="CENTER" prefHeight="${contentWindow.height*0.15}" prefWidth="${contentWindow.width * 0.55}" style="-fx-background-color:#DE3331" styleClass="content-box" text="Local events!" textFill="black">
         <font>
-            <Font name="System Bold" size="30.0"/>
+            <Font name="Arial Black" size="30.0" />
         </font>
 
         <graphic>
             <ImageView blendMode="SCREEN" fitHeight="${contentWindow.height*0.15}" fitWidth="${contentWindow.width * 0.55}">
                 <image>
-                    <Image url="@images/race_images/default.jpg" />
+                    <Image url="@images/main_menu/local_main.png" />
+                </image>
+            </ImageView>
+        </graphic>
+    </Button>
+    <Button fx:id="FavouritesButton" contentDisplay="CENTER" prefHeight="${contentWindow.height*0.15}" prefWidth="${contentWindow.width * 0.55}" style="-fx-background-color:#A1A1A1" styleClass="content-box" text="Favourites" textFill="black">
+        <font>
+            <Font name="Arial Black" size="30.0" />
+        </font>
+
+        <graphic>
+            <ImageView blendMode="SCREEN" fitHeight="${contentWindow.height*0.15}" fitWidth="${contentWindow.width * 0.55}">
+                <image>
+                    <Image url="@images/main_menu/favorites_main.png" />
                 </image>
             </ImageView>
         </graphic>
