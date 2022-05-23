@@ -70,7 +70,7 @@ public class MainApplication extends Application {
         WecLeMansScene.init(stage, SceneId.WEC_LEMANS, RaceGroups.WEC, "24 Hours of Le Mans");
         WecMonzaScene.init(stage, SceneId.WEC_MONZA, RaceGroups.WEC, "6 Hours of Monza");
 
-        FakeRaceScene.init(stage, SceneId.FAKE_RACE, RaceGroups.Local, "Fake Grand Prix");
+        FakeRaceScene.init(stage, SceneId.FAKE_RACE, RaceGroups.Local, "Example race");
 
         SceneController.setScene(SceneId.MAIN_MENU);
     }

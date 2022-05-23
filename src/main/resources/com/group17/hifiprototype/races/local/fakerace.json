@@ -1,6 +1,6 @@
 {
   "Group": "Local",
-  "Name": "Fake Grand Prix",
+  "Name": "Example race",
   "Latitude": 52.2054,
   "Longitude": 0.1132,
   "StartTime": "2022-05-22T22:30:00+01:00",

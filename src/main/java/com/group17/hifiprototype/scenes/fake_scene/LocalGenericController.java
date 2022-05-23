@@ -18,6 +18,6 @@ public class LocalGenericController extends BaseMotorsportController {
         LocalDateTime date = LocalDateTime.now();
         String startDate = dtf.format(date);
 
-        VBoxControls.addBlock("Fake Grand Prix", startDate, "images/f1/spain.png", super.overlay, super.popupvbox, () -> SceneController.setScene(SceneId.FAKE_RACE));
+        VBoxControls.addBlock("Example race", startDate, "images/f1/spain.png", super.overlay, super.popupvbox, () -> SceneController.setScene(SceneId.FAKE_RACE));
     }
 }
