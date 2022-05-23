@@ -1,8 +1,9 @@
-package com.group17.hifiprototype.scenes.f1_scene.f1_spain;
+package com.group17.hifiprototype.scenes.fake_scene.FakeRace;
 
 import com.group17.hifiprototype.MainApplication;
 import com.group17.hifiprototype.backend.dataclasses.RaceGroups;
 import com.group17.hifiprototype.scenes.base_scene.BaseScene;
+import com.group17.hifiprototype.scenes.fake_scene.LocalGenericController;
 import com.group17.hifiprototype.scenes.utils.SceneController;
 import com.group17.hifiprototype.scenes.utils.SceneId;
 import javafx.fxml.FXMLLoader;
@@ -12,26 +13,26 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class F1SpainScene extends BaseScene {
-    private static F1SpainController controller;
+public class FakeRaceScene extends BaseScene {
+    private static LocalGenericController controller;
 
-    private F1SpainScene(){}
+    private FakeRaceScene(){}
 
     @Override
     public void resetScene() {
         controller.resetScene();
     }
 
-    public static F1SpainScene init(Stage stage, SceneId sceneId, RaceGroups group, String raceName) throws IOException {
+    public static FakeRaceScene init(Stage stage, SceneId sceneId, RaceGroups group, String raceName) throws IOException {
         // LOAD SCENE
 
         //TODO: CHANGE SCENE
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("f1_spain.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("fake_race.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
 
         // CREATE SCENE
-        F1SpainScene returnedScene = new F1SpainScene();
+        FakeRaceScene returnedScene = new FakeRaceScene();
         returnedScene.setSceneValues(sceneId, stage, scene);
 
         controller = fxmlLoader.getController();
@@ -47,6 +48,4 @@ public class F1SpainScene extends BaseScene {
 
         return returnedScene;
     }
-
-
 }

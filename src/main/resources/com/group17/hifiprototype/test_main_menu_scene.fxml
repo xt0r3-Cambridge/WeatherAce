@@ -52,7 +52,7 @@
             </ImageView>
         </graphic>
     </Button>
-    <Button fx:id="LocalButton" contentDisplay="CENTER" prefHeight="${contentWindow.height*0.15}" prefWidth="${contentWindow.width * 0.55}" style="-fx-background-color:#A1A1A1" styleClass="content-box" text="Local events!">
+    <Button fx:id="LocalButton" contentDisplay="CENTER" prefHeight="${contentWindow.height*0.15}" prefWidth="${contentWindow.width * 0.55}" style="-fx-background-color:#DE3331" styleClass="content-box" text="Local events!">
         <font>
             <Font name="System Bold" size="30.0"/>
         </font>

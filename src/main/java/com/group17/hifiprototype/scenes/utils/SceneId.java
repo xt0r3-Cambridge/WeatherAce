@@ -21,5 +21,6 @@ public enum SceneId {
     WEC_BAHRAIN,
     WEC_FUJI,
     WEC_LEMANS,
-    WEC_MONZA
+    WEC_MONZA,
+    FAKE_RACE
 }

@@ -23,7 +23,7 @@ public class MainMenuController {
         F1Button.setOnAction(actionEvent -> SceneController.setScene(SceneId.F1_SPAIN));
         WECButton.setOnAction(actionEvent -> SceneController.setScene(SceneId.WEC_LEMANS));
         NascarButton.setOnAction(actionEvent -> SceneController.setScene(SceneId.NASCAR_ALLSTAROPEN));
-        // LocalButton.setOnAction(actionEvent -> SceneController.setScene(SceneId.LOCAL));
+        LocalButton.setOnAction(actionEvent -> SceneController.setScene(SceneId.FAKE_RACE));
         // FavouritesButton.setOnAction(actionEvent -> SceneController.setScene(SceneId.FAVOURITES));
     }
 }
