@@ -24,7 +24,7 @@ public class MainMenuScene extends BaseScene {
 
     public static MainMenuScene init(Stage stage, SceneId sceneId) throws IOException {
         // LOAD SCENE
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("test_main_menu_scene.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main_menu_scene.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
 
