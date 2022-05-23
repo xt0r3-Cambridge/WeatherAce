@@ -68,6 +68,18 @@ public class Race implements Comparable<Race> {
         this.thumbnailPath = null;
     }
 
+    public Race(String name, ZonedDateTime startTime, ZonedDateTime endTime, double latitude, double longitude, ArrayList<Session> sessions) {
+        this.name = name;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.sessions = sessions;
+        this.weatherLoader = new WeatherLoader(latitude, longitude, startTime, endTime);
+        this.loaded = false;
+        this.thumbnailPath = null;
+    }
+
     public String getThumbnailPath() {
         return thumbnailPath;
     }
