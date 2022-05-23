@@ -61,8 +61,7 @@ module com.group17.hifiprototype {
     opens com.group17.hifiprototype.scenes.wec_scene.wec_monza to javafx.fxml;
     exports com.group17.hifiprototype.scenes.wec_scene.wec_monza;
 
-
-
-
-
+    // Local Exports
+    opens com.group17.hifiprototype.scenes.fake_scene.FakeRace to javafx.fxml;
+    exports com.group17.hifiprototype.scenes.fake_scene.FakeRace;
 }
