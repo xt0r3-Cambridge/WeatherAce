@@ -11,6 +11,10 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +40,30 @@ public abstract class BaseMotorsportController {
 
         // Add other races to the overlay (hard coded)
         this.loadRaceData();
+
+        if(group.toString() == "Local") {
+            DateTimeFormatter dtf = java.time.format.DateTimeFormatter.ofPattern("dd MMM");
+            ZonedDateTime currentTime = ZonedDateTime.now();
+            ZonedDateTime date = ZonedDateTime.of(
+                    currentTime.getYear(),
+                    currentTime.getMonthValue(),
+                    currentTime.getDayOfMonth(),
+                    currentTime.getHour(),
+                    0,
+                    0,
+                    0,
+                    currentTime.getZone()
+            ).plus(1, ChronoUnit.HOURS);
+            String startDate = dtf.format(date);
+
+            dateText.setText(startDate);
+
+            dtf = java.time.format.DateTimeFormatter.ofPattern("EEEE - HH:mm");
+            String startDay = dtf.format(date);
+
+            dayTimeText.setText(startDay);
+        }
+
         // Setup generic methods
         this.init();
     }
@@ -165,6 +193,10 @@ public abstract class BaseMotorsportController {
     protected Text mainRain;
     @FXML
     protected Text mainTemp;
+    @FXML
+    protected Text dateText;
+    @FXML
+    protected Text dayTimeText;
 
     @FXML
     void backToMain() {

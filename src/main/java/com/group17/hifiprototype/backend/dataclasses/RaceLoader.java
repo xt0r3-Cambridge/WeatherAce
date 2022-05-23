@@ -110,11 +110,13 @@ public class RaceLoader {
                 String JSONText = new String(Files.readAllBytes(file.toPath()));
                 JSONObject jobj = new JSONObject(JSONText);
                 Race race = Race.loadRaceFromJSON(jobj);
+                if(jobj.get("Group") == "Local") race = MockRaceFactory.createMockRace();
                 raceFile.put(race, file);
                 String group = jobj.getString("Group");
                 if (!groupRaces.containsKey(group)) groupRaces.put(group, new ArrayList<>());
                 groupRaces.get(group).add(race);
             }
+
         }
 
         /**

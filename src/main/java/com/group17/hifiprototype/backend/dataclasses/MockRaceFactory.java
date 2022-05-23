@@ -37,7 +37,7 @@ public class MockRaceFactory {
         double latitude = 40.289074448678086;
         double longitude = -3.6889418816413833;
 
-        Function<ZonedDateTime, ZonedDateTime> getEndTime = st -> st.plus(3, ChronoUnit.HOURS)
+        Function<ZonedDateTime, ZonedDateTime> getEndTime = st -> st.plus(3, ChronoUnit.HOURS);
 
         ArrayList<Session> sessions = Arrays.stream(sessionStartTimes).map(
             st -> new Session(
