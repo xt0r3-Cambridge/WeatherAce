@@ -75,7 +75,7 @@ public class WeatherLoader {
         if (!isLoaded) throw new UnsupportedOperationException();
         DataPoint closestDP = null;
         int i = 0;
-        while (dataPoints.get(i).compareTo(dataPoint) <= 0) {
+        while (i < dataPoints.size() && dataPoints.get(i).compareTo(dataPoint) <= 0) {
             closestDP = dataPoints.get(i);
             i++;
         }
