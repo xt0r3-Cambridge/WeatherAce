@@ -9,6 +9,7 @@ import com.group17.hifiprototype.scenes.f1_scene.f1_canada.F1CanadaScene;
 import com.group17.hifiprototype.scenes.f1_scene.f1_miami.F1MiamiScene;
 import com.group17.hifiprototype.scenes.f1_scene.f1_monaco.F1MonacoScene;
 import com.group17.hifiprototype.scenes.f1_scene.f1_spain.F1SpainScene;
+import com.group17.hifiprototype.scenes.fake_scene.FakeRace.FakeRaceScene;
 import com.group17.hifiprototype.scenes.main_menu_scene.MainMenuScene;
 import com.group17.hifiprototype.scenes.nascar_scene.nascar_allstaropen.NascarAllStarOpenScene;
 import com.group17.hifiprototype.scenes.nascar_scene.nascar_allstarrace.NascarAllStarRaceScene;
@@ -68,6 +69,8 @@ public class MainApplication extends Application {
         WecFujiScene.init(stage, SceneId.WEC_FUJI, RaceGroups.WEC, "6 Hours of Fuji");
         WecLeMansScene.init(stage, SceneId.WEC_LEMANS, RaceGroups.WEC, "24 Hours of Le Mans");
         WecMonzaScene.init(stage, SceneId.WEC_MONZA, RaceGroups.WEC, "6 Hours of Monza");
+
+        FakeRaceScene.init(stage, SceneId.FAKE_RACE, RaceGroups.Local, "Fake Grand Prix");
 
         SceneController.setScene(SceneId.MAIN_MENU);
     }

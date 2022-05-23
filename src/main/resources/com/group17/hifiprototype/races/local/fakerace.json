@@ -1,8 +1,8 @@
 {
-  "Group": "NASCAR",
-  "Name": "All-Star Open",
-  "Latitude": 33.0369,
-  "Longitude": -97.2819,
+  "Group": "Local",
+  "Name": "Fake Grand Prix",
+  "Latitude": 52.2054,
+  "Longitude": 0.1132,
   "StartTime": "2022-05-22T22:30:00+01:00",
   "EndTime": "2022-05-23T02:30:00+01:00",
   "Favourite": false,
