@@ -177,7 +177,6 @@ public class weather {
             catch (RuntimeException re) {
                 System.out.println("API Exception -- "+re);
                 System.out.println("Requested date in the past/too far in the future");
-                break;
             }
             catch (Exception e) {
                 System.out.println("Exception " + e);
@@ -185,6 +184,7 @@ public class weather {
             }
             finally {
                 conn.disconnect();
+                break;
             }
         }
         System.out.println("Ran out of API keys!");
