@@ -176,6 +176,7 @@ public class weather {
             }
             catch (RuntimeException re) {
                 System.out.println("API Exception -- "+re);
+                System.out.println("Requested date in the past/too far in the future");
                 break;
             }
             catch (Exception e) {
