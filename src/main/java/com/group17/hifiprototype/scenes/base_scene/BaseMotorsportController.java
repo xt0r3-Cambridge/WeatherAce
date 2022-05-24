@@ -126,9 +126,14 @@ public abstract class BaseMotorsportController {
             mainTemp.setText(mainDataPoint.prettyAirTemperature());
         } catch (Exception ignored) {
             // Otherwise add default data
+            /*
             mainWind.setText("4 m/s " + Direction.NE);
             mainRain.setText("36%");
             mainTemp.setText("42°C");
+            */
+            mainWind.setText("-");
+            mainRain.setText("-");
+            mainTemp.setText("-");
         }
     }
 
