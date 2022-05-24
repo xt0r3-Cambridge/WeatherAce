@@ -10,3 +10,5 @@ We used the following libraries (added as dependencies in module-info.java)
 To run the code, run the start() method in
 src/main/java/com/group17/hifiprototype/MainApplication.java
 
+Make sure to download any libraries that are required before running the code.
+You will also need internet connection to connect to the weather API.

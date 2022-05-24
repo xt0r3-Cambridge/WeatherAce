@@ -26,7 +26,6 @@ public class F1AzerbaijanScene extends BaseScene {
     public static F1AzerbaijanScene init(Stage stage, SceneId sceneId, RaceGroups group, String raceName) throws IOException {
         // LOAD SCENE
 
-        //TODO: CHANGE SCENE
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("f1_azerbaijan.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);

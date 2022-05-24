@@ -26,7 +26,7 @@ public class NascarAllStarOpenScene extends BaseScene {
     public static NascarAllStarOpenScene init(Stage stage, SceneId sceneId, RaceGroups group, String raceName) throws IOException {
         // LOAD SCENE
 
-        //TODO: CHANGE SCENE
+
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("nascar_allstaropen.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);

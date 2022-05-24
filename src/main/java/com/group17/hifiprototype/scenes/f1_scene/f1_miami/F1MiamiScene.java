@@ -26,7 +26,6 @@ public class F1MiamiScene extends BaseScene {
     public static F1MiamiScene init(Stage stage, SceneId sceneId, RaceGroups group, String raceName) throws IOException {
         // LOAD SCENE
 
-        //TODO: CHANGE SCENE
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("f1_miami.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
