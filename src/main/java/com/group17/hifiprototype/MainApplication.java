@@ -16,6 +16,7 @@ import com.group17.hifiprototype.scenes.nascar_scene.nascar_allstarrace.NascarAl
 import com.group17.hifiprototype.scenes.nascar_scene.nascar_cocacola.NascarCocaColaScene;
 import com.group17.hifiprototype.scenes.nascar_scene.nascar_enjoyillinois.NascarEnjoyIllinoisScene;
 import com.group17.hifiprototype.scenes.nascar_scene.nascar_toyota.NascarToyotaScene;
+import com.group17.hifiprototype.scenes.utils.ImageControls;
 import com.group17.hifiprototype.scenes.utils.SceneController;
 import com.group17.hifiprototype.scenes.utils.SceneId;
 import com.group17.hifiprototype.scenes.wec_scene.wec_bahrain.WecBahrainScene;
@@ -23,6 +24,7 @@ import com.group17.hifiprototype.scenes.wec_scene.wec_fuji.WecFujiScene;
 import com.group17.hifiprototype.scenes.wec_scene.wec_lemans.WecLeMansScene;
 import com.group17.hifiprototype.scenes.wec_scene.wec_monza.WecMonzaScene;
 import javafx.application.Application;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -32,11 +34,8 @@ public class MainApplication extends Application {
     public void start(Stage stage) throws IOException {
         // SET STAGE PARAMETERS
         stage.setTitle("WeatherAce");
-        /*
-         TODO: add icon to resources folder and uncomment
-         Image icon = new Image("icon.png");
+         Image icon = ImageControls.createImage("icon.png");
          stage.getIcons().add(icon);
-         */
 
          stage.setWidth(480);  // can be resized during runtime
          stage.setHeight(800);  // can be resized during runtime
@@ -71,6 +70,8 @@ public class MainApplication extends Application {
         WecMonzaScene.init(stage, SceneId.WEC_MONZA, RaceGroups.WEC, "6 Hours of Monza");
 
         FakeRaceScene.init(stage, SceneId.FAKE_RACE, RaceGroups.Local, "Example race");
+
+        NascarAllStarOpenScene.init(stage, SceneId.NASCAR_ALLSTAROPEN, RaceGroups.NASCAR, "All-Star Open");
 
         SceneController.setScene(SceneId.MAIN_MENU);
     }
