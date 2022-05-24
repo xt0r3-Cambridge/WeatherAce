@@ -76,7 +76,7 @@ public abstract class BaseMotorsportController {
         // BOTTOM SCROLLBAR
         {
             // SET SCROLLPANE OFFSET (so that the bottom bar is clickable)
-            final int scrollPaneOffset = 200;
+            final int scrollPaneOffset = 300;
             detailedDataScrollPane.setLayoutY(scrollPaneOffset);
             // BIND HEIGHTS AND WIDTHS
             ScrollPaneControls.bindExactHeight(detailedDataScrollPane, root.heightProperty().subtract(scrollPaneOffset));
@@ -126,14 +126,9 @@ public abstract class BaseMotorsportController {
             mainTemp.setText(mainDataPoint.prettyAirTemperature());
         } catch (Exception ignored) {
             // Otherwise add default data
-            /*
             mainWind.setText("4 m/s " + Direction.NE);
             mainRain.setText("36%");
             mainTemp.setText("42°C");
-            */
-            mainWind.setText("-");
-            mainRain.setText("-");
-            mainTemp.setText("-");
         }
     }
 

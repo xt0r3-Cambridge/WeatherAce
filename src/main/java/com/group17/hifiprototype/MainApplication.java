@@ -50,19 +50,24 @@ public class MainApplication extends Application {
         // LOAD APPLICATION PAGES (and add them to the controller)
         MainMenuScene.init(stage, SceneId.MAIN_MENU);
         ExampleScene.init(stage, SceneId.EXAMPLE, RaceGroups.F1, "Monaco Grand Prix");
-
         F1AzerbaijanScene.init(stage, SceneId.F1_AZERBAIJAN, RaceGroups.F1,  "Azerbaijan Grand Prix");
         F1BritainScene.init(stage, SceneId.F1_BRITAIN, RaceGroups.F1, "Britain Grand Prix");
         F1CanadaScene.init(stage, SceneId.F1_CANADA, RaceGroups.F1, "Canada Grand Prix");
+
+
         F1MiamiScene.init(stage, SceneId.F1_MIAMI, RaceGroups.F1, "Miami Grand Prix");
         F1MonacoScene.init(stage, SceneId.F1_MONACO, RaceGroups.F1, "Monaco Grand Prix");
         F1SpainScene.init(stage, SceneId.F1_SPAIN, RaceGroups.F1, "Spanish Grand Prix");
 
+
         NascarAllStarOpenScene.init(stage, SceneId.NASCAR_ALLSTAROPEN, RaceGroups.NASCAR, "All-Star Open");
         NascarAllStarRaceScene.init(stage, SceneId.NASCAR_ALLSTARRACE, RaceGroups.NASCAR, "All-Star Race");
+
+
         NascarCocaColaScene.init(stage, SceneId.NASCAR_COCACOLA, RaceGroups.NASCAR, "Coca-Cola 600");
         NascarEnjoyIllinoisScene.init(stage, SceneId.NASCAR_ENJOYILLINOIS, RaceGroups.NASCAR, "Enjoy Illinois 300");
         NascarToyotaScene.init(stage, SceneId.NASCAR_TOYOTA, RaceGroups.NASCAR, "Toyota/Save Mart 350");
+
 
         WecBahrainScene.init(stage, SceneId.WEC_BAHRAIN, RaceGroups.WEC, "Bahrain Race");
         WecFujiScene.init(stage, SceneId.WEC_FUJI, RaceGroups.WEC, "6 Hours of Fuji");
