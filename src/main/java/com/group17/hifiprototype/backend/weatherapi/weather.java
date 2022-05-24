@@ -78,7 +78,7 @@ public class weather {
 
         double airTemperature = JObj.getDouble("temperature");
         dp.setAirTemperature(airTemperature);
-        dp.setAirTemperature(airTemperature + Math.random() * 5 - 2.5);
+        dp.setGroundTemperature(airTemperature + Math.random() * 5 - 2.5);
 
         dp.setHumidity(JObj.getDouble("humidity"));
         dp.setPrecipitationChance(JObj.getDouble("precipitationProbability"));
