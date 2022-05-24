@@ -26,7 +26,6 @@ public class FakeRaceScene extends BaseScene {
     public static FakeRaceScene init(Stage stage, SceneId sceneId, RaceGroups group, String raceName) throws IOException {
         // LOAD SCENE
 
-        //TODO: CHANGE SCENE
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("fake_race.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);

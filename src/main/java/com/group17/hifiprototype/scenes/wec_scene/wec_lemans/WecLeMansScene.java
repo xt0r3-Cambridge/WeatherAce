@@ -26,7 +26,7 @@ public class WecLeMansScene extends BaseScene {
     public static WecLeMansScene init(Stage stage, SceneId sceneId, RaceGroups group, String raceName) throws IOException {
         // LOAD SCENE
 
-        //TODO: CHANGE SCENE
+
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("wec_lemans.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);

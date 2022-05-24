@@ -26,7 +26,7 @@ public class NascarEnjoyIllinoisScene extends BaseScene {
     public static NascarEnjoyIllinoisScene init(Stage stage, SceneId sceneId, RaceGroups group, String raceName) throws IOException {
         // LOAD SCENE
 
-        //TODO: CHANGE SCENE
+
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("nascar_enjoyillinois.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
