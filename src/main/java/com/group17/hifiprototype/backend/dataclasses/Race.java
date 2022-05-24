@@ -241,10 +241,12 @@ public class Race implements Comparable<Race> {
      */
     public void loadWeatherData() throws IOException {
         if (!loaded) {
+            System.out.println("Loading data for "+name);
             weatherLoader.load();
             createDataPoints();
             fetchWeatherData();
             loaded = true;
+            System.out.println("Loaded complete for "+name);
         }
     }
 

@@ -16,19 +16,20 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class weather {
 
-    static final String[] apikeys = {
+    static final List<String> apikeys = List.of(
         "xaJtVMAcUEmoocLbBBvcFzC16AhkJKlu",
         "Q7nAqJ9H73PSH0bA4vdKpfETnI1BVtJh",
         "IL2A1UcRWrqDnw75IRGJFzxtZ6Qq0bwx",
         "3T5L7PzhIFIcNWUiHurqZqWVRze5y3vZ",
         "0BifX7fmfrz86vOfWA6ABRSJD9bWC6Te",
         "SFr1U172TFyceGdYovG5RA7mTYRpVRYU"
-    };
+    );
     private static final String website = "https://api.tomorrow.io/v4/timelines";
 
     /**
@@ -140,11 +141,12 @@ public class weather {
      * @throws IOException
      */
     static ArrayList<DataPoint> call(double latitude, double longitude, ZonedDateTime startDate, ZonedDateTime endDate) throws IOException {
+        HttpURLConnection conn = null;
         for (String apikey : apikeys) {
             try {
                 URL url = buildCallURL(apikey, latitude, longitude, startDate, endDate);
 
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("GET");
                 conn.connect();
 
@@ -168,7 +170,7 @@ public class weather {
 
                 }
                 else if (responseCode != 429) { // 429 is the code for exceeding call limit
-                    throw new RuntimeException("HttpResponseCode: " + responseCode);
+                    throw new RuntimeException("HttpResponseCode: " + responseCode + " for "+url);
                 }
 
             }
@@ -179,6 +181,9 @@ public class weather {
             catch (Exception e) {
                 System.out.println("Exception " + e);
                 System.out.println("Failed to get weather data using key: " + apikey);
+            }
+            finally {
+                conn.disconnect();
             }
         }
         throw new IOException("Failed to get weather data. API call limit has been reached.");
