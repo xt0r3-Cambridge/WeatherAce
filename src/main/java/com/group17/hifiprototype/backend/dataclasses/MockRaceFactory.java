@@ -41,7 +41,7 @@ public class MockRaceFactory {
 
         ArrayList<Session> sessions = Arrays.stream(sessionStartTimes).map(
             st -> new Session(
-                "Example session",
+                "Example",
                 st,
                 getEndTime.apply(st),
                 latitude,
