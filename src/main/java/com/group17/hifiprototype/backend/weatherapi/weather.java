@@ -186,6 +186,7 @@ public class weather {
                 conn.disconnect();
             }
         }
+        System.out.println("Ran out of API keys!");
         throw new IOException("Failed to get weather data. API call limit has been reached.");
     }
 
